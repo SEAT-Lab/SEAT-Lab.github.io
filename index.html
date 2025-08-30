@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="google-site-verification" content="XWWSoOOOvjL2eiB1G7jfkM6c2Z-rXZyBmSPSG9jO3aA" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEAT-Lab @ Purdue - Sensor, Electro-Acoustics Technology Laboratory</title>
+    <!-- Favicon settings -->
+    <link rel="icon" type="image/png" href="assets/P_favicon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/P_favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/P_favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/P_favicon.png">
+    <meta name="msapplication-TileImage" content="assets/P_favicon.png">
+    <meta name="msapplication-TileColor" content="#8e6f3e">
+    <style>
+        /* Custom favicon media queries */
+        @media (prefers-color-scheme: light) {
+            link[rel="icon"] { 
+                object-fit: contain !important;
+            }
+        }
+        
+        /* Critical CSS for immediate styling */
+        :root {
+            --primary-color: #8e6f3e;
+            --secondary-color: #000000;
+            --text-primary: #000000;
+            --text-secondary: #555960;
+            --background: #ffffff;
+            --background-alt: #f8fafc;
+            --border-color: #c4bfc0;
+            --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --border-radius-lg: 12px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            margin: 0;
+            padding: 0;
+            padding-top: 60px;
+            background-color: var(--background);
+            color: var(--text-primary);
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem 2rem;
+            margin-top: -60px;
+        }
+        
+        .education-card, .skill-category, .timeline-content, .project-card, .overview-card {
+            background: var(--background);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-lg);
+            padding: 1.5rem;
+            box-shadow: var(--shadow-md);
+            margin-bottom: 1rem;
+        }
+        
+        .contact-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: white;
+            text-decoration: none;
+            padding: 0.75rem 1.25rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            margin: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .about-education-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .about-education-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="styles.css?v=2024">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta name="description" content="SEAT-Lab @ Purdue - Sensor, Electro-Acoustics Technology Laboratory. Leading research in audio engineering, electroacoustics, and sensor technology at Purdue University.">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="hero-text">
+                <h1>SEAT-Lab @ Purdue</h1>
+                <p class="subtitle">Sensor, Electro-Acoustics Technology Laboratory</p>
+                <p class="subtitle-secondary">Advancing Audio Engineering & Sensor Technology Research</p>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="nav-container">
+            <button class="hamburger-menu" aria-label="Toggle menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <a href="#top" class="mobile-home-icon" aria-label="Home">
+                <i class="fas fa-home"></i>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#about-lab">About</a></li>
+                <li><a href="#people">People</a></li>
+                <li><a href="#research">Research</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+        <div class="progress-container">
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
+    </nav>
+    
+    <div class="nav-overlay"></div>
+
+    <main>
+        <section id="about-lab" class="content-section">
+            <h2><i class="fas fa-flask"></i> About SEAT-Lab</h2>
+            <div class="section-content">
+                <div class="about-education-grid">
+                    <div class="overview-card">
+                        <h3><i class="fas fa-bullseye"></i> Our Mission</h3>
+                        <p>
+                            The Sensor, Electro-Acoustics Technology Laboratory (SEAT-Lab) at Purdue University is dedicated to developing useful sensor technologies in the field of electro-acoustics and beyond, which can benefit individuals, communities, and society.
+                        </p>
+                        <p>
+                            Our multidisciplinary research spans hearing mechanics, future healthcare applications, MEMS technology, electromagnetics, acoustics, and embedded IoT systems, bridging computer, electrical, and mechanical engineering domains.
+                        </p>
+                    </div>
+                    
+                    <div class="overview-card">
+                        <h3><i class="fas fa-microscope"></i> Research Focus</h3>
+                        <div class="research-areas">
+                            <div class="research-item">
+                                <strong>Hearing Mechanics</strong>
+                                <p>Investigating the fundamental mechanisms of human hearing and auditory systems</p>
+                            </div>
+                            <div class="research-item">
+                                <strong>Future Healthcare</strong>
+                                <p>Developing sensor technologies for next-generation healthcare applications</p>
+                            </div>
+                            <div class="research-item">
+                                <strong>MEMS & Electromagnetics</strong>
+                                <p>Micro-electromechanical systems and electromagnetic sensor design</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="people" class="content-section">
+            <h2><i class="fas fa-users"></i> Our Team</h2>
+            <div class="section-content">
+                <div class="people-grid">
+                    <div class="person-card">
+                        <div class="person-info">
+                            <h3>Principal Investigator</h3>
+                            <p class="person-name">Dr. Noori Kim</p>
+                            <p class="person-title">Assistant Professor, School of Engineering Technology</p>
+                            <p class="person-description">
+                                Dr. Kim earned her PhD in Electrical and Computer Engineering from the University of Illinois Urbana-Champaign and worked as a research fellow at Nanyang Technological University (Singapore). Her multidisciplinary research interests include Hearing Mechanics, Future Healthcare, MEMS, Electromagnetics, Acoustics, and Embedded Systems (IoT).
+                            </p>
+                            <div class="person-links">
+                                <a href="mailto:kim4147@purdue.edu" class="person-link">
+                                    <i class="fas fa-envelope"></i> Contact
+                                </a>
+                                <a href="https://www.noorikim.com/" target="_blank" class="person-link">
+                                    <i class="fas fa-globe"></i> Website
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="person-card">
+                        <div class="person-info">
+                            <h3>Graduate Researchers</h3>
+                            <div class="researcher-list">
+                                <!--<div class="researcher-item">
+                                    <p class="person-name">[Graduate Student 1]</p>
+                                    <p class="person-focus">PhD Student</p>
+                                </div>
+                                <div class="researcher-item">
+                                    <p class="person-name">[Graduate Student 2]</p>
+                                    <p class="person-focus">MS Student</p>
+                                </div>-->
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="person-card">
+                        <div class="person-info">
+                            <h3>Undergraduate Researchers</h3>
+                            <div class="researcher-list">
+                                <div class="researcher-item">
+                                    <p class="person-name">Kevin Kim</p>
+                                    <p class="person-focus">Research Assistant</p>
+                                    <!--<p class="person-description">
+                                        Something something about kevin's work.
+                                    </p>-->
+                                </div>
+                                <div class="researcher-item">
+                                    <p class="person-name">Max Chen</p>
+                                    <p class="person-focus">Research Assistant</p>
+                                    <!--<p class="person-description">
+                                        Something ssomething about research work.
+                                    </p>-->
+                                </div>
+                                <div class="researcher-item">
+                                    <p class="person-name">Keisuke Alexander Nakamura</p>
+                                    <p class="person-focus">Research Assistant</p>
+                                    <!--<p class="person-description">
+                                        Something ssomething about research work.
+                                    </p>-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="research" class="content-section">
+            <h2><i class="fas fa-microscope"></i> Research Capabilities</h2>
+            <div class="section-content">
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3><i class="fas fa-ear-listen"></i> Hearing Mechanics</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag primary">Auditory Systems</span>
+                            <span class="skill-tag primary">Acoustic Analysis</span>
+                            <span class="skill-tag">Hearing Research</span>
+                            <span class="skill-tag">Signal Processing</span>
+                        </div>
+                    </div>
+                                        
+                    <div class="skill-category">
+                        <h3><i class="fas fa-microchip"></i> MEMS & Electromagnetics</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag primary">MEMS Design</span>
+                            <span class="skill-tag">Electromagnetic Sensors</span>
+                            <span class="skill-tag">Microfabrication</span>
+                            <span class="skill-tag">RF Systems</span>
+                            <span class="skill-tag">Sensor Integration</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="publications" class="content-section">
+            <h2><i class="fas fa-file-alt"></i> Publications</h2>
+            <div class="section-content">
+                <div class="publications-grid">
+                    <div class="publication-card">
+                        <div class="publication-header">
+                            <h3>Recent Publications</h3>
+                            <span class="publication-count">2025</span>
+                        </div>
+                        <div class="publication-list">
+                            <div class="publication-item">
+                                <h4>Using Speakers as Sensors: Detecting Acoustic Loads with Dense Neural Networks and Impedance Features</h4>
+                                <p class="publication-authors">M. Chen, K. Alexander Nakamura, N. Kim</p>
+                                <p class="publication-venue">Purdue Polytechnic Graduate Student Poster Symposium, 2025</p>
+                                <div class="publication-links">
+                                    <a href="https://doi.org/10.5703/1288284317876" target="_blank" class="publication-link">
+                                        <i class="fas fa-external-link-alt"></i> View Extended Abstract
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <a href="#top" class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section footer-contact">
+                <div class="footer-main">
+                    <div class="footer-left">
+                        <div class="social-links">
+                            <a href="contact.html" target="_self" aria-label="Contact">
+                                <i class="fas fa-envelope"></i>
+                                <span>Contact</span>
+                            </a>
+                            <a href="https://github.com/SEAT-Lab" target="_blank" aria-label="SEAT-Lab GitHub">
+                                <i class="fab fa-github"></i>
+                                <span>GitHub</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-right">
+                        <div class="footer-info">
+                            <p class="footer-title">© 2025 SEAT-Lab @ Purdue University</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 
