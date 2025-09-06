@@ -32,6 +32,48 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
+    // Researcher dropdown functionality
+    const researcherToggles = document.querySelectorAll('.researcher-toggle');
+    
+    researcherToggles.forEach(toggle => {
+        toggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            const researcherItem = this.closest('.researcher-item');
+            const isExpanded = researcherItem.classList.contains('expanded');
+            
+            // Toggle the expanded state
+            if (isExpanded) {
+                researcherItem.classList.remove('expanded');
+                this.setAttribute('aria-expanded', 'false');
+            } else {
+                researcherItem.classList.add('expanded');
+                this.setAttribute('aria-expanded', 'true');
+            }
+        });
+        
+        // Initialize aria-expanded attribute
+        toggle.setAttribute('aria-expanded', 'false');
+    });
+
+    // Also allow clicking on the researcher header to toggle
+    const researcherHeaders = document.querySelectorAll('.researcher-header');
+    
+    researcherHeaders.forEach(header => {
+        header.addEventListener('click', function(e) {
+            // Don't trigger if the toggle button was clicked directly
+            if (e.target.closest('.researcher-toggle')) {
+                return;
+            }
+            
+            const toggle = this.querySelector('.researcher-toggle');
+            if (toggle) {
+                toggle.click();
+            }
+        });
+    });
     
     // Close menu when clicking outside
     document.addEventListener('click', function(e) {
@@ -149,35 +191,6 @@ document.addEventListener('DOMContentLoaded', function() {
         updateProgressBar();
     });
     
-    // Active section highlighting in navigation (only for single-page sections)
-    const sections = document.querySelectorAll('.content-section');
-    const navLinksArray = document.querySelectorAll('nav ul li a[href^="#"]');
-    
-    if (sections.length > 0 && navLinksArray.length > 0) {
-        window.addEventListener('scroll', () => {
-            let current = '';
-            const nav = document.querySelector('nav');
-            const navHeight = nav ? nav.offsetHeight : 60;
-            const scrollPosition = window.scrollY + navHeight + 30;
-            
-            sections.forEach(section => {
-                const sectionTop = section.getBoundingClientRect().top + window.pageYOffset;
-                const sectionBottom = sectionTop + section.offsetHeight;
-                
-                if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
-                    current = section.getAttribute('id');
-                }
-            });
-            
-            // Update navigation active state for same-page links only
-            navLinksArray.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('active');
-                }
-            });
-        });
-    }
     
     // Set active page in navigation for multi-page structure
     function setActivePageNav() {
@@ -764,6 +777,58 @@ document.addEventListener('DOMContentLoaded', function() {
         clearTimeout(resizeCollapseTimer);
         resizeCollapseTimer = setTimeout(initializeCollapseStates, 100);
     });
+
+    // Active section highlighting in navigation
+    function updateActiveSection() {
+        const sections = document.querySelectorAll('.content-section[id]');
+        const navLinks = document.querySelectorAll('nav ul li a[href^="#"]');
+        
+        if (sections.length === 0 || navLinks.length === 0) return;
+        
+        const scrollPosition = window.scrollY + 100; // Add offset for better detection
+        let activeSection = null;
+        
+        // Find the topmost visible section
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.offsetHeight;
+            const sectionBottom = sectionTop + sectionHeight;
+            
+            // Check if section is currently visible on screen
+            if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                if (!activeSection || sectionTop < activeSection.offsetTop) {
+                    activeSection = section;
+                }
+            }
+        });
+        
+        // Remove all active classes
+        navLinks.forEach(link => link.classList.remove('active'));
+        
+        // Add active class to the corresponding nav link
+        if (activeSection) {
+            const activeId = activeSection.id;
+            const activeLink = document.querySelector(`nav ul li a[href="#${activeId}"]`);
+            if (activeLink) {
+                activeLink.classList.add('active');
+            }
+        }
+    }
+
+    // Throttle scroll events for better performance
+    let scrollTimeout;
+    function throttledUpdateActiveSection() {
+        if (scrollTimeout) {
+            clearTimeout(scrollTimeout);
+        }
+        scrollTimeout = setTimeout(updateActiveSection, 10);
+    }
+
+    // Add scroll event listener for navigation highlighting
+    window.addEventListener('scroll', throttledUpdateActiveSection);
+    
+    // Initialize on load
+    updateActiveSection();
 });
 
 // Helper function to close TOC if it's open

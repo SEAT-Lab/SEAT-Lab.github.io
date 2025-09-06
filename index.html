@@ -74,18 +74,6 @@
             font-weight: 500;
         }
         
-        .about-education-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-        }
-        
-        @media (max-width: 768px) {
-            .about-education-grid {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-        }
     </style>
     <link rel="stylesheet" href="styles.css?v=2024">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -118,10 +106,11 @@
             <ul class="nav-links">
                 <li><a href="#about-lab">About</a></li>
                 <li><a href="#people">People</a></li>
+                <li><a href="#collaborators">Collaborators</a></li>
                 <li><a href="#research">Research</a></li>
-                <li><a href="projects.html">Projects</a></li>
+                <li><a href="#projects">Projects</a></li>
                 <li><a href="#publications">Publications</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
         <div class="progress-container">
@@ -133,36 +122,16 @@
 
     <main>
         <section id="about-lab" class="content-section">
-            <h2><i class="fas fa-flask"></i> About SEAT-Lab</h2>
+            <h2><i class="fas fa-flask"></i> About Us</h2>
             <div class="section-content">
-                <div class="about-education-grid">
-                    <div class="overview-card">
-                        <h3><i class="fas fa-bullseye"></i> Our Mission</h3>
-                        <p>
-                            The Sensor, Electro-Acoustics Technology Laboratory (SEAT-Lab) at Purdue University is dedicated to developing useful sensor technologies in the field of electro-acoustics and beyond, which can benefit individuals, communities, and society.
-                        </p>
-                        <p>
-                            Our multidisciplinary research spans hearing mechanics, future healthcare applications, MEMS technology, electromagnetics, acoustics, and embedded IoT systems, bridging computer, electrical, and mechanical engineering domains.
-                        </p>
-                    </div>
-                    
-                    <div class="overview-card">
-                        <h3><i class="fas fa-microscope"></i> Research Focus</h3>
-                        <div class="research-areas">
-                            <div class="research-item">
-                                <strong>Hearing Mechanics</strong>
-                                <p>Investigating the fundamental mechanisms of human hearing and auditory systems</p>
-                            </div>
-                            <div class="research-item">
-                                <strong>Future Healthcare</strong>
-                                <p>Developing sensor technologies for next-generation healthcare applications</p>
-                            </div>
-                            <div class="research-item">
-                                <strong>MEMS & Electromagnetics</strong>
-                                <p>Micro-electromechanical systems and electromagnetic sensor design</p>
-                            </div>
-                        </div>
-                    </div>
+                <div class="overview-card full-width">
+                    <h3><i class="fas fa-bullseye"></i> Our Mission</h3>
+                    <p>
+                        The Sensor, Electro-Acoustics Technology Laboratory (SEAT-Lab) at Purdue University is dedicated to developing useful sensor technologies in the field of electro-acoustics and beyond, which can benefit individuals, communities, and society.
+                    </p>
+                    <p>
+                        Our multidisciplinary research spans hearing mechanics, future healthcare applications, MEMS technology, electromagnetics, acoustics, and embedded IoT systems, bridging computer, electrical, and mechanical engineering domains.
+                    </p>
                 </div>
             </div>
         </section>
@@ -171,9 +140,10 @@
             <h2><i class="fas fa-users"></i> Our Team</h2>
             <div class="section-content">
                 <div class="people-grid">
+                    <!-- Faculty Professor -->
                     <div class="person-card">
                         <div class="person-info">
-                            <h3>Principal Investigator</h3>
+                            <h3>Faculty Professor</h3>
                             <p class="person-name">Dr. Noori Kim</p>
                             <p class="person-title">Assistant Professor, School of Engineering Technology</p>
                             <p class="person-description">
@@ -183,53 +153,199 @@
                                 <a href="mailto:kim4147@purdue.edu" class="person-link">
                                     <i class="fas fa-envelope"></i> Contact
                                 </a>
+                                <a href="https://www.linkedin.com/in/noorikim123/" target="_blank" class="person-link">
+                                    <i class="fab fa-linkedin"></i> LinkedIn
+                                </a>
                                 <a href="https://www.noorikim.com/" target="_blank" class="person-link">
                                     <i class="fas fa-globe"></i> Website
+                                </a>
+                                <a href="https://polytechnic.purdue.edu/profile/kim4147" target="_blank" class="person-link">
+                                    <i class="fas fa-user-tie"></i> Dr. Kim
                                 </a>
                             </div>
                         </div>
                     </div>
                     
+                    <!-- Graduate Students -->
                     <div class="person-card">
                         <div class="person-info">
-                            <h3>Graduate Researchers</h3>
+                            <h3>Graduate Students</h3>
                             <div class="researcher-list">
-                                <!--<div class="researcher-item">
-                                    <p class="person-name">[Graduate Student 1]</p>
-                                    <p class="person-focus">PhD Student</p>
+                                <div class="researcher-item">
+                                    <div class="researcher-header">
+                                        <div class="researcher-basic-info">
+                                            <p class="person-name">Jungjoo You</p>
+                                            <p class="person-focus">MS Student in Engineering Technology (Co-supervised with Dr. Zhang)</p>
+                                        </div>
+                                        <button class="researcher-toggle" aria-label="Toggle details">
+                                            <i class="fas fa-chevron-down"></i>
+                                        </button>
+                                    </div>
+                                    <div class="researcher-details">
+                                        <p class="person-description">
+                                            Jungjoo is a master's student in Engineering Technology, working under the supervision of Dr. Zhang and Dr. Kim. His research focuses on developing a closed-loop control system prototype for tapered glass nanotube production, with an emphasis on achieving precise control of the orifice dimensions within the tapered glass tube. He previously earned dual Bachelor's degrees in Mechatronic Engineering Technology and Robotics Engineering Technology from Purdue University. Jungjoo is currently fulfilling his military service in South Korea and is expected to resume his MS studies in 2026.
+                                        </p>
+                                        <div class="person-links">
+                                            <a href="mailto:you72@purdue.edu" class="person-link">
+                                                <i class="fas fa-envelope"></i> Contact
+                                            </a>
+                                            <a href="https://www.linkedin.com/in/jungjoo-you/" target="_blank" class="person-link">
+                                                <i class="fab fa-linkedin"></i> LinkedIn
+                                            </a>
+                                            <a href="https://polytechnic.purdue.edu/profile/hhzhang" target="_blank" class="person-link">
+                                                <i class="fas fa-user-tie"></i> Dr. Zhang
+                                            </a>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="researcher-item">
-                                    <p class="person-name">[Graduate Student 2]</p>
-                                    <p class="person-focus">MS Student</p>
-                                </div>-->
+                                    <div class="researcher-header">
+                                        <div class="researcher-basic-info">
+                                            <p class="person-name">Therese B Malinowski</p>
+                                            <p class="person-focus">MS Student in Mechanical Engineering Technology (Co-supervised with Dr. French)</p>
+                                        </div>
+                                        <button class="researcher-toggle" aria-label="Toggle details">
+                                            <i class="fas fa-chevron-down"></i>
+                                        </button>
+                                    </div>
+                                    <div class="researcher-details">
+                                        <p class="person-description">
+                                            Therese is a master's student in Mechanical Engineering Technology, conducting research in structural acoustics under the supervision of Dr. Mark French, in collaboration with Dr. Kim. She previously graduated with distinction from Purdue University with two bachelor's degrees, in aerospace engineering and music technology. Currently, she is an engineering consultant with Purdue Technical Assistance Program in Manufacturing Engineering Partnerships, serving Indiana industries. Her research focuses on the spectral design of orchestral chime instruments.
+                                        </p>
+                                        <div class="person-links">
+                                            <a href="mailto:tmalinow@purdue.edu" class="person-link">
+                                                <i class="fas fa-envelope"></i> Contact
+                                            </a>
+                                            <a href="https://www.linkedin.com/in/t-malinowski/" target="_blank" class="person-link">
+                                                <i class="fab fa-linkedin"></i> LinkedIn
+                                            </a>
+                                            <a href="https://polytechnic.purdue.edu/profile/rmfrench" target="_blank" class="person-link">
+                                                <i class="fas fa-user-tie"></i> Dr. French
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                     
+                    <!-- Undergraduate and Visiting Scholar -->
                     <div class="person-card">
                         <div class="person-info">
-                            <h3>Undergraduate Researchers</h3>
+                            <h3>Undergraduate and Visiting Scholar</h3>
                             <div class="researcher-list">
+                                <div class="researcher-item">
+                                    <div class="researcher-header">
+                                        <div class="researcher-basic-info">
+                                            <p class="person-name">Sabatus Djordje</p>
+                                            <p class="person-focus">Visiting Scholar - Electrical Engineering, University of Belgrade</p>
+                                        </div>
+                                        <button class="researcher-toggle" aria-label="Toggle details">
+                                            <i class="fas fa-chevron-down"></i>
+                                        </button>
+                                    </div>
+                                    <div class="researcher-details">
+                                        <p class="person-description">
+                                            Sabatus is a senior student in Electrical Engineering, specializing in Signals and Systems at the University of Belgrade, and a visiting scholar in the SEAT Lab at Purdue University. His work focuses on data analysis and visualization to uncover hearing health disparities across the United States. He investigates hearing health trends and contributes to shaping evidence-based public health recommendations.
+                                        </p>
+                                        <div class="person-links">
+                                            <a href="mailto:dsabatus@purdue.edu" class="person-link">
+                                                <i class="fas fa-envelope"></i> Contact
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="researcher-item">
                                     <p class="person-name">Kevin Kim</p>
                                     <p class="person-focus">Research Assistant</p>
-                                    <!--<p class="person-description">
-                                        Something something about kevin's work.
-                                    </p>-->
-                                </div>
-                                <div class="researcher-item">
-                                    <p class="person-name">Max Chen</p>
-                                    <p class="person-focus">Research Assistant</p>
-                                    <!--<p class="person-description">
-                                        Something ssomething about research work.
-                                    </p>-->
                                 </div>
                                 <div class="researcher-item">
                                     <p class="person-name">Keisuke Alexander Nakamura</p>
                                     <p class="person-focus">Research Assistant</p>
-                                    <!--<p class="person-description">
-                                        Something ssomething about research work.
-                                    </p>-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Alumni -->
+                    <div class="person-card">
+                        <div class="person-info">
+                            <h3>Alumni</h3>
+                            <div class="researcher-list">
+                                <div class="researcher-item">
+                                    <div class="researcher-header">
+                                        <div class="researcher-basic-info">
+                                            <p class="person-name">Akshat Shrivastava</p>
+                                            <p class="person-focus">B.S. Robotics Engineering Technology, May 2025 - Robotics Engineer at Foundation Robotics</p>
+                                        </div>
+                                        <button class="researcher-toggle" aria-label="Toggle details">
+                                            <i class="fas fa-chevron-down"></i>
+                                        </button>
+                                    </div>
+                                    <div class="researcher-details">
+                                        <p class="person-description">
+                                            Akshat graduated from Purdue University in May 2025 with a major in Robotics Technology. His work at SEAT lab focused on vibration detection and damping, where he built a test bench with sensors and actuators to study vibration behavior. He also worked on other robotic projects during his time at Purdue. Akshat gained industry experience at Tesla and Cummins. He is now working in San Francisco at Foundation Robotics as a Robotics Engineer.
+                                        </p>
+                                        <div class="person-links">
+                                            <a href="mailto:akshat130301@gmail.com" class="person-link">
+                                                <i class="fas fa-envelope"></i> Contact
+                                            </a>
+                                            <a href="https://linkedin.com/in/akshatshrivastava13" target="_blank" class="person-link">
+                                                <i class="fab fa-linkedin"></i> LinkedIn
+                                            </a>
+                                            <a href="https://foundation.bot" target="_blank" class="person-link">
+                                                <i class="fas fa-globe"></i> Foundation Robotics
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="researcher-item">
+                                    <div class="researcher-header">
+                                        <div class="researcher-basic-info">
+                                            <p class="person-name">Tobias Yoo</p>
+                                            <p class="person-focus">B.S. Electrical and Audio Engineering Technology, May 2024 - Embedded Software Engineer at BAE Systems</p>
+                                        </div>
+                                        <button class="researcher-toggle" aria-label="Toggle details">
+                                            <i class="fas fa-chevron-down"></i>
+                                        </button>
+                                    </div>
+                                    <div class="researcher-details">
+                                        <p class="person-description">
+                                            Tobi graduated with a degree in Electrical and Audio Engineering Technology in May of 2024. His work at SEAT Lab involved collecting rudimentary test data with earphones with various acoustic loads, data parsing, and visualization. At Purdue, he focused on digital electronics and signal processing. He now works at BAE Systems Inc. as an Embedded Software Engineer.
+                                        </p>
+                                        <div class="person-links">
+                                            <a href="mailto:truetobiyoo@gmail.com" class="person-link">
+                                                <i class="fas fa-envelope"></i> Contact
+                                            </a>
+                                            <a href="https://www.linkedin.com/in/tobiyoo" target="_blank" class="person-link">
+                                                <i class="fab fa-linkedin"></i> LinkedIn
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="researcher-item">
+                                    <div class="researcher-header">
+                                        <div class="researcher-basic-info">
+                                            <p class="person-name">Max Chen</p>
+                                            <p class="person-focus">B.S. Robotics Engineering Technology, May 2025</p>
+                                        </div>
+                                        <button class="researcher-toggle" aria-label="Toggle details">
+                                            <i class="fas fa-chevron-down"></i>
+                                        </button>
+                                    </div>
+                                    <div class="researcher-details">
+                                        <p class="person-description">
+                                            Max graduated with a degree in Robotics Technology in May 2025. During his time at the SEAT Lab, he worked on developing a system for collecting earphone data under various acoustic loads, along with data parsing, visualization, and related tasks.
+                                        </p>
+                                        <div class="person-links">
+                                            <a href="mailto:ckyb63@gmail.com subject=SEAT-Lab" class="person-link">
+                                                <i class="fas fa-envelope"></i> Contact
+                                            </a>
+                                            <a href="https://www.linkedin.com/in/maxchen-cky/" target="_blank" class="person-link">
+                                                <i class="fab fa-linkedin"></i> LinkedIn
+                                            </a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -238,8 +354,64 @@
             </div>
         </section>
 
+        <section id="collaborators" class="content-section">
+            <h2><i class="fas fa-handshake"></i> Collaborators</h2>
+            <div class="section-content">
+                <div class="collaborators-grid">
+                    <!-- Purdue University Collaborators -->
+                    <div class="collaborator-category">
+                        <h3><i class="fas fa-university"></i> Purdue University</h3>
+                        <!--<div class="collaborator-list">
+                            <div class="collaborator-item">
+                                <div class="collaborator-info">
+                                    <h4></h4>
+                                    <p class="collaborator-department"></p>
+                                    <p class="collaborator-focus"></p>
+                                    <div class="collaborator-links">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="collaborator-item">
+                                <div class="collaborator-info">
+                                    <h4></h4>
+                                    <p class="collaborator-department"></p>
+                                    <p class="collaborator-focus"></p>
+                                    <div class="collaborator-links">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    -->
+                    </div>
+                    
+                    <!-- External Collaborators -->
+                    <div class="collaborator-category">
+                        <h3><i class="fas fa-globe-americas"></i> External Collaborators</h3>
+                        <div class="collaborator-list">
+                            
+                            <!-- Placeholder for future collaborators -->
+                            <!--
+                            <div class="collaborator-item placeholder">
+                                <div class="collaborator-info">
+                                    <h4>Future Collaborations</h4>
+                                    <p class="collaborator-department">Industry & Academic Partners</p>
+                                    <p class="collaborator-focus">Expanding research partnerships in electro-acoustics and sensor technology</p>
+                                    <div class="collaboration-note">
+                                        <i class="fas fa-plus-circle"></i>
+                                        <span>Open to new partnerships</span>
+                                    </div>
+                                </div>
+                            </div>
+                            -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section id="research" class="content-section">
-            <h2><i class="fas fa-microscope"></i> Research Capabilities</h2>
+            <h2><i class="fas fa-microscope"></i> Research focuses</h2>
             <div class="section-content">
                 <div class="skills-grid">
                     <div class="skill-category">
@@ -262,12 +434,74 @@
                             <span class="skill-tag">Sensor Integration</span>
                         </div>
                     </div>
+
+                    <div class="skill-category">
+                        <h3><i class="fas fa-brain"></i> Data Science & Machine Learning</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag primary">Neural Networks</span>
+                            <span class="skill-tag primary">Data Analysis</span>
+                            <span class="skill-tag">Impedance Features</span>
+                            <span class="skill-tag">Visualization</span>
+                            <span class="skill-tag">Pattern Recognition</span>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="content-section">
+            <div class="section-header">
+                <h2><i class="fas fa-project-diagram"></i> Featured Projects</h2>
+                <a href="projects.html" class="section-header-btn">
+                    <i class="fas fa-arrow-right"></i> View All Projects
+                </a>
+            </div>
+            <div class="section-content">
+                <div class="projects-preview-grid">
+                    <div class="project-preview-card">
+                        <div class="project-preview-header">
+                            <h3>Speaker-as-Sensor Technology</h3>
+                        </div>
+                        <p class="project-preview-description">
+                            Developing innovative methods to use speakers as sensors for detecting acoustic loads using dense neural networks and impedance analysis.
+                        </p>
+                        <div class="project-preview-tech">
+                            <span class="tech-tag">Machine Learning</span>
+                            <span class="tech-tag">Signal Processing</span>
+                            <span class="tech-tag">Acoustics</span>
+                        </div>
+                    </div>
+                                        
+                    <div class="project-preview-card">
+                        <div class="project-preview-header">
+                            <h3>Electroacoustic Coupling Investigation</h3>
+                        </div>
+                        <p class="project-preview-description">
+                            Fundamental research exploring the complex relationships between acoustical loads and electrical impedance in audio transducers. This work aims to advance our understanding of electroacoustic coupling phenomena and develop new measurement methodologies. 
+                        </p>
+                        <div class="project-preview-tech">
+                            <span class="tech-tag">Data Analysis</span>
+                            <span class="tech-tag">Visualization</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="section-footer mobile-only">
+                    <a href="projects.html" class="view-more-btn">
+                        <i class="fas fa-arrow-right"></i> View All Projects
+                    </a>
                 </div>
             </div>
         </section>
 
         <section id="publications" class="content-section">
-            <h2><i class="fas fa-file-alt"></i> Publications</h2>
+            <div class="section-header">
+                <h2><i class="fas fa-file-alt"></i> Publications</h2>
+                <a href="publications.html" class="section-header-btn">
+                    <i class="fas fa-arrow-right"></i> View All Publications
+                </a>
+            </div>
             <div class="section-content">
                 <div class="publications-grid">
                     <div class="publication-card">
@@ -286,6 +520,114 @@
                                     </a>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="section-footer mobile-only">
+                    <a href="publications.html" class="view-more-btn">
+                        <i class="fas fa-arrow-right"></i> View All Publications
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="content-section">
+            <h2><i class="fas fa-address-card"></i> Contact Us</h2>
+            <div class="section-content">
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <div class="contact-methods">
+                            <div class="email-card">
+                                <h3><i class="fas fa-envelope" style="color: var(--primary-color);"></i> Laboratory Contact</h3>
+                                <div class="email-methods">
+                                    
+                                    <a href="mailto:kim4147@purdue.edu?subject=SEAT-Lab%20Contact%20from%20Website" class="email-method">
+                                        <i class="fas fa-user-tie"></i>
+                                        <div>
+                                            <div class="main-info">
+                                                <strong>Dr. Noori Kim</strong>
+                                                <span>kim4147@purdue.edu</span>
+                                            </div>
+                                            <small>Research collaborations</small>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-row">
+                                <a href="tel:+17654962676" class="contact-method">
+                                    <i class="fas fa-phone"></i>
+                                    <div>
+                                        <div class="main-info">
+                                            <strong>Office Phone</strong>
+                                            <span>+1 (765) 496-2676</span>
+                                        </div>
+                                        <small>Dr. Kim's office</small>
+                                    </div>
+                                </a>
+                                
+                                <a href="https://github.com/SEAT-Lab" target="_blank" class="contact-method">
+                                    <i class="fab fa-github"></i>
+                                    <div>
+                                        <div class="main-info">
+                                            <strong>GitHub</strong>
+                                            <span>SEAT-Lab</span>
+                                        </div>
+                                        <small>Research repositories</small>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-sidebar">
+                        <div class="resume-download">
+                            <h3><i class="fas fa-handshake" style="color: var(--primary-color);"></i> Research Collaboration</h3>
+                            <p>
+                                SEAT-Lab welcomes collaborations with industry partners, academic institutions, and researchers interested in audio engineering and sensor technology.
+                            </p>
+                                                        
+                            <div class="cv-section">
+                                <h4><i class="fas fa-graduation-cap" style="color: var(--primary-color);"></i> Student Opportunities</h4>
+                                <p style="text-align: left; color: var(--text-secondary); line-height: 1.6;">
+                                    We offer research opportunities for graduate and undergraduate students interested in audio engineering, electroacoustics, and sensor technology.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-footer-cards">
+                    <div class="availability-card">
+                        <h3><i class="fas fa-clock" style="color: var(--primary-color);"></i> Lab Hours</h3>
+                        <div class="availability-item">
+                            <strong>Research Hours:</strong>
+                            <span>Monday - Friday, 8:00 AM - 5:00 PM</span>
+                        </div>
+                        <div class="availability-item">
+                            <strong>Appointments:</strong>
+                            <span>By arrangement</span>
+                        </div>
+                        <div class="availability-item">
+                            <strong>Response Time:</strong>
+                            <span>Within 3 business days</span>
+                        </div>
+                    </div>
+
+                    <div class="location-card">
+                        <h3><i class="fas fa-map-marker-alt" style="color: var(--primary-color);"></i> Location & Address</h3>
+                        <div class="location-item">
+                            <strong>Laboratory:</strong>
+                            <span>SEAT-Lab (DUDL), Purdue University</span>
+                        </div>
+                        <div class="location-item">
+                            <strong>Office:</strong>
+                            <span>KNOY Building, Room 131</span>
+                        </div>
+                        <div class="location-item">
+                            <strong>Address:</strong>
+                            <span>401 N. Grant St, West Lafayette, IN 47906</span>
                         </div>
                     </div>
                 </div>
