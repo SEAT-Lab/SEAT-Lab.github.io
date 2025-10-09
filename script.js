@@ -74,6 +74,48 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
+    // Collaborator dropdown functionality
+    const collaboratorToggles = document.querySelectorAll('.collaborator-toggle');
+    
+    collaboratorToggles.forEach(toggle => {
+        toggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            const collaboratorItem = this.closest('.collaborator-item');
+            const isExpanded = collaboratorItem.classList.contains('expanded');
+            
+            // Toggle the expanded state
+            if (isExpanded) {
+                collaboratorItem.classList.remove('expanded');
+                this.setAttribute('aria-expanded', 'false');
+            } else {
+                collaboratorItem.classList.add('expanded');
+                this.setAttribute('aria-expanded', 'true');
+            }
+        });
+        
+        // Initialize aria-expanded attribute
+        toggle.setAttribute('aria-expanded', 'false');
+    });
+
+    // Also allow clicking on the collaborator header to toggle
+    const collaboratorHeaders = document.querySelectorAll('.collaborator-header');
+    
+    collaboratorHeaders.forEach(header => {
+        header.addEventListener('click', function(e) {
+            // Don't trigger if the toggle button was clicked directly
+            if (e.target.closest('.collaborator-toggle')) {
+                return;
+            }
+            
+            const toggle = this.querySelector('.collaborator-toggle');
+            if (toggle) {
+                toggle.click();
+            }
+        });
+    });
     
     // Close menu when clicking outside
     document.addEventListener('click', function(e) {

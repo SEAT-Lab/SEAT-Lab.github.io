@@ -2,12 +2,14 @@
 document.addEventListener('DOMContentLoaded', function() {
     const floatingTOC = document.querySelector('.floating-toc');
     const toggleButton = document.querySelector('.toc-toggle');
+    const closeButton = document.querySelector('.toc-close');
     const tocPanel = document.querySelector('.toc-panel');
     const tocLinks = document.querySelectorAll('.toc-link');
-    const sections = document.querySelectorAll('section[id], .timeline-item[id]');
+    const sections = document.querySelectorAll('section[id], .timeline-item[id], .year-section[id]');
     const progressBar = document.querySelector('.toc-progress-bar');
     
     let isExpanded = false;
+    let scrollTimeout;
     
     // Ensure TOC starts closed
     function ensureTOCClosed() {
@@ -39,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Use the same offset calculation as the scroll function
             const header = document.querySelector('nav');
             const headerHeight = header ? header.offsetHeight : 60;
-            const threshold = headerHeight + 50; // Slightly larger threshold for better detection
+            const threshold = headerHeight + 30; // Slightly larger threshold for better detection
             
             if (scrollY >= sectionTop - threshold && scrollY < sectionTop + sectionHeight - threshold) {
                 currentSection = section.getAttribute('id');
@@ -55,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Smooth scroll function
+    // Smooth scroll function with improved behavior
     function smoothScrollTo(targetId) {
         const targetElement = document.getElementById(targetId);
         if (targetElement) {
@@ -78,6 +80,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 top: finalPosition,
                 behavior: 'smooth'
             });
+            
+            // Update URL hash without scrolling
+            history.pushState(null, null, '#' + targetId);
         }
     }
     
@@ -90,6 +95,13 @@ document.addEventListener('DOMContentLoaded', function() {
         toggleButton.setAttribute('aria-label', 
             isExpanded ? 'Close table of contents' : 'Open table of contents'
         );
+        
+        // Add focus trap if expanded
+        if (isExpanded) {
+            setTimeout(() => {
+                closeButton.focus();
+            }, 100);
+        }
     }
     
     // Close TOC function
@@ -97,6 +109,48 @@ document.addEventListener('DOMContentLoaded', function() {
         isExpanded = false;
         floatingTOC.classList.remove('expanded');
         toggleButton.setAttribute('aria-label', 'Open table of contents');
+        
+        // Return focus to toggle button
+        setTimeout(() => {
+            toggleButton.focus();
+        }, 100);
+    }
+    
+    // Show/hide TOC based on scroll direction
+    let lastScrollTop = 0;
+    let tocVisible = true;
+    
+    // Check if we're on the publications page
+    const isPublicationsPage = window.location.pathname.includes('publications.html');
+    
+    function handleScroll() {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        // Don't hide TOC if it's expanded or if we're on the publications page
+        if (!isExpanded && !isPublicationsPage) {
+            // Determine scroll direction
+            if (scrollTop > lastScrollTop && scrollTop > 300) {
+                // Scrolling down & past threshold - hide TOC
+                if (tocVisible) {
+                    floatingTOC.style.opacity = '0';
+                    floatingTOC.style.transform = 'translateY(20px)';
+                    tocVisible = false;
+                }
+            } else {
+                // Scrolling up or near top - show TOC
+                if (!tocVisible) {
+                    floatingTOC.style.opacity = '1';
+                    floatingTOC.style.transform = 'translateY(0)';
+                    tocVisible = true;
+                }
+            }
+        }
+        
+        lastScrollTop = scrollTop;
+        
+        // Throttle the active item updates for better performance
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(updateActiveNavItem, 100);
     }
     
     // Event listeners
@@ -104,8 +158,12 @@ document.addEventListener('DOMContentLoaded', function() {
         toggleButton.addEventListener('click', toggleTOC);
     }
     
-    // Add scroll event listener
-    window.addEventListener('scroll', updateActiveNavItem);
+    if (closeButton) {
+        closeButton.addEventListener('click', closeTOC);
+    }
+    
+    // Add scroll event listener with throttling for better performance
+    window.addEventListener('scroll', handleScroll, { passive: true });
     
     // Add resize event listener to ensure TOC stays closed
     window.addEventListener('resize', function() {
@@ -118,8 +176,9 @@ document.addEventListener('DOMContentLoaded', function() {
     updateActiveNavItem();
     ensureTOCClosed();
     
-    // Add click event listeners for all TOC links
+    // Add click and hover event listeners for all TOC links
     tocLinks.forEach(link => {
+        // Click event
         link.addEventListener('click', function(e) {
             e.preventDefault();
             const targetId = this.getAttribute('href').substring(1);
@@ -130,6 +189,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 setTimeout(closeTOC, 300);
             }
         });
+        
     });
     
     // Handle escape key to close TOC
@@ -143,6 +203,17 @@ document.addEventListener('DOMContentLoaded', function() {
     document.addEventListener('click', function(e) {
         if (isExpanded && !floatingTOC.contains(e.target)) {
             closeTOC();
+        }
+    });
+    
+    // Check for hash in URL and scroll to section after page loads
+    window.addEventListener('load', function() {
+        const hash = window.location.hash;
+        if (hash) {
+            const targetId = hash.substring(1);
+            setTimeout(() => {
+                smoothScrollTo(targetId);
+            }, 500);
         }
     });
 }); 

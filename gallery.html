@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="google-site-verification" content="XWWSoOOOvjL2eiB1G7jfkM6c2Z-rXZyBmSPSG9jO3aA" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo & Video Gallery - SEAT-Lab @ Purdue</title>
+    <!-- Favicon settings -->
+    <link rel="icon" type="image/png" href="assets/P_favicon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/P_favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/P_favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/P_favicon.png">
+    <meta name="msapplication-TileImage" content="assets/P_favicon.png">
+    <meta name="msapplication-TileColor" content="#8e6f3e">
+    <style>
+        /* Custom favicon media queries */
+        @media (prefers-color-scheme: light) {
+            link[rel="icon"] { 
+                object-fit: contain !important;
+            }
+        }
+        
+        /* Critical CSS for immediate styling */
+        :root {
+            --primary-color: #8e6f3e;
+            --secondary-color: #000000;
+            --text-primary: #000000;
+            --text-secondary: #555960;
+            --background: #ffffff;
+            --background-alt: #f8fafc;
+            --border-color: #c4bfc0;
+            --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --border-radius-lg: 12px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            margin: 0;
+            padding: 0;
+            padding-top: 60px;
+            background-color: var(--background);
+            color: var(--text-primary);
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem 2rem;
+            margin-top: -60px;
+        }
+        
+        .gallery-card, .media-card {
+            background: var(--background);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-lg);
+            padding: 1.5rem;
+            box-shadow: var(--shadow-md);
+            margin-bottom: 1rem;
+        }
+        
+        .contact-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: white;
+            text-decoration: none;
+            padding: 0.75rem 1.25rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            margin: 0.5rem;
+            font-weight: 500;
+        }
+        
+    </style>
+    <link rel="stylesheet" href="styles.css?v=2024">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta name="description" content="SEAT-Lab @ Purdue - Photo & Video Gallery. Explore our research activities, laboratory facilities, and team through photos and videos showcasing our work in audio engineering and sensor technology.">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="hero-text">
+                <h1>Photo & Video Gallery</h1>
+                <p class="subtitle">SEAT-Lab @ Purdue University</p>
+                <p class="subtitle-secondary">Visual showcase of our research and laboratory activities</p>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="nav-container">
+            <button class="hamburger-menu" aria-label="Toggle menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <a href="index.html" class="mobile-home-icon" aria-label="Home">
+                <i class="fas fa-home"></i>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#about-lab">Home</a></li>
+                <li><a href="index.html#people">People</a></li>
+                <li><a href="index.html#research">Research</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="publications.html">Publications</a></li>
+                <li><a href="facilities.html">Facilities</a></li>
+                <li><a href="gallery.html" class="active">Gallery</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+        <div class="progress-container">
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
+    </nav>
+    
+    <div class="nav-overlay"></div>
+
+    <main>
+
+    </main>
+
+    <a href="#top" class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section footer-contact">
+                <div class="footer-main">
+                    <div class="footer-left">
+                        <div class="social-links">
+                            <a href="index.html#contact" target="_self" aria-label="Contact">
+                                <i class="fas fa-envelope"></i>
+                                <span>Contact</span>
+                            </a>
+                            <a href="https://github.com/SEAT-Lab" target="_blank" aria-label="SEAT-Lab GitHub">
+                                <i class="fab fa-github"></i>
+                                <span>GitHub</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-right">
+                        <div class="footer-info">
+                            <p class="footer-title">© 2025 SEAT-Lab @ Purdue University</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
