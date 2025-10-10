@@ -912,8 +912,41 @@
             });
         }
 
+        // Function to automatically count and update publication counts
+        function updatePublicationCounts() {
+            const yearSections = document.querySelectorAll('.year-section');
+            
+            yearSections.forEach(section => {
+                const yearId = section.id;
+                const year = yearId.replace('year-', '');
+                const publications = section.querySelectorAll('.publication-detailed-card');
+                const count = publications.length;
+                
+                // Update the year header count
+                const yearHeader = section.querySelector('.publication-count');
+                if (yearHeader) {
+                    yearHeader.textContent = `(${count} publication${count !== 1 ? 's' : ''})`;
+                }
+                
+                // Update the table of contents count
+                const tocLink = document.querySelector(`a[href="#${yearId}"]`);
+                if (tocLink) {
+                    const tocCount = tocLink.querySelector('.count');
+                    if (tocCount) {
+                        tocCount.textContent = `(${count})`;
+                    }
+                }
+            });
+        }
+
+        // Make the function globally available for manual updates
+        window.updatePublicationCounts = updatePublicationCounts;
+
         // Initialize year sections and auto-collapse years before 2021 on page load
         document.addEventListener('DOMContentLoaded', function() {
+            // First, update all publication counts
+            updatePublicationCounts();
+            
             const allYearSections = document.querySelectorAll('.year-section');
             const yearsToCollapse = ['year-2021', 'year-2020', 'year-2018', 'year-2017', 'year-2016', 'year-2013'];
             
