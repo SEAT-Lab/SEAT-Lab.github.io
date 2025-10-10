@@ -3166,15 +3166,16 @@ footer {
     color: var(--text-secondary);
     font-size: 0.9rem;
     cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 8px;
+    transition: var(--transition);
     width: 32px;
     height: 32px;
-    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: var(--transition);
     flex-shrink: 0;
-    padding: 0;
+    box-shadow: var(--shadow-sm);
 }
 
 .collaborator-toggle:hover {
