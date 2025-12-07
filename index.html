@@ -781,99 +781,154 @@
         <section id="contact" class="content-section">
             <h2><i class="fas fa-address-card"></i> Contact Us</h2>
             <div class="section-content">
-                <div class="contact-grid">
-                    <div class="contact-info">
-                        <div class="contact-methods">
-                            <div class="email-card">
-                                <h3><i class="fas fa-envelope" style="color: var(--primary-color);"></i> Laboratory Contact</h3>
-                                <div class="email-methods">
-                                    
-                                    <a href="mailto:kim4147@purdue.edu?subject=SEAT-Lab%20Contact%20from%20Website" class="email-method">
-                                        <i class="fas fa-user-tie"></i>
-                                        <div>
-                                            <div class="main-info">
-                                                <strong>Dr. Noori Kim</strong>
-                                                <span>kim4147@purdue.edu</span>
-                                            </div>
-                                            <small>Research collaborations</small>
-                                        </div>
-                                    </a>
-                                </div>
+                <!-- Primary Contact Methods - Asymmetrical Layout -->
+                <div class="contact-primary-grid">
+                    <!-- Main Contact Card -->
+                    <div class="contact-main-card">
+                        <div class="contact-card-header">
+                            <i class="fas fa-user-tie"></i>
+                            <h3>Primary Contact</h3>
+                        </div>
+                        <div class="contact-main-content">
+                            <div class="contact-person">
+                                <h4>Dr. Noori Kim</h4>
+                                <p class="contact-role">Assistant Professor, School of Engineering Technology</p>
                             </div>
-                            
-                            <div class="contact-row">
-                                <a href="tel:+17654962676" class="contact-method">
-                                    <i class="fas fa-phone"></i>
-                                    <div>
-                                        <div class="main-info">
-                                            <strong>Office Phone</strong>
-                                            <span>+1 (765) 496-2676</span>
-                                        </div>
-                                        <small>Dr. Kim's office</small>
-                                    </div>
+                            <div class="contact-actions">
+                                <a href="mailto:kim4147@purdue.edu?subject=SEAT-Lab%20Contact%20from%20Website" class="contact-action-btn primary">
+                                    <i class="fas fa-envelope"></i>
+                                    <span>Email</span>
+                                    <small>kim4147@purdue.edu</small>
                                 </a>
-                                
-                                <a href="https://github.com/SEAT-Lab" target="_blank" class="contact-method">
-                                    <i class="fab fa-github"></i>
-                                    <div>
-                                        <div class="main-info">
-                                            <strong>GitHub</strong>
-                                            <span>SEAT-Lab</span>
-                                        </div>
-                                        <small>Research repositories</small>
-                                    </div>
+                                <a href="tel:+17654962676" class="contact-action-btn">
+                                    <i class="fas fa-phone"></i>
+                                    <span>Call</span>
+                                    <small>+1 (765) 496-2676</small>
                                 </a>
                             </div>
                         </div>
                     </div>
-                    
-                    <div class="contact-sidebar">
-                        <div class="resume-download">
-                            <h3><i class="fas fa-handshake" style="color: var(--primary-color);"></i> Research Collaboration</h3>
-                            <p>
-                                SEAT-Lab welcomes collaborations with industry partners, academic institutions, and researchers interested in audio engineering and sensor technology.
-                            </p>
-                                                        
-                            <div class="cv-section">
-                                <h4><i class="fas fa-graduation-cap" style="color: var(--primary-color);"></i> Student Opportunities</h4>
-                                <p style="text-align: left; color: var(--text-secondary); line-height: 1.6;">
-                                    We offer research opportunities for graduate and undergraduate students interested in audio engineering, electroacoustics, and sensor technology.
-                                </p>
+
+                    <!-- Quick Links Card -->
+                    <div class="contact-links-card">
+                        <div class="contact-card-header">
+                            <i class="fas fa-link"></i>
+                            <h3>Quick Links</h3>
+                        </div>
+                        <div class="contact-links-grid">
+                            <a href="https://github.com/SEAT-Lab" target="_blank" class="contact-link-item">
+                                <i class="fab fa-github"></i>
+                                <div>
+                                    <strong>GitHub</strong>
+                                    <span>Research repositories</span>
+                                </div>
+                            </a>
+                            <a href="https://polytechnic.purdue.edu/profile/kim4147" target="_blank" class="contact-link-item">
+                                <i class="fas fa-university"></i>
+                                <div>
+                                    <strong>Purdue Profile</strong>
+                                    <span>Faculty page</span>
+                                </div>
+                            </a>
+                            <a href="https://www.noorikim.com/" target="_blank" class="contact-link-item">
+                                <i class="fas fa-globe"></i>
+                                <div>
+                                    <strong>Personal Website</strong>
+                                    <span>Dr. Kim's site</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Location & Hours - Side by Side -->
+                <div class="contact-info-grid">
+                    <div class="contact-location-card">
+                        <div class="contact-card-header">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <h3>Location</h3>
+                        </div>
+                        <div class="location-details">
+                            <div class="location-place">
+                                <div class="location-icon">
+                                    <i class="fas fa-flask"></i>
+                                </div>
+                                <div>
+                                    <strong>Laboratory</strong>
+                                    <p>Dudley Hall, Room 5361</p>
+                                </div>
+                            </div>
+                            <div class="location-place">
+                                <div class="location-icon">
+                                    <i class="fas fa-door-open"></i>
+                                </div>
+                                <div>
+                                    <strong>Office</strong>
+                                    <p>KNOY Hall, Room 131</p>
+                                </div>
+                            </div>
+                            <div class="location-address">
+                                <i class="fas fa-building"></i>
+                                <p>401 N. Grant St, West Lafayette, IN 47906</p>
+                            </div>
+                            <a href="https://www.google.com/maps/search/?api=1&query=401+N+Grant+St,+West+Lafayette,+IN+47906" target="_blank" class="map-link-btn">
+                                <i class="fas fa-map"></i>
+                                <span>View on Map</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="contact-hours-card">
+                        <div class="contact-card-header">
+                            <i class="fas fa-clock"></i>
+                            <h3>Hours & Availability</h3>
+                        </div>
+                        <div class="hours-details">
+                            <div class="hours-item">
+                                <i class="fas fa-calendar-week"></i>
+                                <div>
+                                    <strong>Research Hours</strong>
+                                    <p>Monday - Friday<br>8:00 AM - 5:00 PM</p>
+                                </div>
+                            </div>
+                            <div class="hours-item">
+                                <i class="fas fa-calendar-check"></i>
+                                <div>
+                                    <strong>Appointments</strong>
+                                    <p>By arrangement</p>
+                                </div>
+                            </div>
+                            <div class="hours-item">
+                                <i class="fas fa-reply"></i>
+                                <div>
+                                    <strong>Response Time</strong>
+                                    <p>Within 3 business days</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                
-                <div class="contact-footer-cards">
-                    <div class="availability-card">
-                        <h3><i class="fas fa-clock" style="color: var(--primary-color);"></i> Lab Hours</h3>
-                        <div class="availability-item">
-                            <strong>Research Hours:</strong>
-                            <span>Monday - Friday, 8:00 AM - 5:00 PM</span>
-                        </div>
-                        <div class="availability-item">
-                            <strong>Appointments:</strong>
-                            <span>By arrangement</span>
-                        </div>
-                        <div class="availability-item">
-                            <strong>Response Time:</strong>
-                            <span>Within 3 business days</span>
-                        </div>
-                    </div>
 
-                    <div class="location-card">
-                        <h3><i class="fas fa-map-marker-alt" style="color: var(--primary-color);"></i> Location & Address</h3>
-                        <div class="location-item">
-                            <strong>Laboratory:</strong>
-                            <span>Dudley Hall, Room 5361</span>
+                <!-- Collaboration & Opportunities -->
+                <div class="contact-collaboration-card">
+                    <div class="collaboration-content">
+                        <div class="collaboration-text">
+                            <h3><i class="fas fa-handshake"></i> Research Collaboration</h3>
+                            <p>
+                                SEAT-Lab welcomes collaborations with industry partners, academic institutions, and researchers interested in audio engineering and sensor technology.
+                            </p>
+                            <div class="opportunities-section">
+                                <h4><i class="fas fa-graduation-cap"></i> Student Opportunities</h4>
+                                <p>
+                                    We offer research opportunities for graduate and undergraduate students interested in audio engineering, electroacoustics, and sensor technology.
+                                </p>
+                            </div>
                         </div>
-                        <div class="location-item">
-                            <strong>Office:</strong>
-                            <span>KNOY Hall, Room 131</span>
-                        </div>
-                        <div class="location-item">
-                            <strong>Address:</strong>
-                            <span>401 N. Grant St, West Lafayette, IN 47906</span>
+                        <div class="collaboration-cta">
+                            <a href="mailto:kim4147@purdue.edu?subject=SEAT-Lab%20Collaboration%20Inquiry" class="collaboration-btn">
+                                <i class="fas fa-paper-plane"></i>
+                                <span>Start a Collaboration</span>
+                            </a>
                         </div>
                     </div>
                 </div>

@@ -75,6 +75,35 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // Scroll-triggered animations for cards
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const cardObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate-in');
+                cardObserver.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    // Observe all cards for scroll animations
+    const cardsToAnimate = document.querySelectorAll(
+        '.person-card, .project-card, .publication-highlight-card, ' +
+        '.project-preview-card, .collaborator-category, .skill-category, ' +
+        '.overview-card, .publication-detailed-card'
+    );
+    
+    cardsToAnimate.forEach(card => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(30px)';
+        card.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+        cardObserver.observe(card);
+    });
+
     // Collaborator dropdown functionality
     const collaboratorToggles = document.querySelectorAll('.collaborator-toggle');
     
@@ -547,7 +576,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Add animation on scroll for content sections
-    const observerOptions = {
+    const sectionObserverOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
     };
@@ -559,7 +588,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 entry.target.style.transform = 'translateY(0)';
             }
         });
-    }, observerOptions);
+    }, sectionObserverOptions);
     
     // Observe content sections for animation
     const contentSections = document.querySelectorAll('.content-section');
