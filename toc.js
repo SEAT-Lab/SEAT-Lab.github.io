@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const closeButton = document.querySelector('.toc-close');
     const tocPanel = document.querySelector('.toc-panel');
     const tocLinks = document.querySelectorAll('.toc-link');
-    const sections = document.querySelectorAll('section[id], .timeline-item[id], .year-section[id]');
+    const sections = document.querySelectorAll('section[id], .year-section[id]');
     const progressBar = document.querySelector('.toc-progress-bar');
     
     let isExpanded = false;
