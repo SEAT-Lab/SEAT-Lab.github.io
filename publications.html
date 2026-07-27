@@ -128,7 +128,7 @@
         <section id="publications-by-year" class="content-section">
             <div class="section-header">
                 <h2><i class="fas fa-calendar-alt"></i> Publications by Year</h2>
-                <button id="collapse-all-btn" class="collapse-all-btn" onclick="toggleAllYears()">
+                <button id="collapse-all-btn" class="collapse-all-btn" type="button">
                     <i class="fas fa-expand-alt"></i> Expand All
                 </button>
             </div>
@@ -136,7 +136,7 @@
                 <div class="publications-by-year">
                     <!-- 2026 Publications -->
                     <div id="year-2026" class="year-section">
-                        <div class="year-header" onclick="toggleYearSection(this)">
+                        <div class="year-header">
                             <h3><i class="fas fa-calendar-alt"></i> 2026 <span class="publication-count">(1 publication)</span></h3>
                             <i class="fas fa-chevron-down toggle-icon"></i>
                         </div>
@@ -173,7 +173,7 @@
 
                     <!-- 2025 Publications -->
                     <div id="year-2025" class="year-section">
-                        <div class="year-header" onclick="toggleYearSection(this)">
+                        <div class="year-header">
                             <h3><i class="fas fa-calendar-alt"></i> 2025 <span class="publication-count">(3 publications)</span></h3>
                             <i class="fas fa-chevron-down toggle-icon"></i>
                         </div>
@@ -271,7 +271,7 @@
 
                     <!-- 2024 Publications -->
                     <div id="year-2024" class="year-section">
-                        <div class="year-header" onclick="toggleYearSection(this)">
+                        <div class="year-header">
                             <h3><i class="fas fa-calendar-alt"></i> 2024 <span class="publication-count">(4 publications)</span></h3>
                             <i class="fas fa-chevron-down toggle-icon"></i>
                         </div>
@@ -372,7 +372,7 @@
 
                     <!-- 2023 Publications -->
                     <div id="year-2023" class="year-section">
-                        <div class="year-header" onclick="toggleYearSection(this)">
+                        <div class="year-header">
                             <h3><i class="fas fa-calendar-alt"></i> 2023 <span class="publication-count">(3 publications)</span></h3>
                             <i class="fas fa-chevron-down toggle-icon"></i>
                         </div>
@@ -442,7 +442,7 @@
 
                     <!-- 2022 Publications -->
                     <div id="year-2022" class="year-section">
-                        <div class="year-header" onclick="toggleYearSection(this)">
+                        <div class="year-header">
                             <h3><i class="fas fa-calendar-alt"></i> 2022 <span class="publication-count">(2 publications)</span></h3>
                             <i class="fas fa-chevron-down toggle-icon"></i>
                         </div>
@@ -500,7 +500,7 @@
 
                     <!-- 2021 Publications -->
                     <div id="year-2021" class="year-section">
-                        <div class="year-header" onclick="toggleYearSection(this)">
+                        <div class="year-header">
                             <h3><i class="fas fa-calendar-alt"></i> 2021 <span class="publication-count">(5 publications)</span></h3>
                             <i class="fas fa-chevron-down toggle-icon"></i>
                         </div>
@@ -616,7 +616,7 @@
 
                     <!-- 2020 Publications -->
                     <div id="year-2020" class="year-section">
-                        <div class="year-header" onclick="toggleYearSection(this)">
+                        <div class="year-header">
                             <h3><i class="fas fa-calendar-alt"></i> 2020 <span class="publication-count">(3 publications)</span></h3>
                             <i class="fas fa-chevron-down toggle-icon"></i>
                         </div>
@@ -698,7 +698,7 @@
 
                     <!-- 2018 Publications -->
                     <div id="year-2018" class="year-section">
-                        <div class="year-header" onclick="toggleYearSection(this)">
+                        <div class="year-header">
                             <h3><i class="fas fa-calendar-alt"></i> 2018 <span class="publication-count">(1 publication)</span></h3>
                             <i class="fas fa-chevron-down toggle-icon"></i>
                         </div>
@@ -728,7 +728,7 @@
 
                     <!-- 2017 Publications -->
                     <div id="year-2017" class="year-section">
-                        <div class="year-header" onclick="toggleYearSection(this)">
+                        <div class="year-header">
                             <h3><i class="fas fa-calendar-alt"></i> 2017 <span class="publication-count">(1 publication)</span></h3>
                             <i class="fas fa-chevron-down toggle-icon"></i>
                         </div>
@@ -758,7 +758,7 @@
 
                     <!-- 2016 Publications -->
                     <div id="year-2016" class="year-section">
-                        <div class="year-header" onclick="toggleYearSection(this)">
+                        <div class="year-header">
                             <h3><i class="fas fa-calendar-alt"></i> 2016 <span class="publication-count">(1 publication)</span></h3>
                             <i class="fas fa-chevron-down toggle-icon"></i>
                         </div>
@@ -792,7 +792,7 @@
 
                     <!-- 2013 Publications -->
                     <div id="year-2013" class="year-section">
-                        <div class="year-header" onclick="toggleYearSection(this)">
+                        <div class="year-header">
                             <h3><i class="fas fa-calendar-alt"></i> 2013 <span class="publication-count">(1 publication)</span></h3>
                             <i class="fas fa-chevron-down toggle-icon"></i>
                         </div>
@@ -860,214 +860,8 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
-    <script src="toc.js"></script>
-    <script>
-        // BibTeX copy functionality
-        const bibTexEntries = {
-            'chen2025speakers': `@inproceedings{chen2025speakers,
-    title={Using Speakers as Sensors: Detecting Acoustic Loads with Dense Neural Networks and Impedance Features},
-    author={Chen, M. and Nakamura, K. Alexander and Kim, N.},
-    booktitle={Purdue Polytechnic Graduate Student Poster Symposium},
-    year={2025},
-    organization={Purdue University}
-}`
-        };
-
-        function copyBibTeX(entryId) {
-            const bibText = bibTexEntries[entryId];
-            if (bibText) {
-                navigator.clipboard.writeText(bibText).then(() => {
-                    // Show success feedback
-                    const button = event.target.closest('button');
-                    const originalText = button.innerHTML;
-                    button.innerHTML = '<i class="fas fa-check"></i> Copied!';
-                    button.classList.add('success');
-                    
-                    setTimeout(() => {
-                        button.innerHTML = originalText;
-                        button.classList.remove('success');
-                    }, 2000);
-                }).catch(err => {
-                    console.error('Failed to copy BibTeX: ', err);
-                });
-            }
-        }
-
-        // Toggle year section expand/collapse
-        function toggleYearSection(header) {
-            const yearSection = header.closest('.year-section');
-            const content = yearSection.querySelector('.year-content');
-            const icon = header.querySelector('.toggle-icon');
-            
-            // Determine padding based on screen size
-            const isMobile = window.innerWidth <= 768;
-            const paddingValue = isMobile ? '0.5rem' : '0.75rem';
-            
-            // Check if currently expanded (maxHeight is set and not '0')
-            if (content.style.maxHeight && content.style.maxHeight !== '0px') {
-                // Collapse
-                content.style.maxHeight = '0';
-                content.style.paddingTop = '0';
-                content.style.paddingBottom = '0';
-                icon.style.transform = 'rotate(0deg)';
-            } else {
-                // Expand
-                content.style.maxHeight = content.scrollHeight + 'px';
-                content.style.paddingTop = paddingValue;
-                content.style.paddingBottom = paddingValue;
-                icon.style.transform = 'rotate(180deg)';
-            }
-        }
-
-        // Toggle all year sections collapse/expand
-        function toggleAllYears() {
-            const allYearSections = document.querySelectorAll('.year-section');
-            const collapseBtn = document.getElementById('collapse-all-btn');
-            
-            // Determine padding based on screen size
-            const isMobile = window.innerWidth <= 768;
-            const paddingValue = isMobile ? '0.5rem' : '0.75rem';
-            
-            // Check if at least one section is expanded
-            let hasExpandedSection = false;
-            allYearSections.forEach(section => {
-                const content = section.querySelector('.year-content');
-                if (content.style.maxHeight && content.style.maxHeight !== '0px') {
-                    hasExpandedSection = true;
-                }
-            });
-            
-            // If any sections are expanded, collapse all. Otherwise, expand all
-            if (hasExpandedSection) {
-                // Collapse all
-                allYearSections.forEach(section => {
-                    const content = section.querySelector('.year-content');
-                    const icon = section.querySelector('.toggle-icon');
-                    if (content && icon) {
-                        content.style.maxHeight = '0';
-                        content.style.paddingTop = '0';
-                        content.style.paddingBottom = '0';
-                        icon.style.transform = 'rotate(0deg)';
-                    }
-                });
-                collapseBtn.innerHTML = '<i class="fas fa-expand-alt"></i> Expand All';
-            } else {
-                // Expand all
-                allYearSections.forEach(section => {
-                    const content = section.querySelector('.year-content');
-                    const icon = section.querySelector('.toggle-icon');
-                    if (content && icon) {
-                        content.style.maxHeight = content.scrollHeight + 'px';
-                        content.style.paddingTop = paddingValue;
-                        content.style.paddingBottom = paddingValue;
-                        icon.style.transform = 'rotate(180deg)';
-                    }
-                });
-                collapseBtn.innerHTML = '<i class="fas fa-compress-alt"></i> Collapse All';
-            }
-        }
-
-        // Recalculate heights for expanded sections
-        function recalculateExpandedHeights() {
-            const allYearSections = document.querySelectorAll('.year-section');
-            allYearSections.forEach(section => {
-                const content = section.querySelector('.year-content');
-                if (content && content.style.maxHeight && content.style.maxHeight !== '0px') {
-                    // Section is expanded, recalculate height
-                    content.style.maxHeight = 'none'; // Temporarily remove constraint
-                    const newHeight = content.scrollHeight;
-                    content.style.maxHeight = newHeight + 'px';
-                }
-            });
-        }
-
-        // Function to automatically count and update publication counts
-        function updatePublicationCounts() {
-            console.log('updatePublicationCounts() called');
-            const yearSections = document.querySelectorAll('.year-section');
-            console.log('Found year sections:', yearSections.length);
-            
-            yearSections.forEach(section => {
-                const yearId = section.id;
-                const year = yearId.replace('year-', '');
-                const publications = section.querySelectorAll('.publication-detailed-card');
-                const count = publications.length;
-                
-                console.log(`Year ${year}: Found ${count} publications`);
-                
-                // Update the year header count
-                const yearHeader = section.querySelector('.publication-count');
-                if (yearHeader) {
-                    yearHeader.textContent = `(${count} publication${count !== 1 ? 's' : ''})`;
-                    console.log(`Updated year header for ${year}: ${yearHeader.textContent}`);
-                }
-                
-                // Update the table of contents count
-                const tocLink = document.querySelector(`a[href="#${yearId}"]`);
-                if (tocLink) {
-                    const tocCount = tocLink.querySelector('.count');
-                    if (tocCount) {
-                        console.log(`Updating TOC count for ${year} from ${tocCount.textContent} to (${count})`);
-                        tocCount.textContent = `(${count})`;
-                    } else {
-                        console.log(`No .count element found in TOC link for ${year}`);
-                    }
-                } else {
-                    console.log(`No TOC link found for ${yearId}`);
-                }
-            });
-        }
-
-        // Make the function globally available for manual updates
-        window.updatePublicationCounts = updatePublicationCounts;
-
-        // Initialize year sections: expand current year only
-        document.addEventListener('DOMContentLoaded', function() {
-            // First, update all publication counts
-            updatePublicationCounts();
-            
-            const allYearSections = document.querySelectorAll('.year-section');
-            const currentYearId = 'year-' + new Date().getFullYear();
-            const currentYearSection = document.getElementById(currentYearId);
-            const yearToExpand = currentYearSection || allYearSections[0];
-            const collapseBtn = document.getElementById('collapse-all-btn');
-            
-            // Determine padding based on screen size
-            const isMobile = window.innerWidth <= 768;
-            const paddingValue = isMobile ? '0.5rem' : '0.75rem';
-            
-            allYearSections.forEach(section => {
-                const content = section.querySelector('.year-content');
-                const icon = section.querySelector('.toggle-icon');
-                if (!content || !icon) return;
-
-                if (section === yearToExpand) {
-                    content.style.maxHeight = content.scrollHeight + 'px';
-                    content.style.paddingTop = paddingValue;
-                    content.style.paddingBottom = paddingValue;
-                    icon.style.transform = 'rotate(180deg)';
-                } else {
-                    content.style.maxHeight = '0';
-                    content.style.paddingTop = '0';
-                    content.style.paddingBottom = '0';
-                    icon.style.transform = 'rotate(0deg)';
-                }
-            });
-
-            if (collapseBtn) {
-                collapseBtn.innerHTML = '<i class="fas fa-expand-alt"></i> Expand All';
-            }
-        });
-
-        // Recalculate heights on window resize
-        let resizeTimer;
-        window.addEventListener('resize', function() {
-            clearTimeout(resizeTimer);
-            resizeTimer = setTimeout(function() {
-                recalculateExpandedHeights();
-            }, 250);
-        });
-    </script>
+    <script src="script.js?v=2026.7.3"></script>
+    <script src="toc.js?v=2026.7.3"></script>
+    <script src="publications.js?v=2026.7.3"></script>
 </body>
 </html>
