@@ -23,20 +23,22 @@
         /* Critical CSS for immediate styling */
         :root {
             --primary-color: #8e6f3e;
-            --secondary-color: #000000;
-            --text-primary: #000000;
+            --secondary-color: #1a1a1a;
+            --text-primary: #1a1a1a;
             --text-secondary: #555960;
-            --background: #ffffff;
-            --background-alt: #f8fafc;
-            --border-color: #c4bfc0;
-            --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            --border-radius-lg: 12px;
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --background: #faf9f7;
+            --background-alt: #f3f0ea;
+            --border-color: #d4cfc8;
+            --shadow: 0 1px 3px 0 rgba(26, 26, 26, 0.06), 0 1px 2px 0 rgba(26, 26, 26, 0.04);
+            --shadow-md: 0 4px 12px -2px rgba(26, 26, 26, 0.08);
+            --border-radius-lg: 10px;
+            --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            --font-display: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+            --font-body: 'Source Sans 3', 'Segoe UI', sans-serif;
         }
         
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: var(--font-body);
             margin: 0;
             padding: 0;
             padding-top: 60px;
@@ -45,15 +47,15 @@
         }
         
         header {
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            background: linear-gradient(160deg, rgba(142, 111, 62, 0.92) 0%, rgba(26, 26, 26, 0.94) 58%, #111 100%);
             color: white;
             text-align: center;
-            padding: 3rem 2rem 2rem;
+            padding: 5rem 2rem 3rem;
             margin-top: -60px;
         }
         
         .equipment-card, .facility-card {
-            background: var(--background);
+            background: rgba(255, 255, 255, 0.88);
             border: 1px solid var(--border-color);
             border-radius: var(--border-radius-lg);
             padding: 1.5rem;
@@ -75,10 +77,10 @@
         }
         
     </style>
-    <link rel="stylesheet" href="styles.css?v=2024">
+    <link rel="stylesheet" href="styles.css?v=2026.7.3">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <meta name="description" content="SEAT-Lab @ Purdue - Facilities and Equipment. Explore our state-of-the-art research facilities and advanced equipment for audio engineering and sensor technology research.">
 </head>
