@@ -1,255 +1,231 @@
 # SEAT-Lab Website Card Documentation
 
-This document provides comprehensive guidelines for adding and managing cards across all pages of the SEAT-Lab website. Cards are the primary content containers used throughout the site to display information in a structured, visually appealing format.
+This document provides guidelines for adding and managing content cards across the SEAT-Lab website. Cards are the primary HTML patterns used to display structured information.
+
+For repository setup, local preview, and publishing, see [Site_Development.md](Site_Development.md). For a quick overview, see the [README](../README.md).
 
 ## Table of Contents
 
 1. [Card Types Overview](#card-types-overview)
-2. [General Card Structure](#general-card-structure)
-3. [Page-Specific Card Guidelines](#page-specific-card-guidelines)
-4. [CSS Classes and Styling](#css-classes-and-styling)
-5. [Adding New Cards](#adding-new-cards)
-6. [Best Practices](#best-practices)
-7. [Troubleshooting](#troubleshooting)
+2. [Publications Page](#publications-page-publicationshtml)
+3. [Projects Page](#projects-page-projectshtml)
+4. [Homepage](#homepage-indexhtml)
+5. [CSS Classes Reference](#css-classes-reference)
+6. [Adding New Content](#adding-new-content)
+7. [Best Practices](#best-practices)
+8. [Troubleshooting](#troubleshooting)
 
 ## Card Types Overview
 
-The website uses several types of cards, each with specific purposes:
+| Card type | CSS class | Location | Notes |
+|-----------|-----------|----------|-------|
+| Publication (full) | `publication-detailed-card` | `publications.html` | Authors, venue, keywords, links; abstract optional |
+| Publication (homepage) | `publication-highlight-card` | `index.html` | Compact preview with year badge and `pub-tag` labels |
+| Project (full) | `project-card` | `projects.html` | Collapsible details, `tech-tag` labels |
+| Project (homepage) | `project-preview-card` | `index.html` | Short summary; links to `projects.html` |
+| Faculty / group | `person-card` | `index.html` | Team section; may contain a `researcher-list` |
+| Team member row | `researcher-item` | `index.html` | Simple name/focus, or expandable bio |
+| Collaborator | `collaborator-item` | `index.html` | Always visible; no expand/collapse |
+| Research focus | `skill-category` | `index.html` | Tag groups under Research |
+| About blurb | `overview-card` | `index.html` | Lab description text |
+| Contact blocks | `contact-*-card` | `index.html` | Primary contact, links, location, hours |
 
-### 1. Publication Cards (`publication-detailed-card`)
+There is no shared generic `.card` wrapper. Copy an existing card of the same type and edit its content.
 
-- **Purpose**: Display research publications with full details
-- **Location**: `publications.html`
-- **Features**: Authors, venue, keywords, action buttons, abstracts
+## Publications Page (`publications.html`)
 
-### 2. Project Cards (`project-card`)
+Year sections are controlled by `publications.js` (click handlers, expand/collapse, and counts). Do **not** add `onclick` attributes to year headers.
 
-- **Purpose**: Showcase research projects
-- **Location**: `projects.html`, `index.html`
-- **Features**: Collapsible details, technology tags, links
+### Adding a publication to an existing year
 
-### 3. Person Cards (`person-card`)
+1. Find the correct `.year-content` block (e.g. `#year-2026`).
+2. Copy an existing `.publication-detailed-card` inside that block.
+3. Update title, authors, venue, keywords, and action links.
 
-- **Purpose**: Display team member information
-- **Location**: `index.html` (People section)
-- **Features**: Contact links, role descriptions, collapsible details
-
-### 4. Collaborator Cards (`collaborator-item`)
-
-- **Purpose**: Show research collaborators
-- **Location**: `index.html` (Collaborators section)
-- **Features**: Institution info, project focus, website links
-
-### 5. Publication Highlight Cards (`publication-highlight-card`)
-
-- **Purpose**: Featured publications on homepage
-- **Location**: `index.html` (Publications section)
-- **Features**: Year badges, compact format, external links
-
-### 6. Project Preview Cards (`project-preview-card`)
-
-- **Purpose**: Brief project overviews on homepage
-- **Location**: `index.html` (Projects section)
-- **Features**: Technology tags, description, links to full page
-
-## General Card Structure
-
-All cards follow this basic HTML structure:
+**Year section structure:**
 
 ```html
-<div class="card-class">
-    <div class="card-content">
-        <!-- Card header with title -->
-        <div class="card-header">
-            <h3>Card Title</h3>
-            <!-- Optional: Action buttons or badges -->
+<div id="year-2026" class="year-section">
+    <div class="year-header">
+        <h3><i class="fas fa-calendar-alt"></i> 2026 <span class="publication-count">(1 publication)</span></h3>
+        <i class="fas fa-chevron-down toggle-icon"></i>
+    </div>
+    <div class="year-content">
+        <!-- publication-detailed-card entries here -->
+    </div>
+</div>
+```
+
+**Publication card template:**
+
+```html
+<div class="publication-detailed-card">
+    <div class="publication-content">
+        <h4>Publication Title</h4>
+        <div class="publication-authors">
+            <span class="author">Author One</span>,
+            <span class="author">Author Two</span> et al.
         </div>
-        
-        <!-- Main content -->
-        <div class="card-body">
-            <p>Description or main content</p>
-            
-            <!-- Optional: Additional sections -->
-            <div class="card-details">
-                <!-- Detailed information -->
-            </div>
-            
-            <!-- Optional: Tags or categories -->
-            <div class="card-tags">
-                <span class="tag">Tag 1</span>
-                <span class="tag">Tag 2</span>
-            </div>
-            
-            <!-- Optional: Action buttons -->
-            <div class="card-actions">
-                <a href="#" class="action-btn">Action</a>
-            </div>
+        <div class="publication-venue">
+            <i class="fas fa-journal-whills"></i>
+            Journal or Conference Name, year, pages
+        </div>
+        <!-- Optional: include for poster abstracts or when a summary helps -->
+        <div class="publication-abstract">
+            <h5><i class="fas fa-file-text"></i> Abstract</h5>
+            <p>Short abstract text...</p>
+        </div>
+        <div class="publication-keywords">
+            <span class="keyword ml">Machine Learning</span>
+            <span class="keyword acoustics">Acoustics</span>
+            <span class="keyword sensors">Sensors</span>
+        </div>
+        <div class="publication-actions">
+            <a href="https://doi.org/..." target="_blank" class="publication-action-btn primary">
+                <i class="fas fa-external-link-alt"></i> View Paper
+            </a>
         </div>
     </div>
 </div>
 ```
 
-## Page-Specific Card Guidelines
+Use `<i class="fas fa-university"></i>` in `.publication-venue` for symposium or institutional entries instead of the journal icon.
 
-### Publications Page (`publications.html`)
+### Adding a new year
 
-#### Adding a New Publication Card
+1. Add a new `.year-section` with `id="year-YYYY"` at the top of `.publications-by-year` (newest year first).
+2. Add a matching entry to the floating TOC in the same file:
 
-1. **Locate the appropriate year section**:
+```html
+<li class="toc-item"><a href="#year-2027" class="toc-link"><span>2027</span> <span class="count">(0)</span></a></li>
+```
 
-   ```html
-   <div id="year-2025" class="year-section">
-       <div class="year-header" onclick="toggleYearSection(this)">
-           <h3><i class="fas fa-calendar-alt"></i> 2025 <span class="publication-count">(3 publications)</span></h3>
-           <i class="fas fa-chevron-down toggle-icon"></i>
-       </div>
-       <div class="year-content">
-           <!-- Add new publication card here -->
-       </div>
-   </div>
-   ```
+3. Place one or more `.publication-detailed-card` entries inside `.year-content`.
 
-2. **Use the publication card template**:
+**Counts:** `publications.js` recalculates `.publication-count` in each year header and `.count` in the TOC on page load. Placeholder counts in HTML are fine; they update automatically. You still need to add a TOC row manually for a brand-new year.
 
-   ```html
-   <div class="publication-detailed-card">
-       <div class="publication-content">
-           <h4>Publication Title</h4>
-           <div class="publication-authors">
-               <span class="author">Author 1</span>,
-               <span class="author">Author 2</span>,
-               <span class="author">Author 3</span> et al.
-           </div>
-           <div class="publication-venue">
-               <i class="fas fa-journal-whills"></i>
-               Journal/Conference Name
-           </div>
-           <div class="publication-keywords">
-               <span class="keyword category">Keyword 1</span>
-               <span class="keyword category">Keyword 2</span>
-               <span class="keyword category">Keyword 3</span>
-           </div>
-           <div class="publication-actions">
-               <a href="https://doi.org/..." target="_blank" class="publication-action-btn primary">
-                   <i class="fas fa-external-link-alt"></i> View Paper
-               </a>
-           </div>
-       </div>
-   </div>
-   ```
+**Default expand behavior:** Only the current calendar year opens on load. If that year section does not exist, the first year section opens instead.
 
-3. **Update publication counts**:
-   - Update the count in the year header: `(3 publications)` → `(4 publications)`
-   - Update the count in the table of contents
+### Keyword color categories
 
-#### Keyword Categories
+Keywords use two classes: `keyword` plus a category slug. The visible label is the tag text, not the slug.
 
-Use these predefined keyword categories for consistent styling:
+| Slug class | Typical use |
+|------------|-------------|
+| `microfluidics` | Lab-on-chip, acoustofluidics |
+| `ml` | Machine learning, neural networks |
+| `healthcare` | Medical, hearing health |
+| `acoustics` | Acoustic analysis, electroacoustics |
+| `sensors` | Sensing, MEMS, transducers |
+| `robotics` | Robotics, automation |
 
-- `microfluidics` - Blue styling
-- `ml` - Purple styling  
-- `healthcare` - Green styling
-- `acoustics` - Orange styling
-- `sensors` - Teal styling
-- `robotics` - Red styling
+Example: `<span class="keyword ml">Deep Neural Networks</span>`
 
-### Projects Page (`projects.html`)
+## Projects Page (`projects.html`)
 
-#### Adding a New Project Card
+Project cards collapse via `script.js`. Copy an existing `.project-card` and edit content.
 
-1. **Use the project card template**:
+```html
+<div class="project-card featured">
+    <div class="project-collapsible-header">
+        <div class="project-header">
+            <h3>Project Title</h3>
+        </div>
+        <button class="project-collapse-btn" aria-label="Toggle project details">
+            <i class="fas fa-chevron-down"></i>
+        </button>
+    </div>
+    <p>Short summary visible when collapsed...</p>
 
-   ```html
-   <div class="project-card featured">
-       <div class="project-collapsible-header">
-           <div class="project-header">
-               <h3>Project Title</h3>
-           </div>
-           <button class="project-collapse-btn" aria-label="Toggle project details">
-               <i class="fas fa-chevron-down"></i>
-           </button>
-       </div>
-       <p>Project description...</p>
-       
-       <div class="project-details">
-           <h4><i class="fas fa-microscope"></i> Research Objectives</h4>
-           <ul>
-               <li>Objective 1</li>
-               <li>Objective 2</li>
-           </ul>
-           
-           <h4><i class="fas fa-tools"></i> Methodology</h4>
-           <ul>
-               <li>Method 1</li>
-               <li>Method 2</li>
-           </ul>
-           
-           <h4><i class="fas fa-chart-line"></i> Expected Impact</h4>
-           <ul>
-               <li>Impact 1</li>
-               <li>Impact 2</li>
-           </ul>
-       </div>
-       
-       <div class="project-tech">
-           <span class="tech-tag primary">Primary Technology</span>
-           <span class="tech-tag">Technology 1</span>
-           <span class="tech-tag">Technology 2</span>
-       </div>
-   </div>
-   ```
+    <div class="project-details">
+        <h4><i class="fas fa-microscope"></i> Research Objectives</h4>
+        <ul>
+            <li>Objective 1</li>
+        </ul>
+        <h4><i class="fas fa-tools"></i> Methodology</h4>
+        <ul>
+            <li>Method 1</li>
+        </ul>
+        <!-- Other h4 blocks are fine (e.g. System Features, Publications) -->
+    </div>
 
-2. **Technology Tags**:
-   - Use `primary` class for the main technology
-   - Keep tags concise and descriptive
-   - Use consistent terminology across projects
+    <div class="project-tech">
+        <span class="tech-tag primary">Main Technology</span>
+        <span class="tech-tag">Supporting Tag</span>
+    </div>
+</div>
+```
 
-### Homepage (`index.html`)
+- Use `featured` on cards you want highlighted.
+- Use `primary` on one or two main `tech-tag` entries.
+- `.project-details` may include custom `<h4>` sections and `.project-links` with `.project-link-btn` where needed.
 
-#### Adding Team Members
+## Homepage (`index.html`)
 
-1. **Faculty/Professor**:
+### Faculty (`person-card`)
 
-   ```html
-   <div class="person-card">
-       <div class="person-info">
-           <h3>Faculty Professor</h3>
-           <p class="person-name">Dr. Name</p>
-           <p class="person-title">Title</p>
-           <p class="person-description">Description...</p>
-           <div class="person-links">
-               <a href="mailto:email@purdue.edu" class="person-link">
-                   <i class="fas fa-envelope"></i> Contact
-               </a>
-               <!-- Additional links -->
-           </div>
-       </div>
-   </div>
-   ```
+Faculty entries use a full `.person-card` with name, title, description, and links:
 
-2. **Students with Collapsible Details**:
+```html
+<div class="person-card">
+    <div class="person-info">
+        <h3>Faculty Professor</h3>
+        <p class="person-name">Dr. Name</p>
+        <p class="person-title">Title, School</p>
+        <p class="person-description">Bio paragraph...</p>
+        <div class="person-links">
+            <a href="mailto:email@purdue.edu" class="person-link">
+                <i class="fas fa-envelope"></i> Contact
+            </a>
+        </div>
+    </div>
+</div>
+```
 
-   ```html
-   <div class="researcher-item">
-       <div class="researcher-header">
-           <div class="researcher-basic-info">
-               <p class="person-name">Student Name</p>
-               <p class="person-focus">Program and Supervisor</p>
-           </div>
-           <button class="researcher-toggle" aria-label="Toggle details">
-               <i class="fas fa-chevron-down"></i>
-           </button>
-       </div>
-       <div class="researcher-details">
-           <p class="person-description">Detailed description...</p>
-           <div class="person-links">
-               <!-- Contact links -->
-           </div>
-       </div>
-   </div>
-   ```
+### Students and alumni (`researcher-item`)
 
-#### Adding Collaborators
+Grouped inside a `.person-card` → `.researcher-list`. Use one of two patterns:
+
+**Simple entry** (name and role only):
+
+```html
+<div class="researcher-item">
+    <p class="person-name">Student Name</p>
+    <p class="person-focus">MS Student in Engineering Technology</p>
+</div>
+```
+
+**Expandable entry** (bio and links):
+
+```html
+<div class="researcher-item">
+    <div class="researcher-header">
+        <div class="researcher-basic-info">
+            <p class="person-name">Student Name</p>
+            <p class="person-focus">MS Student in Engineering Technology</p>
+        </div>
+        <button class="researcher-toggle" aria-label="Toggle details" aria-expanded="false">
+            <i class="fas fa-chevron-down"></i>
+        </button>
+    </div>
+    <div class="researcher-details">
+        <p class="person-description">Bio paragraph...</p>
+        <div class="person-links">
+            <a href="mailto:email@purdue.edu" class="person-link">
+                <i class="fas fa-envelope"></i> Contact
+            </a>
+        </div>
+    </div>
+</div>
+```
+
+Toggle behavior is handled by `script.js`. Only add a `.researcher-toggle` when there is extra detail worth hiding.
+
+### Collaborators (`collaborator-item`)
+
+Collaborators are **always visible**. Do not add a toggle button.
+
+Place entries under the correct `.collaborator-category` (Purdue vs External):
 
 ```html
 <div class="collaborator-item">
@@ -258,14 +234,11 @@ Use these predefined keyword categories for consistent styling:
             <h4>Dr. Collaborator Name</h4>
             <p class="collaborator-department">Title and Institution</p>
         </div>
-        <button class="collaborator-toggle" aria-label="Toggle details">
-            <i class="fas fa-chevron-down"></i>
-        </button>
     </div>
     <div class="collaborator-details">
-        <p class="collaborator-focus">Project: Project description</p>
+        <p class="collaborator-focus">Project: Short project description</p>
         <div class="collaborator-links">
-            <a href="https://website.com" target="_blank" class="collaborator-link">
+            <a href="https://example.com" target="_blank" class="collaborator-link">
                 <i class="fas fa-globe"></i> Website
             </a>
         </div>
@@ -273,99 +246,127 @@ Use these predefined keyword categories for consistent styling:
 </div>
 ```
 
-## CSS Classes and Styling
+### Research focuses (`skill-category`)
 
-### Core Card Classes
+```html
+<div class="skill-category">
+    <h3><i class="fas fa-ear-listen"></i> Area Title</h3>
+    <div class="skill-tags">
+        <span class="skill-tag primary">Primary Topic</span>
+        <span class="skill-tag">Related Topic</span>
+    </div>
+</div>
+```
 
-- `.card` - Base card styling
-- `.card-header` - Card title section
-- `.card-body` - Main content area
-- `.card-details` - Collapsible detailed information
-- `.card-tags` - Technology/keyword tags
-- `.card-actions` - Action buttons
+### Homepage project preview (`project-preview-card`)
 
-### Specific Card Classes
+```html
+<div class="project-preview-card">
+    <div class="project-preview-header">
+        <h3>Project Title</h3>
+    </div>
+    <p class="project-preview-description">One or two sentences...</p>
+    <div class="project-preview-tech">
+        <span class="tech-tag">Tag One</span>
+        <span class="tech-tag">Tag Two</span>
+    </div>
+</div>
+```
 
-- `.publication-detailed-card` - Full publication cards
-- `.publication-highlight-card` - Compact publication previews
-- `.project-card` - Project information cards
-- `.person-card` - Team member cards
-- `.collaborator-item` - Collaborator information
+Add full project write-ups on `projects.html`; keep previews brief here.
 
-### Utility Classes
+### Homepage publication highlight (`publication-highlight-card`)
 
-- `.featured` - Highlights important cards
-- `.primary` - Primary technology tags
-- `.collapsed` - Collapsed state for expandable cards
-- `.expanded` - Expanded state for expandable cards
+Uses `pub-tag` (not `keyword`) for labels:
 
-## Adding New Cards
+```html
+<div class="publication-highlight-card">
+    <div class="publication-year-badge">2025</div>
+    <div class="publication-content">
+        <h4>Publication Title</h4>
+        <p class="publication-authors">Author One, Author Two</p>
+        <p class="publication-venue">Venue or journal</p>
+        <div class="publication-tags">
+            <span class="pub-tag">Topic One</span>
+            <span class="pub-tag">Topic Two</span>
+        </div>
+        <div class="publication-links">
+            <a href="https://doi.org/..." target="_blank" class="publication-link">
+                <i class="fas fa-external-link-alt"></i> View Paper
+            </a>
+        </div>
+    </div>
+</div>
+```
 
-### Step-by-Step Process
+When adding a major publication, update both `publications.html` and, if it should be featured, this homepage section.
 
-1. **Identify the appropriate page and section**
-2. **Choose the correct card type** based on content
-3. **Copy the template** from existing cards
-4. **Replace placeholder content** with actual information
-5. **Update any counters** (publication counts, etc.)
-6. **Test the card** for proper styling and functionality
+### Contact section
 
-### Content Guidelines
+Contact uses dedicated card classes (`contact-main-card`, `contact-links-card`, `contact-location-card`, `contact-hours-card`, `contact-collaboration-card`). Edit text and links in place rather than copying from other card types.
 
-#### Text Content
+## CSS Classes Reference
 
-- Keep titles concise but descriptive
-- Use proper academic formatting for publications
-- Include relevant contact information
-- Maintain consistent tone across all cards
+### Publication page
 
-#### Links and Actions
+- `.year-section`, `.year-header`, `.year-content`, `.toggle-icon`, `.publication-count`
+- `.publication-detailed-card`, `.publication-content`, `.publication-authors`, `.author`
+- `.publication-venue`, `.publication-abstract`, `.publication-keywords`, `.keyword`
+- `.publication-actions`, `.publication-action-btn`
 
-- Always include `target="_blank"` for external links
-- Include proper `aria-label` attributes
+### Projects
 
-#### Images and Media
+- `.project-card`, `.project-collapsible-header`, `.project-collapse-btn`, `.project-details`, `.project-tech`, `.tech-tag`
 
-- Use consistent aspect ratios
-- Include alt text for accessibility
-- Optimize file sizes for web
-- Use appropriate file formats (WebP, PNG, JPG)
+### Homepage
+
+- `.person-card`, `.person-info`, `.researcher-list`, `.researcher-item`, `.researcher-toggle`, `.researcher-details`
+- `.collaborator-category`, `.collaborator-item`, `.collaborator-details`
+- `.skill-category`, `.skill-tag`, `.overview-card`
+- `.project-preview-card`, `.publication-highlight-card`, `.pub-tag`
+- `.contact-main-card`, `.contact-links-card`, and related contact classes
+
+### State classes (applied by JavaScript)
+
+- `.researcher-item.expanded` — open bio on homepage
+- `.project-card.expanded` / `.project-card.collapsed` — project detail visibility on `projects.html`
+
+## Adding New Content
+
+1. Identify the page and section (see table above).
+2. Copy an existing card of the **same type** from that section.
+3. Replace text, links, and tags.
+4. For a new publication year, add the year section **and** a TOC link.
+5. Preview locally (`python local-support/local_server.py`), then commit to `main`.
+6. Publish to the live site when ready (`git push origin main:publish` — see [Site_Development.md](Site_Development.md)).
+
+### Content guidelines
+
+- Keep titles concise; use standard academic formatting for publications.
+- Use `target="_blank"` on external links.
+- Include `aria-label` on toggle buttons.
+- Bump the `?v=` query on `styles.css` in HTML files after CSS changes so browsers load the new styles.
 
 ## Best Practices
 
-### Performance
-
-- Optimize images before adding
-- Use appropriate image formats
+- Copy from live cards instead of using generic templates.
+- Match tag conventions: `keyword` + slug on the publications page, `pub-tag` on homepage highlights, `tech-tag` on projects.
+- After editing publications, reload `publications.html` and confirm year counts and expand/collapse behavior.
 
 ## Troubleshooting
 
-### Common Issues
+| Issue | What to check |
+|-------|----------------|
+| Card layout looks wrong | HTML structure matches a working card of the same type; classes spelled correctly |
+| Styles not updating | Hard refresh; bump `styles.css?v=...` in HTML |
+| Live site unchanged | Changes may be on `main` only — push to `publish` |
+| Year section won't open | `publications.js` loaded on `publications.html`; `.year-header` has no inline `onclick` |
+| Researcher bio won't expand | `.researcher-toggle` inside `.researcher-item`; `script.js` loaded |
+| Project won't collapse | `.project-collapse-btn` present; test on `projects.html` |
 
-#### Card Not Displaying Properly
-
-- Check HTML structure matches template
-- Verify CSS classes are correct
-- Ensure proper nesting of elements
-- Check for missing closing tags
-
-#### Content Not Updating
-
-- Clear browser cache
-- Check file save status
-- Verify GitHub deployment
-- Test in different browsers
-
-### Getting Help
-
-If you encounter issues not covered in this documentation:
-
-1. Check existing similar cards for reference
-2. Review the CSS file for styling patterns
-3. Test changes in a development environment
+If something still fails, compare against a similar working card in the same file and check the browser console for JavaScript errors.
 
 ---
 
-**Last Updated**: October 2025  
-**Version**: 1.0 (Partially Generated)
+**Last Updated**: July 2026  
 **Maintained by**: Max Chen
