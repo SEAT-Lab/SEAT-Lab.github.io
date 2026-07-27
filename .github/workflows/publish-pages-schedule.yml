@@ -1,0 +1,50 @@
+name: Scheduled Publish Sync
+
+on:
+  schedule:
+    # 08:00 UTC on day 1 of every month; script gates to even months only
+    - cron: "0 8 1 * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout default branch
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Sync main to publish when needed
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          month="$(date -u +%m)"
+          month_num=$((10#$month))
+          if (( month_num % 2 != 0 )); then
+            echo "Odd month (${month_num}); skipping bimonthly publish."
+            exit 0
+          fi
+
+          git fetch origin main publish
+
+          main_sha="$(git rev-parse origin/main)"
+          publish_sha="$(git rev-parse origin/publish)"
+
+          if [ "$main_sha" = "$publish_sha" ]; then
+            echo "publish is already up to date with main; nothing to push."
+            exit 0
+          fi
+
+          if git merge-base --is-ancestor origin/main origin/publish; then
+            echo "publish is ahead of main; skipping overwrite."
+            exit 0
+          fi
+
+          echo "New commits detected on main; updating publish."
+          git push --force-with-lease origin origin/main:publish
