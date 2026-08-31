@@ -1777,14 +1777,18 @@ footer {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
-    align-items: start;
+    align-items: stretch;
+}
+
+.people-grid .faculty-card,
+.people-grid .collapsible-card {
+    grid-column: 1 / -1;
 }
 
 .people-grid .person-card:nth-child(1),
 .people-grid .person-card:nth-child(2),
 .people-grid .person-card:nth-child(3),
 .people-grid .person-card:nth-child(4) {
-    grid-column: auto;
     grid-row: auto;
     transform: none;
 }
@@ -1847,6 +1851,116 @@ footer {
     font-size: 1rem;
     font-weight: 600;
     margin-bottom: 0.65rem;
+}
+
+.faculty-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.faculty-layout .person-description {
+    margin-bottom: 0;
+}
+
+.faculty-identity .person-links {
+    margin-top: 0.45rem;
+}
+
+@media (min-width: 769px) {
+    .faculty-layout {
+        display: grid;
+        grid-template-columns: minmax(16rem, 0.38fr) 1fr;
+        gap: 0.5rem 1.75rem;
+        align-items: start;
+    }
+
+    .faculty-layout .person-description {
+        margin-top: 0.15rem;
+    }
+}
+
+.person-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.65rem;
+    cursor: pointer;
+}
+
+.person-card-header h3 {
+    margin-bottom: 0;
+}
+
+.collapsible-card:not(.collapsed) .person-card-header {
+    margin-bottom: 0.65rem;
+}
+
+.person-card-toggle {
+    display: inline-flex !important;
+    background: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    font-size: 0.7rem;
+    cursor: pointer;
+    padding: 0;
+    border-radius: 4px;
+    transition: var(--transition);
+    width: 1.5rem;
+    height: 1.5rem;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.person-card-toggle:hover {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+.person-card-toggle i {
+    transition: transform 0.2s ease;
+}
+
+.collapsible-card .researcher-list {
+    overflow: hidden;
+    transition: max-height 0.3s ease, opacity 0.2s ease;
+}
+
+.collapsible-card.collapsed .researcher-list {
+    max-height: 0;
+    opacity: 0;
+    margin: 0;
+    pointer-events: none;
+}
+
+.collapsible-card:not(.collapsed) .researcher-list {
+    max-height: 200rem;
+    opacity: 1;
+}
+
+.people-grid .collapsible-card.collapsed {
+    padding-top: 0.85rem;
+    padding-bottom: 0.85rem;
+}
+
+@media (min-width: 969px) {
+    .people-grid .collapsible-card:not(.collapsed) .researcher-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: start;
+    }
+}
+
+.collapsible-card:not(.collapsed) .person-card-toggle {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+.collapsible-card:not(.collapsed) .person-card-toggle i {
+    transform: rotate(180deg);
 }
 
 .person-name {
@@ -2944,7 +3058,8 @@ footer {
         gap: 0.75rem;
     }
 
-    .researcher-toggle {
+    .researcher-toggle,
+    .person-card-toggle {
         width: 28px;
         height: 28px;
         font-size: 0.8rem;
@@ -3301,6 +3416,7 @@ footer {
     grid-template-columns: 1fr 1fr;
     gap: 0.85rem;
     margin-bottom: 0.85rem;
+    align-items: stretch;
 }
 
 .contact-location-card,
@@ -3318,6 +3434,8 @@ footer {
 
 .contact-location-card {
     grid-column: auto;
+    display: flex;
+    flex-direction: column;
 }
 
 .contact-hours-card {
@@ -3345,6 +3463,7 @@ footer {
     display: flex;
     flex-direction: column;
     gap: 0.55rem;
+    flex: 1;
 }
 
 .location-place {
@@ -3414,7 +3533,7 @@ footer {
     font-weight: 500;
     font-size: 0.82rem;
     transition: var(--transition);
-    margin-top: 0.25rem;
+    margin-top: auto;
 }
 
 .map-link-btn:hover {
@@ -3458,20 +3577,33 @@ footer {
 }
 
 .contact-collaboration-card {
-    background: rgba(255, 255, 255, 0.72);
+    background: rgba(255, 255, 255, 0.88);
     border: 1px solid var(--border-color);
     border-radius: var(--border-radius);
     padding: 1rem 1.1rem;
     box-shadow: var(--shadow-sm);
-    border-left: 2px solid var(--primary-color);
+    border-top: 2px solid var(--primary-color);
     margin-top: 0;
+    transition: var(--transition);
+    overflow: hidden;
+    display: flex;
+}
+
+.contact-collaboration-card:hover {
+    box-shadow: var(--shadow);
+    transform: translateY(-2px);
 }
 
 .collaboration-content {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 1rem;
-    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    width: 100%;
+}
+
+.contact-info-grid .collaboration-cta {
+    justify-content: flex-start;
+    margin-top: auto;
 }
 
 .collaboration-text h3 {
@@ -3561,7 +3693,8 @@ footer {
     .contact-main-card,
 .contact-links-card,
 .contact-location-card,
-.contact-hours-card {
+.contact-hours-card,
+.contact-collaboration-card {
         grid-column: auto;
         transform: none;
         padding: 1rem 1.05rem;

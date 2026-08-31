@@ -46,6 +46,31 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
+    // Collapsible person cards (e.g. Alumni)
+    document.querySelectorAll('.person-card-toggle').forEach((toggle) => {
+        const card = toggle.closest('.collapsible-card');
+        const expanded = card && !card.classList.contains('collapsed');
+        toggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+        toggle.addEventListener('click', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            const card = this.closest('.collapsible-card');
+            if (!card) return;
+
+            const collapsed = card.classList.toggle('collapsed');
+            this.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
+        });
+    });
+
+    document.querySelectorAll('.person-card-header').forEach((header) => {
+        header.addEventListener('click', function (e) {
+            if (e.target.closest('.person-card-toggle')) return;
+            const toggle = this.querySelector('.person-card-toggle');
+            if (toggle) toggle.click();
+        });
+    });
+
     // Researcher bio expand/collapse
     document.querySelectorAll('.researcher-toggle').forEach((toggle) => {
         toggle.setAttribute('aria-expanded', 'false');
