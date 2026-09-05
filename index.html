@@ -13,14 +13,7 @@
     <meta name="msapplication-TileImage" content="assets/P_favicon.png">
     <meta name="msapplication-TileColor" content="#8e6f3e">
     <style>
-        /* Custom favicon media queries */
-        @media (prefers-color-scheme: light) {
-            link[rel="icon"] { 
-                object-fit: contain !important;
-            }
-        }
-        
-        /* Critical CSS for immediate styling */
+        /* Critical CSS for immediate styling — keep :root vars in sync with styles.css */
         :root {
             --primary-color: #8e6f3e;
             --secondary-color: #1a1a1a;
@@ -83,9 +76,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <meta name="description" content="SEAT-Lab @ Purdue - Sensor, Electro-Acoustics Technology Laboratory. Leading research in audio engineering, electroacoustics, and sensor technology at Purdue University.">
+    <!-- Open Graph / social sharing -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="SEAT-Lab @ Purdue – Sensor, Electro-Acoustics Technology Laboratory">
+    <meta property="og:description" content="Leading research in audio engineering, electroacoustics, and sensor technology at Purdue University.">
+    <meta property="og:url" content="https://seat-lab.github.io/">
+    <meta property="og:image" content="https://seat-lab.github.io/assets/P_favicon.png">
 </head>
 <body>
-    <header>
+    <header id="top">
         <div class="header-content">
             <div class="hero-text">
                 <h1>SEAT-Lab @ Purdue</h1>
@@ -163,13 +162,13 @@
                                         <a href="mailto:kim4147@purdue.edu" class="person-link">
                                             <i class="fas fa-envelope"></i> Contact
                                         </a>
-                                        <a href="https://www.linkedin.com/in/noorikim123/" target="_blank" class="person-link">
+                                        <a href="https://www.linkedin.com/in/noorikim123/" target="_blank" rel="noopener noreferrer" class="person-link">
                                             <i class="fab fa-linkedin"></i> LinkedIn
                                         </a>
-                                        <a href="https://www.noorikim.com/" target="_blank" class="person-link">
+                                        <a href="https://www.noorikim.com/" target="_blank" rel="noopener noreferrer" class="person-link">
                                             <i class="fas fa-globe"></i> Website
                                         </a>
-                                        <a href="https://polytechnic.purdue.edu/profile/kim4147" target="_blank" class="person-link">
+                                        <a href="https://polytechnic.purdue.edu/profile/kim4147" target="_blank" rel="noopener noreferrer" class="person-link">
                                             <i class="fas fa-user-tie"></i> Dr. Kim
                                         </a>
                                     </div>
@@ -216,7 +215,7 @@
                                             <a href="mailto:ckyb63@gmail.com?subject=SEAT-Lab" class="person-link">
                                                 <i class="fas fa-envelope"></i> Contact
                                             </a>
-                                            <a href="https://www.linkedin.com/in/maxchen-cky/" target="_blank" class="person-link">
+                                            <a href="https://www.linkedin.com/in/maxchen-cky/" target="_blank" rel="noopener noreferrer" class="person-link">
                                                 <i class="fab fa-linkedin"></i> LinkedIn
                                             </a>
                                         </div>
@@ -308,10 +307,10 @@
                                             <a href="mailto:you72@purdue.edu" class="person-link">
                                                 <i class="fas fa-envelope"></i> Contact
                                             </a>
-                                            <a href="https://www.linkedin.com/in/jungjoo-you/" target="_blank" class="person-link">
+                                            <a href="https://www.linkedin.com/in/jungjoo-you/" target="_blank" rel="noopener noreferrer" class="person-link">
                                                 <i class="fab fa-linkedin"></i> LinkedIn
                                             </a>
-                                            <a href="https://polytechnic.purdue.edu/profile/hhzhang" target="_blank" class="person-link">
+                                            <a href="https://polytechnic.purdue.edu/profile/hhzhang" target="_blank" rel="noopener noreferrer" class="person-link">
                                                 <i class="fas fa-user-tie"></i> Dr. Zhang
                                             </a>
                                         </div>
@@ -335,10 +334,10 @@
                                             <a href="mailto:tmalinow@purdue.edu" class="person-link">
                                                 <i class="fas fa-envelope"></i> Contact
                                             </a>
-                                            <a href="https://www.linkedin.com/in/t-malinowski/" target="_blank" class="person-link">
+                                            <a href="https://www.linkedin.com/in/t-malinowski/" target="_blank" rel="noopener noreferrer" class="person-link">
                                                 <i class="fab fa-linkedin"></i> LinkedIn
                                             </a>
-                                            <a href="https://polytechnic.purdue.edu/profile/rmfrench" target="_blank" class="person-link">
+                                            <a href="https://polytechnic.purdue.edu/profile/rmfrench" target="_blank" rel="noopener noreferrer" class="person-link">
                                                 <i class="fas fa-user-tie"></i> Dr. French
                                             </a>
                                         </div>
@@ -356,16 +355,16 @@
                                     </div>
                                     <div class="researcher-details">
                                         <p class="person-description">
-                                            Nick earned his Master of Science in Engineering Technology from Purdue University in May 2025. He also holds a Bachelor’s degree in Audio Engineering Technology from Purdue. His graduate research, supervised by Dr. Daniel Leon-Salas with support from Dr. Kim, focused on implementing animal vocalization classification on low-power FPGA hardware. Besides, he also compared the performance of several deep learning models for the task of classifying musical instruments present in audio, which was presented and published at IEEE TENCON 2024 in Singapore. Nick is currently a Product Design Engineer at PUI Audio, where he develops demo and evaluation boards and leads efforts to introduce new components—including speakers, microphones, and sensors—into the company’s product portfolio.
+                                            Nick earned his Master of Science in Engineering Technology from Purdue University in May 2025. He also holds a Bachelor’s degree in Audio Engineering Technology from Purdue. His graduate research, supervised by Dr. Daniel Leon-Salas with support from Dr. Kim, focused on implementing animal vocalization classification on low-power FPGA hardware. He also compared the performance of several deep learning models for the task of classifying musical instruments present in audio, which was presented and published at IEEE TENCON 2024 in Singapore. Nick is currently a Product Design Engineer at PUI Audio, where he develops demo and evaluation boards and leads efforts to introduce new components—including speakers, microphones, and sensors—into the company’s product portfolio.
                                         </p>
                                         <div class="person-links">
                                             <a href="mailto:nick.wacyk@gmail.com" class="person-link">
                                                 <i class="fas fa-envelope"></i> Contact
                                             </a>
-                                            <a href="https://linkedin.com/in/nicolas-wacyk/" target="_blank" class="person-link">
+                                            <a href="https://linkedin.com/in/nicolas-wacyk/" target="_blank" rel="noopener noreferrer" class="person-link">
                                                 <i class="fab fa-linkedin"></i> LinkedIn
                                             </a>
-                                            <a href="https://puiaudio.com/" target="_blank" class="person-link">
+                                            <a href="https://puiaudio.com/" target="_blank" rel="noopener noreferrer" class="person-link">
                                                 <i class="fas fa-globe"></i> PUI Audio
                                             </a>
                                         </div>
@@ -389,10 +388,10 @@
                                             <a href="mailto:akshat130301@gmail.com" class="person-link">
                                                 <i class="fas fa-envelope"></i> Contact
                                             </a>
-                                            <a href="https://linkedin.com/in/akshatshrivastava13" target="_blank" class="person-link">
+                                            <a href="https://linkedin.com/in/akshatshrivastava13" target="_blank" rel="noopener noreferrer" class="person-link">
                                                 <i class="fab fa-linkedin"></i> LinkedIn
                                             </a>
-                                            <a href="https://foundation.bot" target="_blank" class="person-link">
+                                            <a href="https://foundation.bot" target="_blank" rel="noopener noreferrer" class="person-link">
                                                 <i class="fas fa-globe"></i> Foundation Robotics
                                             </a>
                                         </div>
@@ -416,10 +415,10 @@
                                             <a href="mailto:truetobiyoo@gmail.com" class="person-link">
                                                 <i class="fas fa-envelope"></i> Contact
                                             </a>
-                                            <a href="https://www.linkedin.com/in/tobiyoo" target="_blank" class="person-link">
+                                            <a href="https://www.linkedin.com/in/tobiyoo" target="_blank" rel="noopener noreferrer" class="person-link">
                                                 <i class="fab fa-linkedin"></i> LinkedIn
                                             </a>
-                                             <a href="https://www.baesystems.com/en" target="_blank" class="person-link">
+                                             <a href="https://www.baesystems.com/en" target="_blank" rel="noopener noreferrer" class="person-link">
                                                 <i class="fas fa-globe"></i> BAE Systems
                                             </a>
                                         </div>
@@ -450,7 +449,7 @@
                                 <div class="collaborator-details">
                                     <p class="collaborator-focus">Project: OAE probe development</p>
                                     <div class="collaborator-links">
-                                        <a href="https://web.ics.purdue.edu/~alexan14/" target="_blank" class="collaborator-link">
+                                        <a href="https://web.ics.purdue.edu/~alexan14/" target="_blank" rel="noopener noreferrer" class="collaborator-link">
                                             <i class="fas fa-globe"></i> Website
                                         </a>
                                     </div>
@@ -479,7 +478,7 @@
                                 <div class="collaborator-details">
                                     <p class="collaborator-focus">Project: Acoustic signals and Microphone Array</p>
                                     <div class="collaborator-links">
-                                        <a href="https://web.ics.purdue.edu/~wleonsal/index.html" target="_blank" class="collaborator-link">
+                                        <a href="https://web.ics.purdue.edu/~wleonsal/index.html" target="_blank" rel="noopener noreferrer" class="collaborator-link">
                                             <i class="fas fa-globe"></i> Website
                                         </a>
                                     </div>
@@ -505,7 +504,7 @@
                                 </div>
                                 <div class="collaborator-details">
                                     <div class="collaborator-links">
-                                        <a href="https://personal.ntu.edu.sg/skmoon/" target="_blank" class="collaborator-link">
+                                        <a href="https://personal.ntu.edu.sg/skmoon/" target="_blank" rel="noopener noreferrer" class="collaborator-link">
                                             <i class="fas fa-globe"></i> Website
                                         </a>
                                     </div>
@@ -522,7 +521,7 @@
                                 </div>
                                 <div class="collaborator-details">
                                     <div class="collaborator-links">
-                                        <a href="https://jdl.kaist.ac.kr/research" target="_blank" class="collaborator-link">
+                                        <a href="https://jdl.kaist.ac.kr/research" target="_blank" rel="noopener noreferrer" class="collaborator-link">
                                             <i class="fas fa-globe"></i> Website
                                         </a>
                                     </div>
@@ -539,7 +538,7 @@
                                 </div>
                                 <div class="collaborator-details">
                                     <div class="collaborator-links">
-                                        <a href="https://pme.site.nthu.edu.tw/p/406-1308-73986,r4027.php?Lang=en" target="_blank" class="collaborator-link">
+                                        <a href="https://pme.site.nthu.edu.tw/p/406-1308-73986,r4027.php?Lang=en" target="_blank" rel="noopener noreferrer" class="collaborator-link">
                                             <i class="fas fa-globe"></i> Website
                                         </a>
                                     </div>
@@ -556,7 +555,7 @@
                                 </div>
                                 <div class="collaborator-details">
                                     <div class="collaborator-links">
-                                        <a href="https://sites.google.com/view/ewha-aisec/" target="_blank" class="collaborator-link">
+                                        <a href="https://sites.google.com/view/ewha-aisec/" target="_blank" rel="noopener noreferrer" class="collaborator-link">
                                             <i class="fas fa-globe"></i> Website
                                         </a>
                                     </div>
@@ -569,7 +568,7 @@
         </section>
 
         <section id="research" class="content-section">
-            <h2><i class="fas fa-microscope"></i> Research focuses</h2>
+            <h2><i class="fas fa-microscope"></i> Research Focuses</h2>
             <div class="section-content">
                 <div class="skills-grid">
                     <div class="skill-category">
@@ -675,7 +674,7 @@
                                 <span class="pub-tag">Hearing Aids</span>
                             </div>
                             <div class="publication-links">
-                                <a href="https://doi.org/10.21437/Clarity.2025-5" target="_blank" class="publication-link">
+                                <a href="https://doi.org/10.21437/Clarity.2025-5" target="_blank" rel="noopener noreferrer" class="publication-link">
                                     <i class="fas fa-external-link-alt"></i> View Extended Abstract
                                 </a>
                             </div>
@@ -694,7 +693,7 @@
                                 <span class="pub-tag">Acoustic Sensing</span>
                             </div>
                             <div class="publication-links">
-                                <a href="https://doi.org/10.5703/1288284317876" target="_blank" class="publication-link">
+                                <a href="https://doi.org/10.5703/1288284317876" target="_blank" rel="noopener noreferrer" class="publication-link">
                                     <i class="fas fa-external-link-alt"></i> View Extended Abstract
                                 </a>
                             </div>
@@ -712,7 +711,7 @@
                                 <span class="pub-tag">Nanoparticles</span>
                             </div>
                             <div class="publication-links">
-                                <a href="https://doi.org/10.1007/s40684-025-00782-5" target="_blank" class="publication-link">
+                                <a href="https://doi.org/10.1007/s40684-025-00782-5" target="_blank" rel="noopener noreferrer" class="publication-link">
                                     <i class="fas fa-external-link-alt"></i> View Paper
                                 </a>
                             </div>
@@ -731,7 +730,7 @@
                                 <span class="pub-tag">Sensors</span>
                             </div>
                             <div class="publication-links">
-                                <a href="https://doi.org/10.1121/10.0028298" target="_blank" class="publication-link">
+                                <a href="https://doi.org/10.1121/10.0028298" target="_blank" rel="noopener noreferrer" class="publication-link">
                                     <i class="fas fa-external-link-alt"></i> View Paper
                                 </a>
                             </div>
@@ -751,7 +750,7 @@
                                 <span class="pub-tag">LSTM</span>
                             </div>
                             <div class="publication-links">
-                                <a href="https://doi.org/10.1088/2057-1976/ac9e04" target="_blank" class="publication-link">
+                                <a href="https://doi.org/10.1088/2057-1976/ac9e04" target="_blank" rel="noopener noreferrer" class="publication-link">
                                     <i class="fas fa-external-link-alt"></i> View Paper
                                 </a>
                             </div>
@@ -770,7 +769,7 @@
                                 <span class="pub-tag">Smart Devices</span>
                             </div>
                             <div class="publication-links">
-                                <a href="https://doi.org/10.1109/IEEM45057.2020.9309863" target="_blank" class="publication-link">
+                                <a href="https://doi.org/10.1109/IEEM45057.2020.9309863" target="_blank" rel="noopener noreferrer" class="publication-link">
                                     <i class="fas fa-external-link-alt"></i> View Paper
                                 </a>
                             </div>
@@ -790,7 +789,7 @@
                                 <span class="pub-tag">Hearing</span>
                             </div>
                             <div class="publication-links">
-                                <a href="https://doi.org/10.1016/j.heares.2013.02.007" target="_blank" class="publication-link">
+                                <a href="https://doi.org/10.1016/j.heares.2013.02.007" target="_blank" rel="noopener noreferrer" class="publication-link">
                                     <i class="fas fa-external-link-alt"></i> View Paper
                                 </a>
                             </div>
@@ -844,21 +843,21 @@
                             <h3>Quick Links</h3>
                         </div>
                         <div class="contact-links-grid">
-                            <a href="https://github.com/SEAT-Lab" target="_blank" class="contact-link-item">
+                            <a href="https://github.com/SEAT-Lab" target="_blank" rel="noopener noreferrer" class="contact-link-item">
                                 <i class="fab fa-github"></i>
                                 <div>
                                     <strong>GitHub</strong>
                                     <span>Research repositories</span>
                                 </div>
                             </a>
-                            <a href="https://polytechnic.purdue.edu/profile/kim4147" target="_blank" class="contact-link-item">
+                            <a href="https://polytechnic.purdue.edu/profile/kim4147" target="_blank" rel="noopener noreferrer" class="contact-link-item">
                                 <i class="fas fa-university"></i>
                                 <div>
                                     <strong>Purdue Profile</strong>
                                     <span>Faculty page</span>
                                 </div>
                             </a>
-                            <a href="https://www.noorikim.com/" target="_blank" class="contact-link-item">
+                            <a href="https://www.noorikim.com/" target="_blank" rel="noopener noreferrer" class="contact-link-item">
                                 <i class="fas fa-globe"></i>
                                 <div>
                                     <strong>Personal Website</strong>
@@ -899,7 +898,7 @@
                                 <i class="fas fa-building"></i>
                                 <p>401 N. Grant St, West Lafayette, IN 47906</p>
                             </div>
-                            <a href="https://www.google.com/maps/search/?api=1&query=401+N+Grant+St,+West+Lafayette,+IN+47906" target="_blank" class="map-link-btn">
+                            <a href="https://www.google.com/maps/search/?api=1&query=401+N+Grant+St,+West+Lafayette,+IN+47906" target="_blank" rel="noopener noreferrer" class="map-link-btn">
                                 <i class="fas fa-map"></i>
                                 <span>View on Map</span>
                             </a>
@@ -948,7 +947,7 @@
                                 <i class="fas fa-envelope"></i>
                                 <span>Contact</span>
                             </a>
-                            <a href="https://github.com/SEAT-Lab" target="_blank" aria-label="SEAT-Lab GitHub">
+                            <a href="https://github.com/SEAT-Lab" target="_blank" rel="noopener noreferrer" aria-label="SEAT-Lab GitHub">
                                 <i class="fab fa-github"></i>
                                 <span>GitHub</span>
                             </a>

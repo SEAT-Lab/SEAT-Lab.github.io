@@ -13,7 +13,7 @@
     <meta name="msapplication-TileImage" content="assets/P_favicon.png">
     <meta name="msapplication-TileColor" content="#8e6f3e">
     <style>
-        /* Critical CSS for immediate styling */
+        /* Critical CSS for immediate styling — keep :root vars in sync with styles.css */
         :root {
             --primary-color: #8e6f3e;
             --secondary-color: #1a1a1a;
@@ -29,7 +29,7 @@
             --font-display: 'Source Serif 4', Georgia, 'Times New Roman', serif;
             --font-body: 'Source Sans 3', 'Segoe UI', sans-serif;
         }
-        
+
         body {
             font-family: var(--font-body);
             margin: 0;
@@ -38,7 +38,7 @@
             background-color: var(--background);
             color: var(--text-primary);
         }
-        
+
         .page-header {
             background: linear-gradient(160deg, rgba(142, 111, 62, 0.92) 0%, rgba(26, 26, 26, 0.94) 58%, #111 100%);
             color: white;
@@ -53,6 +53,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <meta name="description" content="Publications from SEAT-Lab @ Purdue University - Research papers, conference proceedings, and academic contributions in electro-acoustics and sensor technology.">
+    <!-- Open Graph / social sharing -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Publications – SEAT-Lab @ Purdue">
+    <meta property="og:description" content="Research papers, conference proceedings, and academic contributions in electro-acoustics and sensor technology from SEAT-Lab at Purdue University.">
+    <meta property="og:url" content="https://seat-lab.github.io/publications.html">
+    <meta property="og:image" content="https://seat-lab.github.io/assets/P_favicon.png">
 </head>
 <body>
     <nav>
@@ -113,7 +119,7 @@
         </div>
     </div>
 
-    <header class="page-header">
+    <header id="top" class="page-header">
         <div class="header-content">
             <div class="hero-text">
                 <h1><i class="fas fa-file-alt"></i> Publications</h1>
@@ -162,7 +168,7 @@
                                         <span class="keyword healthcare">Ear Canal</span>
                                     </div>
                                     <div class="publication-actions">
-                                        <a href="https://doi.org/10.1121/10.0043165" target="_blank" class="publication-action-btn primary">
+                                        <a href="https://doi.org/10.1121/10.0043165" target="_blank" rel="noopener noreferrer" class="publication-action-btn primary">
                                             <i class="fas fa-external-link-alt"></i> View Paper
                                         </a>
                                     </div>
@@ -197,7 +203,7 @@
                                         <span class="keyword sensors">Separation Technology</span>
                                     </div>
                                     <div class="publication-actions">
-                                        <a href="https://doi.org/10.1007/s40684-025-00782-5" target="_blank" class="publication-action-btn primary">
+                                        <a href="https://doi.org/10.1007/s40684-025-00782-5" target="_blank" rel="noopener noreferrer" class="publication-action-btn primary">
                                             <i class="fas fa-external-link-alt"></i> View Paper
                                         </a>
                                     </div>
@@ -227,7 +233,7 @@
                                         <span class="keyword ml">Speech Recognition</span>
                                     </div>
                                     <div class="publication-actions">
-                                        <a href="https://doi.org/10.21437/Clarity.2025-5" target="_blank" class="publication-action-btn primary">
+                                        <a href="https://doi.org/10.21437/Clarity.2025-5" target="_blank" rel="noopener noreferrer" class="publication-action-btn primary">
                                             <i class="fas fa-external-link-alt"></i> View Extended Abstract
                                         </a>
                                     </div>
@@ -260,7 +266,7 @@
                                         <span class="keyword sensors">Speaker Technology</span>
                                     </div>
                                     <div class="publication-actions">
-                                        <a href="https://doi.org/10.5703/1288284317876" target="_blank" class="publication-action-btn primary">
+                                        <a href="https://doi.org/10.5703/1288284317876" target="_blank" rel="noopener noreferrer" class="publication-action-btn primary">
                                             <i class="fas fa-external-link-alt"></i> View Extended Abstract
                                         </a>
                                     </div>
@@ -295,7 +301,7 @@
                                         <span class="keyword acoustics">Speaker Technology</span>
                                     </div>
                                     <div class="publication-actions">
-                                        <a href="https://doi.org/10.1121/10.0028298" target="_blank" class="publication-action-btn primary">
+                                        <a href="https://doi.org/10.1121/10.0028298" target="_blank" rel="noopener noreferrer" class="publication-action-btn primary">
                                             <i class="fas fa-external-link-alt"></i> View Paper
                                         </a>
                                     </div>
@@ -322,7 +328,7 @@
                                         <span class="keyword ml">Classification</span>
                                     </div>
                                     <div class="publication-actions">
-                                        <a href="https://doi.org/10.1088/2057-1976/ad4f8d" target="_blank" class="publication-action-btn primary">
+                                        <a href="https://doi.org/10.1088/2057-1976/ad4f8d" target="_blank" rel="noopener noreferrer" class="publication-action-btn primary">
                                             <i class="fas fa-external-link-alt"></i> View Paper
                                         </a>
                                     </div>
@@ -467,7 +473,7 @@
                                         <span class="keyword ml">Fuzzy Inference</span>
                                     </div>
                                     <div class="publication-actions">
-                                        <a href="https://doi.org/10.1088/2057-1976/ac9e04" target="_blank" class="publication-action-btn primary">
+                                        <a href="https://doi.org/10.1088/2057-1976/ac9e04" target="_blank" rel="noopener noreferrer" class="publication-action-btn primary">
                                             <i class="fas fa-external-link-alt"></i> View Paper
                                         </a>
                                     </div>
@@ -665,7 +671,7 @@
                                         <span class="keyword healthcare">Medical Technology</span>
                                     </div>
                                     <div class="publication-actions">
-                                        <a href="https://doi.org/10.1109/IEEM45057.2020.9309863" target="_blank" class="publication-action-btn primary">
+                                        <a href="https://doi.org/10.1109/IEEM45057.2020.9309863" target="_blank" rel="noopener noreferrer" class="publication-action-btn primary">
                                             <i class="fas fa-external-link-alt"></i> View Paper
                                         </a>
                                     </div>
@@ -781,7 +787,7 @@
                                         <span class="keyword acoustics">Taxonomy</span>
                                     </div>
                                     <div class="publication-actions">
-                                        <a href="https://doi.org/10.1121/1.4950726" target="_blank" class="publication-action-btn primary">
+                                        <a href="https://doi.org/10.1121/1.4950726" target="_blank" rel="noopener noreferrer" class="publication-action-btn primary">
                                             <i class="fas fa-external-link-alt"></i> View Paper
                                         </a>
                                     </div>
@@ -815,7 +821,7 @@
                                         <span class="keyword acoustics">Two-port Network</span>
                                     </div>
                                     <div class="publication-actions">
-                                        <a href="https://doi.org/10.1016/j.heares.2013.02.007" target="_blank" class="publication-action-btn primary">
+                                        <a href="https://doi.org/10.1016/j.heares.2013.02.007" target="_blank" rel="noopener noreferrer" class="publication-action-btn primary">
                                             <i class="fas fa-external-link-alt"></i> View Paper
                                         </a>
                                     </div>
@@ -843,7 +849,7 @@
                                 <i class="fas fa-envelope"></i>
                                 <span>Contact</span>
                             </a>
-                            <a href="https://github.com/SEAT-Lab" target="_blank" aria-label="SEAT-Lab GitHub">
+                            <a href="https://github.com/SEAT-Lab" target="_blank" rel="noopener noreferrer" aria-label="SEAT-Lab GitHub">
                                 <i class="fab fa-github"></i>
                                 <span>GitHub</span>
                             </a>

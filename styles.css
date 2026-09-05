@@ -164,11 +164,10 @@ nav {
     background-color: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(20px);
     box-shadow: var(--shadow);
-    position: sticky;
+    position: fixed;
     top: 0;
     z-index: 100;
     padding: 0.5rem 0;
-    position: fixed;
     width: 100%;
     left: 0;
     height: 60px;
@@ -312,13 +311,6 @@ main {
 .content-section:nth-child(5) { animation-delay: 0.5s; }
 
 .content-section:nth-child(6) { animation-delay: 0.6s; }
-
-@keyframes fadeInUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
 
 /* Modern Section Dividers */
 .content-section::before {
@@ -1145,7 +1137,6 @@ footer {
 }
 
 .footer-section ul li a:hover {
-    color: white;
     color: var(--accent-color);
     transform: translateX(2px);
 }
@@ -1533,10 +1524,6 @@ footer {
         box-shadow: 0 6px 20px rgba(37, 99, 235, 0.6);
         transform: translateY(-50%) scale(1.05);
     }
-}
-
-.content-section {
-    animation: fadeInUp 0.6s ease-out forwards;
 }
 
 /* Page Header Styles */
@@ -2124,8 +2111,9 @@ footer {
     color: white;
     padding: 0.25rem 0.75rem;
     border-radius: 12px;
-    font-size: 0.8rem;
-    font-weight: 500;
+    font-size: 0.85rem;
+    font-weight: 400;
+    opacity: 0.8;
 }
 
 .publication-authors {
@@ -2350,12 +2338,6 @@ footer {
     font-family: var(--font-display);
     font-size: 1rem;
     font-weight: 600;
-}
-
-.publication-count {
-    font-size: 0.85rem;
-    font-weight: 400;
-    opacity: 0.8;
 }
 
 .toggle-icon {
