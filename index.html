@@ -70,7 +70,7 @@
         }
         
     </style>
-    <link rel="stylesheet" href="styles.css?v=2026.7.7">
+    <link rel="stylesheet" href="styles.css?v=2026.7.8">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -114,10 +114,10 @@
             </a>
             <ul class="nav-links">
                 <li><a href="#about-lab">Home</a></li>
-                <li><a href="#people">Our Team</a></li>
-                <li><a href="#collaborators">Collaborators</a></li>
                 <li><a href="#research">Research</a></li>
                 <li><a href="#projects">Projects</a></li>
+                <li><a href="#people">Our Team</a></li>
+                <li><a href="#collaborators">Collaborators</a></li>
                 <li><a href="#publications">Publications</a></li>
                 <!--<li><a href="facilities.html">Facilities</a></li>-->
                 <!--<li><a href="gallery.html">Gallery</a></li>-->
@@ -142,6 +142,128 @@
                     <p>
                         Our multidisciplinary research spans hearing mechanics, future healthcare applications, MEMS technology, electromagnetics, acoustics, and embedded IoT systems, bridging computer, electrical, and mechanical engineering.
                     </p>
+                </div>
+                <div class="lab-stats-bar">
+                    <div class="stat-item">
+                        <span class="stat-number">20+</span>
+                        <span class="stat-label">Publications</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">8</span>
+                        <span class="stat-label">Researchers</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">2</span>
+                        <span class="stat-label">Active Projects</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">3</span>
+                        <span class="stat-label">Research Areas</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="news" class="content-section">
+            <div class="section-header">
+                <h2><i class="fas fa-newspaper"></i> News &amp; Updates</h2>
+                <a href="news.html" class="section-header-btn">
+                    <i class="fas fa-arrow-right"></i> View All News
+                </a>
+            </div>
+            <div class="section-content">
+                <div id="news-feed" class="news-list news-list-compact" data-news-limit="3">
+                    <p class="news-loading"><i class="fas fa-spinner fa-spin"></i> Loading…</p>
+                </div>
+                <div class="section-footer mobile-only">
+                    <a href="news.html" class="view-more-btn">
+                        <i class="fas fa-arrow-right"></i> View All News
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="research" class="content-section">
+            <h2><i class="fas fa-microscope"></i> Research Focuses</h2>
+            <div class="section-content">
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3><i class="fas fa-ear-listen"></i> Hearing Mechanics</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag primary">Auditory Systems</span>
+                            <span class="skill-tag primary">Acoustic Analysis</span>
+                            <span class="skill-tag">Hearing Research</span>
+                            <span class="skill-tag">Signal Processing</span>
+                        </div>
+                    </div>
+                                        
+                    <div class="skill-category">
+                        <h3><i class="fas fa-microchip"></i> MEMS & Electromagnetics</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag primary">MEMS Design</span>
+                            <span class="skill-tag">Electromagnetic Sensors</span>
+                            <span class="skill-tag">Microfabrication</span>
+                            <span class="skill-tag">RF Systems</span>
+                            <span class="skill-tag">Sensor Integration</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3><i class="fas fa-brain"></i> Data Science & Machine Learning</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag primary">Neural Networks</span>
+                            <span class="skill-tag primary">Data Analysis</span>
+                            <span class="skill-tag">Impedance Features</span>
+                            <span class="skill-tag">Visualization</span>
+                            <span class="skill-tag">Pattern Recognition</span>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="content-section">
+            <div class="section-header">
+                <h2><i class="fas fa-project-diagram"></i> Featured Projects</h2>
+                <a href="projects.html" class="section-header-btn">
+                    <i class="fas fa-arrow-right"></i> View All Projects
+                </a>
+            </div>
+            <div class="section-content">
+                <div class="projects-preview-grid">
+                    <div class="project-preview-card">
+                        <div class="project-preview-header">
+                            <h3>Speaker-as-Sensor Technology</h3>
+                        </div>
+                        <p class="project-preview-description">
+                            Developing innovative methods to use speakers as sensors for detecting acoustic loads using dense neural networks and impedance analysis.
+                        </p>
+                        <div class="project-preview-tech">
+                            <span class="tech-tag">Machine Learning</span>
+                            <span class="tech-tag">Signal Processing</span>
+                            <span class="tech-tag">Acoustics</span>
+                        </div>
+                    </div>
+                                        
+                    <div class="project-preview-card">
+                        <div class="project-preview-header">
+                            <h3>Electroacoustic Coupling Investigation</h3>
+                        </div>
+                        <p class="project-preview-description">
+                            Fundamental research exploring the complex relationships between acoustical loads and electrical impedance in audio transducers. This work aims to advance our understanding of electroacoustic coupling phenomena and develop new measurement methodologies. 
+                        </p>
+                        <div class="project-preview-tech">
+                            <span class="tech-tag">Data Analysis</span>
+                            <span class="tech-tag">Visualization</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="section-footer mobile-only">
+                    <a href="projects.html" class="view-more-btn">
+                        <i class="fas fa-arrow-right"></i> View All Projects
+                    </a>
                 </div>
             </div>
         </section>
@@ -170,6 +292,9 @@
                                         </a>
                                         <a href="https://polytechnic.purdue.edu/profile/kim4147" target="_blank" rel="noopener noreferrer" class="person-link">
                                             <i class="fas fa-user-tie"></i> Dr. Kim
+                                        </a>
+                                        <a href="https://orcid.org/0000-0002-1226-5845" target="_blank" rel="noopener noreferrer" class="person-link">
+                                            <i class="fab fa-orcid"></i> ORCID
                                         </a>
                                     </div>
                                 </div>
@@ -218,6 +343,9 @@
                                             <a href="https://www.linkedin.com/in/maxchen-cky/" target="_blank" rel="noopener noreferrer" class="person-link">
                                                 <i class="fab fa-linkedin"></i> LinkedIn
                                             </a>
+                                            <a href="https://orcid.org/0009-0000-3557-4299" target="_blank" rel="noopener noreferrer" class="person-link">
+                                                <i class="fab fa-orcid"></i> ORCID
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
@@ -225,19 +353,11 @@
                         </div>
                     </div>
                     
-                    <!-- Undergraduate and Visiting Scholar -->
+                    <!-- Undergraduate Researchers -->
                     <div class="person-card">
                         <div class="person-info">
-                            <h3>Undergraduate and Visiting Scholar</h3>
+                            <h3>Undergraduate Researchers</h3>
                             <div class="researcher-list">
-                                <div class="researcher-item">
-                                    <p class="person-name">Jiwoo Hong</p>
-                                    <p class="person-focus">BS Student from Ewha Womans University, South Korea</p>
-                                </div>
-                                <div class="researcher-item">
-                                    <p class="person-name">Catherine Hae Seung Jeon</p>
-                                    <p class="person-focus">MS Student from Ewha Womans University, South Korea</p>
-                                </div>
                                 <div class="researcher-item">
                                     <p class="person-name">Christopher Raymond Morris</p>
                                     <p class="person-focus">Research Assistant</p>
@@ -249,13 +369,30 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- Visiting Scholars -->
+                    <div class="person-card">
+                        <div class="person-info">
+                            <h3>Visiting Scholars</h3>
+                            <div class="researcher-list">
+                                <div class="researcher-item">
+                                    <p class="person-name">Jiwoo Hong</p>
+                                    <p class="person-focus">BS Student, Ewha Womans University, South Korea</p>
+                                </div>
+                                <div class="researcher-item">
+                                    <p class="person-name">Catherine Hae Seung Jeon</p>
+                                    <p class="person-focus">MS Student, Ewha Womans University, South Korea</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     
-                    <!-- Alumni -->
+                    <!-- Former Lab Members -->
                     <div class="person-card collapsible-card collapsed">
                         <div class="person-info">
                             <div class="person-card-header">
-                                <h3>Alumni</h3>
-                                <button class="person-card-toggle" aria-label="Toggle alumni list" aria-expanded="false">
+                                <h3>Former Lab Members</h3>
+                                <button class="person-card-toggle" aria-label="Toggle former members list" aria-expanded="false">
                                     <i class="fas fa-chevron-down"></i>
                                 </button>
                             </div>
@@ -290,31 +427,8 @@
                                     <p class="person-focus"> Research Assistant</p>
                                 </div>
                                 <div class="researcher-item">
-                                    <div class="researcher-header">
-                                        <div class="researcher-basic-info">
-                                            <p class="person-name">Jungjoo You</p>
-                                            <p class="person-focus"> MS Student in Engineering Technology (Co-supervised with Dr. Zhang)</p>
-                                        </div>
-                                        <button class="researcher-toggle" aria-label="Toggle details" aria-expanded="false">
-                                            <i class="fas fa-chevron-down"></i>
-                                        </button>
-                                    </div>
-                                    <div class="researcher-details">
-                                        <p class="person-description">
-                                            Jungjoo is a master's student in Engineering Technology, working under the supervision of Dr. Zhang and Dr. Kim. His research focuses on developing a closed-loop control system prototype for tapered glass nanotube production, with an emphasis on achieving precise control of the orifice dimensions within the tapered glass tube. He previously earned dual Bachelor's degrees in Mechatronic Engineering Technology and Robotics Engineering Technology from Purdue University. Jungjoo is currently fulfilling his military service in South Korea and is expected to resume his MS studies in 2026.
-                                        </p>
-                                        <div class="person-links">
-                                            <a href="mailto:you72@purdue.edu" class="person-link">
-                                                <i class="fas fa-envelope"></i> Contact
-                                            </a>
-                                            <a href="https://www.linkedin.com/in/jungjoo-you/" target="_blank" rel="noopener noreferrer" class="person-link">
-                                                <i class="fab fa-linkedin"></i> LinkedIn
-                                            </a>
-                                            <a href="https://polytechnic.purdue.edu/profile/hhzhang" target="_blank" rel="noopener noreferrer" class="person-link">
-                                                <i class="fas fa-user-tie"></i> Dr. Zhang
-                                            </a>
-                                        </div>
-                                    </div>
+                                    <p class="person-name">Jungjoo You</p>
+                                    <p class="person-focus">MS Student in Engineering Technology (Co-supervised with Dr. Zhang)</p>
                                 </div>
                                 <div class="researcher-item">
                                     <div class="researcher-header">
@@ -567,92 +681,7 @@
             </div>
         </section>
 
-        <section id="research" class="content-section">
-            <h2><i class="fas fa-microscope"></i> Research Focuses</h2>
-            <div class="section-content">
-                <div class="skills-grid">
-                    <div class="skill-category">
-                        <h3><i class="fas fa-ear-listen"></i> Hearing Mechanics</h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag primary">Auditory Systems</span>
-                            <span class="skill-tag primary">Acoustic Analysis</span>
-                            <span class="skill-tag">Hearing Research</span>
-                            <span class="skill-tag">Signal Processing</span>
-                        </div>
-                    </div>
-                                        
-                    <div class="skill-category">
-                        <h3><i class="fas fa-microchip"></i> MEMS & Electromagnetics</h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag primary">MEMS Design</span>
-                            <span class="skill-tag">Electromagnetic Sensors</span>
-                            <span class="skill-tag">Microfabrication</span>
-                            <span class="skill-tag">RF Systems</span>
-                            <span class="skill-tag">Sensor Integration</span>
-                        </div>
-                    </div>
-
-                    <div class="skill-category">
-                        <h3><i class="fas fa-brain"></i> Data Science & Machine Learning</h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag primary">Neural Networks</span>
-                            <span class="skill-tag primary">Data Analysis</span>
-                            <span class="skill-tag">Impedance Features</span>
-                            <span class="skill-tag">Visualization</span>
-                            <span class="skill-tag">Pattern Recognition</span>
-                        </div>
-                    </div>
-                    
-                </div>
-            </div>
-        </section>
-
-        <section id="projects" class="content-section">
-            <div class="section-header">
-                <h2><i class="fas fa-project-diagram"></i> Featured Projects</h2>
-                <a href="projects.html" class="section-header-btn">
-                    <i class="fas fa-arrow-right"></i> View All Projects
-                </a>
-            </div>
-            <div class="section-content">
-                <div class="projects-preview-grid">
-                    <div class="project-preview-card">
-                        <div class="project-preview-header">
-                            <h3>Speaker-as-Sensor Technology</h3>
-                        </div>
-                        <p class="project-preview-description">
-                            Developing innovative methods to use speakers as sensors for detecting acoustic loads using dense neural networks and impedance analysis.
-                        </p>
-                        <div class="project-preview-tech">
-                            <span class="tech-tag">Machine Learning</span>
-                            <span class="tech-tag">Signal Processing</span>
-                            <span class="tech-tag">Acoustics</span>
-                        </div>
-                    </div>
-                                        
-                    <div class="project-preview-card">
-                        <div class="project-preview-header">
-                            <h3>Electroacoustic Coupling Investigation</h3>
-                        </div>
-                        <p class="project-preview-description">
-                            Fundamental research exploring the complex relationships between acoustical loads and electrical impedance in audio transducers. This work aims to advance our understanding of electroacoustic coupling phenomena and develop new measurement methodologies. 
-                        </p>
-                        <div class="project-preview-tech">
-                            <span class="tech-tag">Data Analysis</span>
-                            <span class="tech-tag">Visualization</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="section-footer mobile-only">
-                    <a href="projects.html" class="view-more-btn">
-                        <i class="fas fa-arrow-right"></i> View All Projects
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <section id="publications" class="content-section">
+                <section id="publications" class="content-section">
             <div class="section-header">
                 <h2><i class="fas fa-file-alt"></i> Publications</h2>
                 <a href="publications.html" class="section-header-btn">
@@ -661,44 +690,25 @@
             </div>
             <div class="section-content">
                 <div class="featured-publications-grid">
-                    <!-- Recent Publications (2024-2025) -->
-                    <div class="publication-highlight-card">
-                        <div class="publication-year-badge">2025</div>
-                        <div class="publication-content">
-                            <h4>Domain-Adapted Automatic Speech Recognition with Deep Neural Networks for Enhanced Speech Intelligibility Prediction</h4>
-                            <p class="publication-authors">Jeon, H., Hong, J., Hong, S., Kang, H., Kim, B., Oh, S.E., Kim, N.</p>
-                            <p class="publication-venue">The 6th Clarity Workshop on Improving Speech-in-Noise for Hearing Devices (Clarity-2025), 15-17</p>
-                            <div class="publication-tags">
-                                <span class="pub-tag">Machine Learning</span>
-                                <span class="pub-tag">Deep Neural Networks</span>
-                                <span class="pub-tag">Hearing Aids</span>
-                            </div>
-                            <div class="publication-links">
-                                <a href="https://doi.org/10.21437/Clarity.2025-5" target="_blank" rel="noopener noreferrer" class="publication-link">
-                                    <i class="fas fa-external-link-alt"></i> View Extended Abstract
-                                </a>
-                            </div>
-                        </div>
-                        </div>
 
                     <div class="publication-highlight-card">
-                        <div class="publication-year-badge">2025</div>
+                        <div class="publication-year-badge">2026</div>
                         <div class="publication-content">
-                            <h4>Using Speakers as Sensors: Detecting Acoustic Loads with Dense Neural Networks and Impedance Features</h4>
-                            <p class="publication-authors">M. Chen, K. Alexander Nakamura, N. Kim</p>
-                            <p class="publication-venue">Purdue Polytechnic Graduate Student Poster Symposium, 2025</p>
+                            <h4>Speakers as sensors: Machine learning-based earphone impedance analysis for ear canal insertion depth prediction</h4>
+                            <p class="publication-authors">N. Kim, K. Alexander Nakamura, M. Chen, C. H. S. Jeon, M. R. Bai</p>
+                            <p class="publication-venue">Journal of the Acoustical Society of America, vol. 159, no. 3, pp. 2729–2740</p>
                             <div class="publication-tags">
                                 <span class="pub-tag">Machine Learning</span>
-                                <span class="pub-tag">Neural Networks</span>
-                                <span class="pub-tag">Acoustic Sensing</span>
+                                <span class="pub-tag">Ear Canal</span>
+                                <span class="pub-tag">Impedance</span>
                             </div>
                             <div class="publication-links">
-                                <a href="https://doi.org/10.5703/1288284317876" target="_blank" rel="noopener noreferrer" class="publication-link">
-                                    <i class="fas fa-external-link-alt"></i> View Extended Abstract
+                                <a href="https://doi.org/10.1121/10.0043165" target="_blank" rel="noopener noreferrer" class="publication-link">
+                                    <i class="fas fa-external-link-alt"></i> View Paper
                                 </a>
                             </div>
                         </div>
-                        </div>
+                    </div>
 
                     <div class="publication-highlight-card">
                         <div class="publication-year-badge">2025</div>
@@ -716,8 +726,26 @@
                                 </a>
                             </div>
                         </div>
+                    </div>
+
+                    <div class="publication-highlight-card">
+                        <div class="publication-year-badge">2025</div>
+                        <div class="publication-content">
+                            <h4>Domain-Adapted Automatic Speech Recognition with Deep Neural Networks for Enhanced Speech Intelligibility Prediction</h4>
+                            <p class="publication-authors">Jeon, H., Hong, J., Hong, S., Kang, H., Kim, B., Oh, S.E., Kim, N.</p>
+                            <p class="publication-venue">The 6th Clarity Workshop on Improving Speech-in-Noise for Hearing Devices (Clarity-2025)</p>
+                            <div class="publication-tags">
+                                <span class="pub-tag">Deep Neural Networks</span>
+                                <span class="pub-tag">Hearing Aids</span>
+                            </div>
+                            <div class="publication-links">
+                                <a href="https://doi.org/10.21437/Clarity.2025-5" target="_blank" rel="noopener noreferrer" class="publication-link">
+                                    <i class="fas fa-external-link-alt"></i> View Extended Abstract
+                                </a>
+                            </div>
                         </div>
-                            
+                    </div>
+
                     <div class="publication-highlight-card">
                         <div class="publication-year-badge">2024</div>
                         <div class="publication-content">
@@ -736,71 +764,55 @@
                             </div>
                         </div>
                     </div>
-                    
-                    <!-- Core Research Publications -->
+
                     <div class="publication-highlight-card">
-                        <div class="publication-year-badge">2022</div>
+                        <div class="publication-year-badge">2024</div>
                         <div class="publication-content">
-                            <h4>Fuzzy inference system (FIS)-long short-term memory (LSTM) network for electromyography (EMG) signal analysis</h4>
-                            <p class="publication-authors">R Suppiah, N Kim, A Sharma, K Abidi</p>
-                            <p class="publication-venue">Biomedical Physics & Engineering Express, vol. 8, no. 6, pp. 065032</p>
+                            <h4>Digital Therapeutics in Hearing Healthcare: Evidence-Based Review</h4>
+                            <p class="publication-authors">Noori Kim, Keisuke Alexander Nakamura</p>
+                            <p class="publication-venue">Journal of Audiology &amp; Otology, vol. 28, no. 3, pp. 159</p>
                             <div class="publication-tags">
-                                <span class="pub-tag">Machine Learning</span>
-                                <span class="pub-tag">EMG</span>
-                                <span class="pub-tag">LSTM</span>
-                            </div>
-                            <div class="publication-links">
-                                <a href="https://doi.org/10.1088/2057-1976/ac9e04" target="_blank" rel="noopener noreferrer" class="publication-link">
-                                    <i class="fas fa-external-link-alt"></i> View Paper
-                                </a>
+                                <span class="pub-tag">Digital Therapeutics</span>
+                                <span class="pub-tag">Hearing Healthcare</span>
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="publication-highlight-card">
-                        <div class="publication-year-badge">2020</div>
+                        <div class="publication-year-badge">2023</div>
                         <div class="publication-content">
-                            <h4>A Customized Smart Medical Mask For Healthcare Personnel</h4>
-                            <p class="publication-authors">N. Kim, J. L. J. Wei, J. Ying, H. Zhang, S. K. Moon and J. Choi</p>
-                            <p class="publication-venue">2020 IEEE International Conference on Industrial Engineering and Engineering Management (IEEM), pp. 581-585</p>
+                            <h4>Speakers—As a sensor and actuator for ear condition monitoring</h4>
+                            <p class="publication-authors">Noori Kim, Joshua M Alexander</p>
+                            <p class="publication-venue">Journal of the Acoustical Society of America, vol. 153, no. 3_supplement, pp. A145–A145</p>
                             <div class="publication-tags">
-                                <span class="pub-tag">Healthcare</span>
-                                <span class="pub-tag">IoT</span>
-                                <span class="pub-tag">Smart Devices</span>
-                            </div>
-                            <div class="publication-links">
-                                <a href="https://doi.org/10.1109/IEEM45057.2020.9309863" target="_blank" rel="noopener noreferrer" class="publication-link">
-                                    <i class="fas fa-external-link-alt"></i> View Paper
-                                </a>
+                                <span class="pub-tag">Speakers</span>
+                                <span class="pub-tag">Ear Monitoring</span>
                             </div>
                         </div>
                     </div>
-                    
-                    <!-- Foundational Work -->
-                    <div class="publication-highlight-card">
-                        <div class="publication-year-badge">2013</div>
-                        <div class="publication-content">
-                            <h4>Two-port network analysis and modeling of a balanced armature receiver</h4>
-                            <p class="publication-authors">N Kim, JB Allen</p>
-                            <p class="publication-venue">Hearing Research, vol. 301, pp. 156-167</p>
-                            <div class="publication-tags">
-                                <span class="pub-tag">Electroacoustics</span>
-                                <span class="pub-tag">Modeling</span>
-                                <span class="pub-tag">Hearing</span>
-                            </div>
-                            <div class="publication-links">
-                                <a href="https://doi.org/10.1016/j.heares.2013.02.007" target="_blank" rel="noopener noreferrer" class="publication-link">
-                                    <i class="fas fa-external-link-alt"></i> View Paper
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
-                
                 <div class="section-footer mobile-only">
                     <a href="publications.html" class="view-more-btn">
                         <i class="fas fa-arrow-right"></i> View All Publications
                     </a>
+                </div>
+            </div>
+        </section>
+
+                <section id="funding" class="content-section" style="display:none" aria-hidden="true">
+            <h2><i class="fas fa-award"></i> Funding &amp; Acknowledgments</h2>
+            <div class="section-content">
+                <div class="funding-grid">
+                    <!-- Add funding sources here — remove style="display:none" from the section to publish -->
+                    <div class="funding-item">
+                        <div class="funding-icon"><i class="fas fa-award"></i></div>
+                        <div class="funding-info">
+                            <h3>Funding Source</h3>
+                            <p class="funding-award">Award #: TBD</p>
+                            <p>Description of the grant and research supported.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -939,32 +951,43 @@
 
     <footer>
         <div class="footer-content">
-            <div class="footer-section footer-contact">
-                <div class="footer-main">
-                    <div class="footer-left">
-                        <div class="social-links">
-                            <a href="index.html#contact" target="_self" aria-label="Contact">
-                                <i class="fas fa-envelope"></i>
-                                <span>Contact</span>
-                            </a>
-                            <a href="https://github.com/SEAT-Lab" target="_blank" rel="noopener noreferrer" aria-label="SEAT-Lab GitHub">
-                                <i class="fab fa-github"></i>
-                                <span>GitHub</span>
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <div class="footer-right">
-                        <div class="footer-info">
-                            <p class="footer-title">© 2025 - 2026 SEAT-Lab @ Purdue University</p>
-                        </div>
-                    </div>
+            <div class="footer-col">
+                <p class="footer-lab-name">SEAT-Lab @ Purdue</p>
+                <p class="footer-lab-full">Sensor, Electro-Acoustics Technology Laboratory</p>
+                <p class="footer-address">
+                    <i class="fas fa-flask"></i> Dudley Hall, Room 5361<br>
+                    <i class="fas fa-door-open"></i> KNOY Hall, Room 131<br>
+                    <i class="fas fa-map-marker-alt"></i> 401 N. Grant St, West Lafayette, IN 47906
+                </p>
+            </div>
+            <div class="footer-col footer-col-links">
+                <p class="footer-col-heading">Quick Links</p>
+                <ul>
+                    <li><a href="#about-lab">About Us</a></li>
+                    <li><a href="#research">Research</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#people">Team</a></li>
+                    <li><a href="news.html">News</a></li>
+                    <li><a href="publications.html">Publications</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col footer-col-right">
+                <div class="footer-social">
+                    <a href="index.html#contact" aria-label="Contact">
+                        <i class="fas fa-envelope"></i><span>Contact</span>
+                    </a>
+                    <a href="https://github.com/SEAT-Lab" target="_blank" rel="noopener noreferrer" aria-label="SEAT-Lab GitHub">
+                        <i class="fab fa-github"></i><span>GitHub</span>
+                    </a>
                 </div>
+                <p class="footer-affil">School of Engineering Technology<br>Purdue University</p>
+                <p class="footer-copy">&copy; 2025&ndash;2026 SEAT-Lab</p>
             </div>
         </div>
     </footer>
 
-    <script src="script.js?v=2026.7.4"></script>
+    <script src="script.js?v=2026.9.8"></script>
 </body>
 </html>
 

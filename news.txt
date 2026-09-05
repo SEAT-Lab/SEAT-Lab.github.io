@@ -1,0 +1,37 @@
+# SEAT-Lab news
+#
+# How to add an item
+#   1. Copy the template check @sample_news.txt
+#   2. Fill in Date, Type, Title, and Text. Link is optional.
+#   3. Put a blank line between items.
+#   4. Newest can go anywhere — the site sorts by date.
+#
+# Types (pick one): Publication, Conference, Team, Award, News
+# Dates: March 1, 2026   or   2026-03-01
+#
+# Edit this file on the main branch and push. The live site reads
+# it from main, so you do not need to republish Pages for news.
+
+Date: April 28, 2026
+Type: Publication
+Title: New Paper published in IEEE Sensors: Impedance-Based Acoustic Load Inference Using Intelligent Speaker Sensors
+Text: Paper published in IEEE Sensors Journal by Dr. Kim, Catherine Jeon
+Link: https://10.1109/JSEN.2026.3686455
+
+Date: March 23, 2026
+Type: Publication
+Title: New paper published in JASA: earphone impedance analysis for ear canal insertion depth
+Text: A new paper by Dr. Kim, Max Chen, and collaborators appears in the Journal of the Acoustical Society of America.
+Link: https://doi.org/10.1121/10.0043165
+
+Date: Sep 10, 2025
+Type: Publication
+Title: Acoustofluidics paper published in IJPEM-Green Technology
+Text: Yoon, Kim et al. publish a paper on an acoustofluidics lab-on-chip system for nanoparticle separation.
+Link: https://doi.org/10.1007/s40684-025-00782-5
+
+Date: Aug 22, 2025
+Type: Conference
+Title: Jeon et al. present at Clarity-2025 Workshop
+Text: Catherine Jeon and collaborators presented domain-adapted ASR work at the Clarity-2025 workshop on hearing devices.
+Link: https://doi.org/10.21437/Clarity.2025-5

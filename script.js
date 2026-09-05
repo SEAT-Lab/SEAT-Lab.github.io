@@ -185,7 +185,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     updateProgressBar();
 
-    // Multi-page active nav (projects.html / publications.html)
+    // Multi-page active nav (projects.html / publications.html / news.html)
     (function setActivePageNav() {
         const currentPage =
             window.location.pathname.split('/').pop() || 'index.html';
@@ -303,4 +303,179 @@ document.addEventListener('DOMContentLoaded', function () {
         sectionScrollTimeout = setTimeout(updateActiveSection, 10);
     });
     updateActiveSection();
+
+    // News feed — labeled text. Live site reads news.txt from the main branch
+    // so updates go live on push, without republishing Pages. Local preview
+    // uses the file in this repo.
+    (function loadNewsFeed() {
+        const feed = document.getElementById('news-feed');
+        if (!feed) return;
+
+        const NEWS_URL = /^(localhost|127\.0\.0\.1)$/.test(window.location.hostname)
+            ? 'news.txt'
+            : 'https://raw.githubusercontent.com/SEAT-Lab/SEAT-Lab.github.io/main/news.txt';
+
+        const typeIcons = {
+            publication: 'fas fa-file-alt',
+            conference:  'fas fa-chalkboard-teacher',
+            student:     'fas fa-user-graduate',
+            award:       'fas fa-trophy',
+            general:     'fas fa-bullhorn',
+        };
+        const typeLabels = {
+            publication: 'Publication',
+            conference:  'Conference',
+            student:     'Team',
+            award:       'Award',
+            general:     'News',
+        };
+        const typeAliases = {
+            publication: 'publication',
+            paper: 'publication',
+            conference: 'conference',
+            workshop: 'conference',
+            student: 'student',
+            team: 'student',
+            award: 'award',
+            news: 'general',
+            general: 'general',
+        };
+
+        function escapeHtml(value) {
+            return String(value)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;');
+        }
+
+        function parseNewsDate(raw) {
+            if (!raw) return '';
+            const trimmed = raw.trim();
+            if (/^\d{4}-\d{2}-\d{2}$/.test(trimmed)) return trimmed;
+            const parsed = new Date(trimmed);
+            if (Number.isNaN(parsed.getTime())) return '';
+            const year = parsed.getFullYear();
+            const month = String(parsed.getMonth() + 1).padStart(2, '0');
+            const day = String(parsed.getDate()).padStart(2, '0');
+            return `${year}-${month}-${day}`;
+        }
+
+        function formatDate(iso, compact) {
+            if (!iso) return '';
+            const d = new Date(iso + 'T00:00:00');
+            if (Number.isNaN(d.getTime())) return '';
+            if (compact) {
+                return d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+            }
+            return d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+        }
+
+        function parseNewsText(text) {
+            const blocks = text.replace(/\r\n/g, '\n').split(/\n\s*\n/);
+            const items = [];
+
+            blocks.forEach((block) => {
+                const fields = {};
+                block.split('\n').forEach((line) => {
+                    const trimmed = line.trim();
+                    if (!trimmed || trimmed.startsWith('#')) return;
+                    const colon = trimmed.indexOf(':');
+                    if (colon === -1) return;
+                    const key = trimmed.slice(0, colon).trim().toLowerCase();
+                    const value = trimmed.slice(colon + 1).trim();
+                    if (key && value) fields[key] = value;
+                });
+
+                if (!fields.title) return;
+                const typeKey = (fields.type || 'news').toLowerCase();
+                const type = typeAliases[typeKey] || 'general';
+                const link = fields.link && /^https?:\/\//i.test(fields.link) ? fields.link : '';
+                items.push({
+                    date: parseNewsDate(fields.date),
+                    type: type,
+                    title: fields.title,
+                    description: fields.text || fields.description || '',
+                    link: link,
+                });
+            });
+
+            items.sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+            return items;
+        }
+
+        function renderCompactItem(item) {
+            const label = typeLabels[item.type] || 'News';
+            const dateText = formatDate(item.date, true);
+            const title = escapeHtml(item.title);
+            const inner = `
+                <span class="news-type-badge news-type-${item.type}">${label}</span>
+                ${dateText ? `<span class="news-date">${dateText}</span>` : ''}
+                <span class="news-item-title">${title}</span>`;
+
+            if (item.link) {
+                return `<a class="news-item" href="${escapeHtml(item.link)}" target="_blank" rel="noopener noreferrer">${inner}</a>`;
+            }
+            return `<div class="news-item">${inner}</div>`;
+        }
+
+        function renderArchiveItem(item) {
+            const icon = typeIcons[item.type] || typeIcons.general;
+            const label = typeLabels[item.type] || 'News';
+            const dateText = formatDate(item.date, false);
+            const link = item.link
+                ? `<a href="${escapeHtml(item.link)}" target="_blank" rel="noopener noreferrer" class="news-item-link"><i class="fas fa-external-link-alt"></i> Read more</a>`
+                : '';
+            return `
+                <div class="news-item">
+                    <div class="news-item-icon"><i class="${icon}"></i></div>
+                    <div class="news-item-body">
+                        <div class="news-item-meta">
+                            <span class="news-type-badge news-type-${item.type}">${label}</span>
+                            ${dateText ? `<span class="news-date">${dateText}</span>` : ''}
+                        </div>
+                        <p class="news-item-title">${escapeHtml(item.title)}</p>
+                        ${item.description ? `<p class="news-item-desc">${escapeHtml(item.description)}</p>` : ''}
+                        ${link}
+                    </div>
+                </div>`;
+        }
+
+        function renderItems(items) {
+            if (!items.length) {
+                feed.innerHTML = '<p class="news-empty">No news yet.</p>';
+                return;
+            }
+
+            const compact = feed.classList.contains('news-list-compact');
+            const limit = parseInt(feed.dataset.newsLimit, 10);
+            const visible = Number.isFinite(limit) && limit > 0 ? items.slice(0, limit) : items;
+
+            if (compact) {
+                feed.innerHTML = visible.map(renderCompactItem).join('');
+                return;
+            }
+
+            let currentYear = '';
+            feed.innerHTML = visible.map((item) => {
+                const year = item.date ? item.date.slice(0, 4) : '';
+                let heading = '';
+                if (year && year !== currentYear) {
+                    currentYear = year;
+                    heading = `<h3 class="news-year-heading">${year}</h3>`;
+                }
+                return heading + renderArchiveItem(item);
+            }).join('');
+        }
+
+        fetch(NEWS_URL, { cache: 'no-store' })
+            .then((response) => {
+                if (!response.ok) throw new Error('News source failed');
+                return response.text();
+            })
+            .then((text) => renderItems(parseNewsText(text)))
+            .catch(() => {
+                feed.innerHTML = '<p class="news-empty">Unable to load news.</p>';
+            });
+    })();
 });

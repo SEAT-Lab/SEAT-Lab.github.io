@@ -12,9 +12,10 @@ This repository hosts a static lab website built with HTML, CSS, and JavaScript.
 
 | Page | File | Description |
 |------|------|-------------|
-| Home | `index.html` | Lab overview, team, collaborators, research, projects preview, publications preview, contact |
+| Home | `index.html` | Lab overview, news, team, collaborators, research, projects preview, publications preview, contact |
 | Projects | `projects.html` | Research project details |
 | Publications | `publications.html` | Full publication archive by year |
+| News | `news.html` | Full news archive |
 
 ## Quick start (local preview)
 

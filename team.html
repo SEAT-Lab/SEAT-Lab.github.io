@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Team - SEAT-Lab @ Purdue</title>
+    <link rel="icon" type="image/png" href="assets/P_favicon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/P_favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/P_favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/P_favicon.png">
+    <meta name="msapplication-TileImage" content="assets/P_favicon.png">
+    <meta name="msapplication-TileColor" content="#8e6f3e">
+    <style>
+        /* Critical CSS for immediate styling — keep :root vars in sync with styles.css */
+        :root {
+            --primary-color: #8e6f3e;
+            --secondary-color: #1a1a1a;
+            --text-primary: #1a1a1a;
+            --text-secondary: #555960;
+            --background: #faf9f7;
+            --background-alt: #f3f0ea;
+            --border-color: #d4cfc8;
+            --shadow: 0 1px 3px 0 rgba(26, 26, 26, 0.06), 0 1px 2px 0 rgba(26, 26, 26, 0.04);
+            --shadow-md: 0 4px 12px -2px rgba(26, 26, 26, 0.08);
+            --border-radius-lg: 10px;
+            --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            --font-display: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+            --font-body: 'Source Sans 3', 'Segoe UI', sans-serif;
+        }
+
+        body {
+            font-family: var(--font-body);
+            margin: 0;
+            padding: 0;
+            padding-top: 60px;
+            background-color: var(--background);
+            color: var(--text-primary);
+        }
+
+        .page-header {
+            background: linear-gradient(160deg, rgba(142, 111, 62, 0.92) 0%, rgba(26, 26, 26, 0.94) 58%, #111 100%);
+            color: white;
+            text-align: center;
+            padding: 4.5rem 1.5rem 2.25rem;
+            margin-top: -60px;
+        }
+
+        /* Team member card — used only on this page */
+        .team-member-card {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-lg);
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            border-top: 3px solid var(--primary-color);
+        }
+    </style>
+    <link rel="stylesheet" href="styles.css?v=2026.9.5">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta name="description" content="Meet the SEAT-Lab team — faculty, graduate students, undergraduate researchers, visiting scholars, and former members.">
+    <meta name="robots" content="noindex">
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Our Team – SEAT-Lab @ Purdue">
+    <meta property="og:description" content="Meet the SEAT-Lab team at Purdue University — researchers in audio engineering, electroacoustics, and sensor technology.">
+    <meta property="og:url" content="https://seat-lab.github.io/team.html">
+    <meta property="og:image" content="https://seat-lab.github.io/assets/P_favicon.png">
+    <style>
+        /* ── Page-specific styles ── */
+
+        /* Faculty hero */
+        .faculty-hero {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 2rem;
+            align-items: start;
+            padding: 1.75rem;
+            background: rgba(255,255,255,0.92);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-lg);
+            border-left: 4px solid var(--primary-color);
+            box-shadow: var(--shadow-md);
+        }
+
+        .faculty-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: var(--background-alt);
+            border: 2px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            flex-shrink: 0;
+        }
+
+        .faculty-body {}
+
+        .faculty-name {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 0 0 0.15rem;
+        }
+
+        .faculty-title {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin: 0 0 0.75rem;
+        }
+
+        .faculty-bio {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.65;
+            margin: 0 0 1rem;
+        }
+
+        .faculty-research-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-bottom: 1rem;
+        }
+
+        .research-tag {
+            font-size: 0.75rem;
+            padding: 0.2rem 0.55rem;
+            background: rgba(142,111,62,0.1);
+            color: var(--primary-color);
+            border-radius: 10px;
+            font-weight: 500;
+        }
+
+        /* Current members grid */
+        .current-members-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
+            align-items: start;
+        }
+
+        .member-group {
+            background: rgba(255,255,255,0.88);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-lg);
+            padding: 1.25rem;
+            box-shadow: var(--shadow);
+        }
+
+        .member-group-title {
+            font-family: var(--font-display);
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin: 0 0 1rem;
+            padding-bottom: 0.6rem;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .member-entry {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .member-entry:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .member-name {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: 0 0 0.15rem;
+        }
+
+        .member-role {
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            margin: 0 0 0.5rem;
+            line-height: 1.4;
+        }
+
+        .member-bio {
+            font-size: 0.83rem;
+            color: var(--text-secondary);
+            line-height: 1.55;
+            margin: 0 0 0.5rem;
+        }
+
+        .member-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+
+        .member-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            font-size: 0.75rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            padding: 0.2rem 0.45rem;
+            border: 1px solid rgba(142,111,62,0.3);
+            border-radius: 5px;
+            transition: var(--transition);
+        }
+
+        .member-link:hover {
+            background: rgba(142,111,62,0.08);
+            border-color: var(--primary-color);
+        }
+
+        /* Former members */
+        .former-members-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .former-members-table th {
+            text-align: left;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--text-secondary);
+            font-weight: 600;
+            padding: 0.5rem 0.75rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .former-members-table td {
+            padding: 0.75rem;
+            font-size: 0.875rem;
+            border-bottom: 1px solid var(--border-color);
+            vertical-align: top;
+        }
+
+        .former-members-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .former-members-table tr:hover td {
+            background: var(--background-alt);
+        }
+
+        .former-name {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .former-degree {
+            color: var(--text-secondary);
+            font-size: 0.82rem;
+        }
+
+        .former-now {
+            color: var(--text-secondary);
+            font-size: 0.82rem;
+        }
+
+        .former-year {
+            color: var(--text-secondary);
+            font-size: 0.82rem;
+            white-space: nowrap;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .faculty-hero { grid-template-columns: 1fr; }
+            .faculty-avatar { display: none; }
+            .current-members-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 640px) {
+            .current-members-grid { grid-template-columns: 1fr; }
+            .former-members-table thead { display: none; }
+            .former-members-table td {
+                display: block;
+                padding: 0.4rem 0;
+                border: none;
+            }
+            .former-members-table tr {
+                display: block;
+                padding: 0.75rem 0;
+                border-bottom: 1px solid var(--border-color);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header id="top" class="page-header">
+        <div class="header-content">
+            <div class="hero-text">
+                <h1>Our Team</h1>
+                <p class="subtitle">SEAT-Lab @ Purdue</p>
+                <p class="subtitle-secondary">The people behind the research</p>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="nav-container">
+            <button class="hamburger-menu" aria-label="Toggle menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <a href="index.html" class="mobile-home-icon" aria-label="Home">
+                <i class="fas fa-home"></i>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#about-lab">Home</a></li>
+                <li><a href="index.html#research">Research</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="index.html#people" class="active">Our Team</a></li>
+                <li><a href="index.html#collaborators">Collaborators</a></li>
+                <li><a href="publications.html">Publications</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+        <div class="progress-container">
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
+    </nav>
+
+    <div class="nav-overlay"></div>
+
+    <main>
+
+        <!-- ── Faculty ── -->
+        <section id="faculty" class="content-section">
+            <h2><i class="fas fa-user-tie"></i> Faculty</h2>
+            <div class="section-content">
+                <div class="faculty-hero">
+                    <div class="faculty-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="faculty-body">
+                        <p class="faculty-name">Dr. Noori Kim</p>
+                        <p class="faculty-title">Assistant Professor · School of Engineering Technology · Purdue University</p>
+                        <p class="faculty-bio">
+                            Dr. Kim earned her PhD in Electrical and Computer Engineering from the University of Illinois Urbana-Champaign and worked as a research fellow at Nanyang Technological University (Singapore). Her multidisciplinary research interests include hearing mechanics, future healthcare applications, MEMS technology, electromagnetics, acoustics, and embedded IoT systems. She leads the Sensor, Electro-Acoustics Technology Laboratory (SEAT-Lab) at Purdue, where the group develops useful sensor technologies in electro-acoustics and beyond—for individuals, communities, and society.
+                        </p>
+                        <div class="faculty-research-tags">
+                            <span class="research-tag">Hearing Mechanics</span>
+                            <span class="research-tag">Electroacoustics</span>
+                            <span class="research-tag">MEMS</span>
+                            <span class="research-tag">Embedded IoT</span>
+                            <span class="research-tag">Future Healthcare</span>
+                            <span class="research-tag">Acoustofluidics</span>
+                            <span class="research-tag">Electromagnetics</span>
+                        </div>
+                        <div class="member-links">
+                            <a href="mailto:kim4147@purdue.edu" class="member-link">
+                                <i class="fas fa-envelope"></i> kim4147@purdue.edu
+                            </a>
+                            <a href="https://polytechnic.purdue.edu/profile/kim4147" target="_blank" rel="noopener noreferrer" class="member-link">
+                                <i class="fas fa-university"></i> Purdue Profile
+                            </a>
+                            <a href="https://www.noorikim.com/" target="_blank" rel="noopener noreferrer" class="member-link">
+                                <i class="fas fa-globe"></i> Website
+                            </a>
+                            <a href="https://www.linkedin.com/in/noorikim123/" target="_blank" rel="noopener noreferrer" class="member-link">
+                                <i class="fab fa-linkedin"></i> LinkedIn
+                            </a>
+                            <a href="https://orcid.org/0000-0002-1226-5845" target="_blank" rel="noopener noreferrer" class="member-link">
+                                <i class="fab fa-orcid"></i> ORCID
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── Current Members ── -->
+        <section id="current-members" class="content-section">
+            <h2><i class="fas fa-users"></i> Current Members</h2>
+            <div class="section-content">
+                <div class="current-members-grid">
+
+                    <!-- Graduate Students -->
+                    <div class="member-group">
+                        <p class="member-group-title"><i class="fas fa-graduation-cap"></i> Graduate Students</p>
+
+                        <div class="member-entry">
+                            <p class="member-name">Max Chen</p>
+                            <p class="member-role">MS Student in Engineering Technology</p>
+                            <p class="member-bio">Max previously earned a B.S. in Robotics Engineering Technology from Purdue University (May 2025). His research focuses on developing a system for collecting earphone data under various acoustic loads, along with data parsing and visualization.</p>
+                            <div class="member-links">
+                                <a href="mailto:ckyb63@gmail.com" class="member-link"><i class="fas fa-envelope"></i> Email</a>
+                                <a href="https://www.linkedin.com/in/maxchen-cky/" target="_blank" rel="noopener noreferrer" class="member-link"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                                <a href="https://orcid.org/0009-0000-3557-4299" target="_blank" rel="noopener noreferrer" class="member-link"><i class="fab fa-orcid"></i> ORCID</a>
+                            </div>
+                        </div>
+
+                        <div class="member-entry">
+                            <p class="member-name">Suna Ro</p>
+                            <p class="member-role">MS Student in Engineering Technology</p>
+                        </div>
+
+                        <div class="member-entry">
+                            <p class="member-name">Jundong Li</p>
+                            <p class="member-role">PhD Student in Technology</p>
+                        </div>
+
+                        <div class="member-entry">
+                            <p class="member-name">Parikshit Sah</p>
+                            <p class="member-role">MS Student (Co-supervised with Dr. Suranjan Panigrahi)</p>
+                        </div>
+                    </div>
+
+                    <!-- Undergraduate Researchers -->
+                    <div class="member-group">
+                        <p class="member-group-title"><i class="fas fa-flask"></i> Undergraduate Researchers</p>
+
+                        <div class="member-entry">
+                            <p class="member-name">Christopher Raymond Morris</p>
+                            <p class="member-role">Research Assistant</p>
+                        </div>
+
+                        <div class="member-entry">
+                            <p class="member-name">Hongsik Kim</p>
+                            <p class="member-role">Undergraduate Researcher</p>
+                        </div>
+                    </div>
+
+                    <!-- Visiting Scholars -->
+                    <div class="member-group">
+                        <p class="member-group-title"><i class="fas fa-plane-arrival"></i> Visiting Scholars</p>
+
+                        <div class="member-entry">
+                            <p class="member-name">Catherine Hae Seung Jeon</p>
+                            <p class="member-role">MS Student · Ewha Womans University, South Korea</p>
+                            <p class="member-bio">Catherine presented domain-adapted ASR work at the Clarity-2025 workshop on hearing devices.</p>
+                            <div class="member-links">
+                                <a href="https://doi.org/10.21437/Clarity.2025-5" target="_blank" rel="noopener noreferrer" class="member-link"><i class="fas fa-file-alt"></i> Clarity 2025</a>
+                            </div>
+                        </div>
+
+                        <div class="member-entry">
+                            <p class="member-name">Jiwoo Hong</p>
+                            <p class="member-role">BS Student · Ewha Womans University, South Korea</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ── Former Lab Members ── -->
+        <section id="former-members" class="content-section">
+            <h2><i class="fas fa-history"></i> Former Lab Members</h2>
+            <div class="section-content">
+                <p style="font-size:0.875rem; color:var(--text-secondary); margin-bottom:1.25rem;">
+                    We are proud of the talented people who have trained and worked at SEAT-Lab and gone on to exciting positions.
+                </p>
+                <div style="overflow-x:auto;">
+                    <table class="former-members-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Role at SEAT-Lab</th>
+                                <th>Degree / Year</th>
+                                <th>Current Position</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <span class="former-name">Nicolas Wacyk</span><br>
+                                    <div class="member-links" style="margin-top:0.3rem;">
+                                        <a href="mailto:nick.wacyk@gmail.com" class="member-link"><i class="fas fa-envelope"></i> Email</a>
+                                        <a href="https://linkedin.com/in/nicolas-wacyk/" target="_blank" rel="noopener noreferrer" class="member-link"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                                    </div>
+                                </td>
+                                <td><span class="former-degree">Graduate Researcher</span></td>
+                                <td><span class="former-year">M.S. Engineering Technology, May 2025<br>B.S. Audio Engineering Technology, May 2023</span></td>
+                                <td><span class="former-now">Product Design Engineer · <a href="https://puiaudio.com/" target="_blank" rel="noopener noreferrer">PUI Audio</a></span></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span class="former-name">Akshat Shrivastava</span><br>
+                                    <div class="member-links" style="margin-top:0.3rem;">
+                                        <a href="mailto:akshat130301@gmail.com" class="member-link"><i class="fas fa-envelope"></i> Email</a>
+                                        <a href="https://linkedin.com/in/akshatshrivastava13" target="_blank" rel="noopener noreferrer" class="member-link"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                                    </div>
+                                </td>
+                                <td><span class="former-degree">Undergraduate Researcher</span></td>
+                                <td><span class="former-year">B.S. Robotics Engineering Technology, May 2025</span></td>
+                                <td><span class="former-now">Robotics Engineer · <a href="https://foundation.bot" target="_blank" rel="noopener noreferrer">Foundation Robotics</a></span></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span class="former-name">Tobias Yoo</span><br>
+                                    <div class="member-links" style="margin-top:0.3rem;">
+                                        <a href="mailto:truetobiyoo@gmail.com" class="member-link"><i class="fas fa-envelope"></i> Email</a>
+                                        <a href="https://www.linkedin.com/in/tobiyoo" target="_blank" rel="noopener noreferrer" class="member-link"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                                    </div>
+                                </td>
+                                <td><span class="former-degree">Undergraduate Researcher</span></td>
+                                <td><span class="former-year">B.S. Electrical &amp; Audio Engineering Technology, May 2024</span></td>
+                                <td><span class="former-now">Embedded Software Engineer · <a href="https://www.baesystems.com/en" target="_blank" rel="noopener noreferrer">BAE Systems</a></span></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span class="former-name">Therese B Malinowski</span><br>
+                                    <div class="member-links" style="margin-top:0.3rem;">
+                                        <a href="mailto:tmalinow@purdue.edu" class="member-link"><i class="fas fa-envelope"></i> Email</a>
+                                        <a href="https://www.linkedin.com/in/t-malinowski/" target="_blank" rel="noopener noreferrer" class="member-link"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                                    </div>
+                                </td>
+                                <td><span class="former-degree">Graduate Researcher (Co-supervised with Dr. Mark French)</span></td>
+                                <td><span class="former-year">MS Mechanical Engineering Technology</span></td>
+                                <td><span class="former-now">Engineering Consultant · Purdue Technical Assistance Program</span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="former-name">Jungjoo You</span></td>
+                                <td><span class="former-degree">Graduate Researcher (Co-supervised with Dr. Zhang)</span></td>
+                                <td><span class="former-year">MS Engineering Technology</span></td>
+                                <td><span class="former-now">—</span></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span class="former-name">Sabatus Djordje</span><br>
+                                    <div class="member-links" style="margin-top:0.3rem;">
+                                        <a href="mailto:dsabatus@purdue.edu" class="member-link"><i class="fas fa-envelope"></i> Email</a>
+                                    </div>
+                                </td>
+                                <td><span class="former-degree">Visiting Scholar · University of Belgrade</span></td>
+                                <td><span class="former-year">Electrical Engineering (Signals &amp; Systems)</span></td>
+                                <td><span class="former-now">—</span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="former-name">Kevin Kim</span></td>
+                                <td><span class="former-degree">Research Assistant</span></td>
+                                <td><span class="former-year">—</span></td>
+                                <td><span class="former-now">—</span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="former-name">Keisuke Alexander Nakamura</span></td>
+                                <td><span class="former-degree">Research Assistant</span></td>
+                                <td><span class="former-year">—</span></td>
+                                <td><span class="former-now">—</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── Join the Lab ── -->
+        <section id="join" class="content-section">
+            <h2><i class="fas fa-door-open"></i> Join SEAT-Lab</h2>
+            <div class="section-content">
+                <div class="contact-collaboration-card">
+                    <div class="collaboration-content">
+                        <div class="collaboration-text">
+                            <h3><i class="fas fa-graduation-cap"></i> Student Opportunities</h3>
+                            <p>
+                                SEAT-Lab welcomes motivated graduate and undergraduate students interested in audio engineering, electroacoustics, and sensor technology. We offer hands-on research experience working alongside faculty and graduate researchers on real-world problems.
+                            </p>
+                            <div class="opportunities-section">
+                                <h4><i class="fas fa-handshake"></i> Research Collaboration</h4>
+                                <p>
+                                    We also welcome collaborations with industry partners and academic institutions. Reach out to Dr. Kim to discuss opportunities.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="collaboration-cta">
+                            <a href="mailto:kim4147@purdue.edu?subject=SEAT-Lab%20Interest" class="collaboration-btn">
+                                <i class="fas fa-paper-plane"></i>
+                                <span>Get in Touch</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <a href="#top" class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <p class="footer-lab-name">SEAT-Lab @ Purdue</p>
+                <p class="footer-lab-full">Sensor, Electro-Acoustics Technology Laboratory</p>
+                <p class="footer-address">
+                    <i class="fas fa-flask"></i> Dudley Hall, Room 5361<br>
+                    <i class="fas fa-door-open"></i> KNOY Hall, Room 131<br>
+                    <i class="fas fa-map-marker-alt"></i> 401 N. Grant St, West Lafayette, IN 47906
+                </p>
+            </div>
+            <div class="footer-col footer-col-links">
+                <p class="footer-col-heading">Quick Links</p>
+                <ul>
+                    <li><a href="index.html#about-lab">About Us</a></li>
+                    <li><a href="index.html#research">Research</a></li>
+                    <li><a href="index.html#people">Team</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="publications.html">Publications</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col footer-col-right">
+                <div class="footer-social">
+                    <a href="index.html#contact" aria-label="Contact">
+                        <i class="fas fa-envelope"></i><span>Contact</span>
+                    </a>
+                    <a href="https://github.com/SEAT-Lab" target="_blank" rel="noopener noreferrer" aria-label="SEAT-Lab GitHub">
+                        <i class="fab fa-github"></i><span>GitHub</span>
+                    </a>
+                </div>
+                <p class="footer-affil">School of Engineering Technology<br>Purdue University</p>
+                <p class="footer-copy">&copy; 2025&ndash;2026 SEAT-Lab</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js?v=2026.9.8"></script>
+</body>
+</html>

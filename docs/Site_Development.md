@@ -19,6 +19,8 @@ The site is a **static** GitHub Pages project. Pages are plain HTML with shared 
 ```
 SEAT-Lab.github.io/
 ├── index.html              # Homepage
+├── news.html               # News archive
+├── news.txt                # News source (labeled text)
 ├── projects.html           # Projects page
 ├── publications.html       # Publications archive
 ├── styles.css              # Shared styles

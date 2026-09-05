@@ -1,0 +1,56 @@
+
+# --- TEMPLATES FOR NEWS ENTRIES (copy and update as needed) ---
+
+# 1. Minimal entry (Date, Type, Title, Text)
+Date: March 1, 2026
+Type: Publication
+Title: Example Title of News Item
+Text: Main summary describing the news item.
+
+# 2. With optional link
+Date: March 1, 2026
+Type: Conference
+Title: Talk Title or Event Highlight
+Text: Descriptive text about the activity, talk, or highlight.
+Link: https://example.com/your-link-here
+
+# 3. Alternative date formats (either is valid)
+Date: 2026-03-01
+Type: Award
+Title: Name of Award Won or Short Summary
+Text: Details of the award or honor.
+
+Date: March 1, 2026
+Type: Team
+Title: Team Achievement or Student Highlight
+Text: Details about the team's or student's achievement.
+Link: https://example.com/your-link-here
+
+# 4. Accepted Types (case-insensitive, but these are typical):
+#   - Publication
+#   - Conference
+#   - Team
+#   - Award
+#   - News
+
+# 5. Full example with all fields and blank lines (recommend blank line after entry!)
+Date: April 26, 2026
+Type: News
+Title: SEAT-Lab hosts outreach workshop for high school students
+Text: Students visited SEAT-Lab for hands-on learning in acoustics and sensors.
+Link: https://example.com/event-details
+
+# (Blank line required between each entry)
+
+# 6. Copy-paste ready minimal template:
+Date: 
+Type: 
+Title: 
+Text: 
+
+# 7. Copy-paste ready full template:
+Date: 
+Type: 
+Title: 
+Text: 
+Link:
