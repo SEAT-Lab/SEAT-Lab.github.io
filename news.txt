@@ -12,6 +12,12 @@
 # Edit this file on the main branch and push. The live site reads
 # it from main, so you do not need to republish Pages for news.
 
+Date: September 33, 2026
+Type: Team
+Title: News Test
+Text: Nobody ever saw this
+Link: https://youtu.be/dQw4w9WgXcQ?si=6qr6dYVIYvLt4o22
+
 Date: April 28, 2026
 Type: Publication
 Title: New Paper published in IEEE Sensors: Impedance-Based Acoustic Load Inference Using Intelligent Speaker Sensors
