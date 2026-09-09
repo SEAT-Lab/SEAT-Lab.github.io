@@ -24,13 +24,6 @@ This repository hosts a static lab website built with HTML, CSS, and JavaScript.
 python local-support/local_server.py
 ```
 
-Optional file-watching support:
-
-```bash
-pip install -r local-support/requirements.txt
-python local-support/local_server.py
-```
-
 The server opens `http://localhost:8080` by default.
 
 ## Branching and publishing

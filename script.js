@@ -189,7 +189,7 @@ document.addEventListener('DOMContentLoaded', function () {
     (function setActivePageNav() {
         const currentPage =
             window.location.pathname.split('/').pop() || 'index.html';
-        if (currentPage === 'index.html' || currentPage === '') return;
+        if (currentPage === 'index.html' || currentPage === '' || currentPage === 'team.html') return;
 
         document.querySelectorAll('nav ul li a').forEach((link) => {
             const href = link.getAttribute('href') || '';
@@ -353,7 +353,17 @@ document.addEventListener('DOMContentLoaded', function () {
             if (!raw) return '';
             const trimmed = raw.trim();
             if (/^\d{4}-\d{2}-\d{2}$/.test(trimmed)) return trimmed;
-            const parsed = new Date(trimmed);
+            // Expand abbreviated month names before parsing (non-standard in some engines)
+            const MONTH_MAP = {
+                Jan:'January', Feb:'February', Mar:'March', Apr:'April',
+                May:'May',     Jun:'June',     Jul:'July',  Aug:'August',
+                Sep:'September', Oct:'October', Nov:'November', Dec:'December',
+            };
+            const expanded = trimmed.replace(
+                /\b(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\b/g,
+                m => MONTH_MAP[m] || m
+            );
+            const parsed = new Date(expanded);
             if (Number.isNaN(parsed.getTime())) return '';
             const year = parsed.getFullYear();
             const month = String(parsed.getMonth() + 1).padStart(2, '0');

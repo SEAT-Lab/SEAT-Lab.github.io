@@ -1,3 +1,0 @@
-# Optional dependency for file watching functionality
-# Install with: pip install watchdog
-watchdog>=2.1.0

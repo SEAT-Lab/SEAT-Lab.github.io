@@ -33,9 +33,8 @@ SEAT-Lab.github.io/
 │   ├── Site_Development.md
 │   └── Editing_Document.md
 ├── .github/workflows/      # Publish automation
-└── local-support/           # Local dev tools
-    ├── local_server.py
-    └── requirements.txt
+└── local-support/           # Local preview server
+    └── local_server.py
 ```
 
 ## How pages share code
@@ -61,17 +60,7 @@ From the repository root:
 python local-support/local_server.py
 ```
 
-This serves the repo at `http://localhost:8080` and opens a browser. HTML responses include a lightweight auto-refresh hook when file watching is available.
-
-### Optional: file watching
-
-Install the optional dependency once:
-
-```bash
-pip install -r local-support/requirements.txt
-```
-
-With `watchdog` installed, the local server can detect HTML/CSS/JS changes and prompt a refresh automatically.
+This serves the repo at `http://localhost:8080` and opens a browser. Refresh the page yourself after you save.
 
 ## Git workflow
 

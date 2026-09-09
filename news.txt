@@ -7,22 +7,19 @@
 #   4. Newest can go anywhere — the site sorts by date.
 #
 # Types (pick one): Publication, Conference, Team, Award, News
-# Dates: March 1, 2026   or   2026-03-01
+# Dates: ISO format preferred — 2026-03-01  (the site auto-formats it for display)
+#        Full month names also work — March 1, 2026
+#        Avoid abbreviated months (Sep, Aug) — use full names or ISO to be safe
 #
 # Edit this file on the main branch and push. The live site reads
 # it from main, so you do not need to republish Pages for news.
 
-Date: Jun 12, 2026
-Type: Team
-Title: News Test
-Text: Nobody ever saw this
-Link: https://youtu.be/dQw4w9WgXcQ?si=6qr6dYVIYvLt4o22
 
 Date: April 28, 2026
 Type: Publication
 Title: New Paper published in IEEE Sensors: Impedance-Based Acoustic Load Inference Using Intelligent Speaker Sensors
 Text: Paper published in IEEE Sensors Journal by Dr. Kim, Catherine Jeon
-Link: https://10.1109/JSEN.2026.3686455
+Link: https://doi.org/10.1109/JSEN.2026.3686455
 
 Date: March 23, 2026
 Type: Publication

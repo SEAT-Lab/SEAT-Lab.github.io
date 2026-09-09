@@ -1857,6 +1857,13 @@ footer {
 
 .faculty-identity .person-links {
     margin-top: 0.45rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.35rem;
+}
+
+.faculty-identity .person-link {
+    justify-content: center;
 }
 
 @media (min-width: 769px) {
@@ -3400,7 +3407,7 @@ footer {
 
 .contact-info-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 0.85rem;
     margin-bottom: 0.85rem;
     align-items: stretch;
@@ -3582,15 +3589,11 @@ footer {
 }
 
 .collaboration-content {
-    display: flex;
-    flex-direction: column;
-    gap: 0.85rem;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1rem;
+    align-items: center;
     width: 100%;
-}
-
-.contact-info-grid .collaboration-cta {
-    justify-content: flex-start;
-    margin-top: auto;
 }
 
 .collaboration-text h3 {
@@ -3864,12 +3867,19 @@ footer {
 
 .news-list-compact .news-item {
     display: grid;
-    grid-template-columns: auto 6.75rem 1fr;
+    grid-template-columns: 7.5rem 6.5rem 1fr;
     align-items: start;
     gap: 0.35rem 0.75rem;
     padding: 0.45rem 0;
     text-decoration: none;
     color: inherit;
+}
+
+.news-list-compact .news-type-badge {
+    display: inline-block;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
 }
 
 .news-list-compact .news-item-title {
@@ -3943,6 +3953,19 @@ footer {
     width: 1rem;
     opacity: 0.6;
     margin-right: 0.3rem;
+}
+
+.footer-map-link {
+    margin-left: 0.45rem;
+    color: rgba(255,255,255,0.62);
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+    font-size: 0.78rem;
+    white-space: nowrap;
+}
+
+.footer-map-link:hover {
+    color: white;
 }
 
 .footer-col-heading {
@@ -4023,6 +4046,26 @@ footer {
     margin: 0;
 }
 
+.footer-credit {
+    font-size: 0.73rem;
+    color: rgba(255,255,255,0.38);
+    text-align: right;
+    margin: 0.15rem 0 0;
+}
+
+.footer-credit a {
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+}
+
+.footer-credit a:hover {
+    color: rgba(255,255,255,0.8);
+}
+
+.footer-info .footer-credit {
+    text-align: center;
+}
+
 /* ==========================================================
    Funding Section
    ========================================================== */
@@ -4085,7 +4128,7 @@ footer {
     }
 
     .news-list-compact .news-item {
-        grid-template-columns: auto 1fr;
+        grid-template-columns: 7.5rem 1fr;
     }
 
     .news-list-compact .news-date {
@@ -4105,7 +4148,8 @@ footer {
     }
 
     .footer-affil,
-    .footer-copy {
+    .footer-copy,
+    .footer-credit {
         text-align: left;
     }
 }
