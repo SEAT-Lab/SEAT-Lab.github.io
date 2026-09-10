@@ -1018,8 +1018,8 @@ main {
 }
 
 .contact-links-grid {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 0.45rem;
 }
 
@@ -4161,5 +4161,9 @@ footer {
 
     .stat-number {
         font-size: 1.35rem;
+    }
+
+    .contact-links-grid {
+        grid-template-columns: 1fr;
     }
 }
