@@ -37,6 +37,28 @@
     box-sizing: border-box;
 }
 
+/* Skip link — hidden until focused by keyboard */
+.skip-link {
+    position: absolute;
+    top: -100px;
+    left: 1rem;
+    z-index: 1000;
+    padding: 0.6rem 1rem;
+    background: var(--secondary-color);
+    color: #fff;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.skip-link:focus {
+    top: 0.75rem;
+}
+
+main:focus {
+    outline: none;
+}
+
 body {
     font-family: var(--font-body);
     font-size: 1.0625rem;

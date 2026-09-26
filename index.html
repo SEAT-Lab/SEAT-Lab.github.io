@@ -70,7 +70,7 @@
         }
         
     </style>
-    <link rel="stylesheet" href="styles.css?v=2026.9.11">
+    <link rel="stylesheet" href="styles.css?v=2026.9.25">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -81,11 +81,13 @@
     <meta property="og:title" content="SEAT-Lab @ Purdue – Sensor, Electro-Acoustics Technology Laboratory">
     <meta property="og:description" content="Leading research in audio engineering, electroacoustics, and sensor technology at Purdue University.">
     <meta property="og:url" content="https://seat-lab.github.io/">
+    <link rel="canonical" href="https://seat-lab.github.io/">
     <meta property="og:image" content="https://seat-lab.github.io/assets/SEATLAB-Site-Banner.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://seat-lab.github.io/assets/SEATLAB-Site-Banner.png">
 </head>
 <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     <header id="top">
         <div class="header-content">
             <div class="hero-text">
@@ -106,7 +108,7 @@
 
     <nav>
         <div class="nav-container">
-            <button class="hamburger-menu" aria-label="Toggle menu">
+            <button class="hamburger-menu" aria-label="Toggle menu" aria-controls="site-nav" aria-expanded="false">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -114,7 +116,7 @@
             <a href="#top" class="mobile-home-icon" aria-label="Home">
                 <i class="fas fa-home"></i>
             </a>
-            <ul class="nav-links">
+            <ul class="nav-links" id="site-nav">
                 <li><a href="#about-lab">Home</a></li>
                 <li><a href="#research">Research</a></li>
                 <li><a href="#projects">Projects</a></li>
@@ -131,7 +133,7 @@
     
     <div class="nav-overlay"></div>
 
-    <main>
+    <main id="main-content" tabindex="-1">
         <section id="about-lab" class="content-section">
             <h2><i class="fas fa-flask"></i> About Us</h2>
             <div class="section-content">
@@ -697,6 +699,24 @@
                     <div class="publication-highlight-card">
                         <div class="publication-year-badge">2026</div>
                         <div class="publication-content">
+                            <h4>Impedance-Based Acoustic Load Inference Using Intelligent Speaker Sensors</h4>
+                            <p class="publication-authors">N. Kim, C. H. S. Jeon, M. R. Bai</p>
+                            <p class="publication-venue">IEEE Sensors Journal, 2026 (early access)</p>
+                            <div class="publication-tags">
+                                <span class="pub-tag">Speaker Sensors</span>
+                                <span class="pub-tag">Impedance</span>
+                            </div>
+                            <div class="publication-links">
+                                <a href="https://doi.org/10.1109/JSEN.2026.3686455" target="_blank" rel="noopener noreferrer" class="publication-link">
+                                    <i class="fas fa-external-link-alt"></i> View Paper
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="publication-highlight-card">
+                        <div class="publication-year-badge">2026</div>
+                        <div class="publication-content">
                             <h4>Speakers as sensors: Machine learning-based earphone impedance analysis for ear canal insertion depth prediction</h4>
                             <p class="publication-authors">N. Kim, K. Alexander Nakamura, M. Chen, C. H. S. Jeon, M. R. Bai</p>
                             <p class="publication-venue">Journal of the Acoustical Society of America, vol. 159, no. 3, pp. 2729–2740</p>
@@ -777,19 +797,6 @@
                             <div class="publication-tags">
                                 <span class="pub-tag">Digital Therapeutics</span>
                                 <span class="pub-tag">Hearing Healthcare</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="publication-highlight-card">
-                        <div class="publication-year-badge">2023</div>
-                        <div class="publication-content">
-                            <h4>Speakers—As a sensor and actuator for ear condition monitoring</h4>
-                            <p class="publication-authors">Noori Kim, Joshua M Alexander</p>
-                            <p class="publication-venue">Journal of the Acoustical Society of America, vol. 153, no. 3_supplement, pp. A145–A145</p>
-                            <div class="publication-tags">
-                                <span class="pub-tag">Speakers</span>
-                                <span class="pub-tag">Ear Monitoring</span>
                             </div>
                         </div>
                     </div>
@@ -963,7 +970,7 @@
         </div>
     </footer>
 
-    <script src="script.js?v=2026.9.8"></script>
+    <script src="script.js?v=2026.9.25"></script>
 </body>
 </html>
 

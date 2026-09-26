@@ -47,7 +47,7 @@
             margin-top: -60px;
         }
     </style>
-    <link rel="stylesheet" href="styles.css?v=2026.9.11">
+    <link rel="stylesheet" href="styles.css?v=2026.9.25">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -58,14 +58,16 @@
     <meta property="og:title" content="Publications – SEAT-Lab @ Purdue">
     <meta property="og:description" content="Research papers, conference proceedings, and academic contributions in electro-acoustics and sensor technology from SEAT-Lab at Purdue University.">
     <meta property="og:url" content="https://seat-lab.github.io/publications.html">
+    <link rel="canonical" href="https://seat-lab.github.io/publications.html">
     <meta property="og:image" content="https://seat-lab.github.io/assets/SEATLAB-Site-Banner.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://seat-lab.github.io/assets/SEATLAB-Site-Banner.png">
 </head>
 <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     <nav>
         <div class="nav-container">
-            <button class="hamburger-menu" aria-label="Toggle menu">
+            <button class="hamburger-menu" aria-label="Toggle menu" aria-controls="site-nav" aria-expanded="false">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -73,7 +75,7 @@
             <a href="index.html" class="mobile-home-icon" aria-label="Home">
                 <i class="fas fa-home"></i>
             </a>
-            <ul class="nav-links">
+            <ul class="nav-links" id="site-nav">
                 <li><a href="index.html#about-lab">Home</a></li>
                 <li><a href="index.html#research">Research</a></li>
                 <li><a href="projects.html">Projects</a></li>
@@ -104,7 +106,7 @@
             </div>
             <ul class="toc-list">
                 <!-- <li class="toc-item"><a href="#overview" class="toc-link"><span>Overview</span></a></li> -->
-                <li class="toc-item"><a href="#year-2026" class="toc-link"><span>2026</span> <span class="count">(1)</span></a></li>
+                <li class="toc-item"><a href="#year-2026" class="toc-link"><span>2026</span> <span class="count">(2)</span></a></li>
                 <li class="toc-item"><a href="#year-2025" class="toc-link"><span>2025</span> <span class="count">(3)</span></a></li>
                 <li class="toc-item"><a href="#year-2024" class="toc-link"><span>2024</span> <span class="count">(4)</span></a></li>
                 <li class="toc-item"><a href="#year-2023" class="toc-link"><span>2023</span> <span class="count">(3)</span></a></li>
@@ -129,7 +131,7 @@
         </div>
     </header>
 
-    <main>
+    <main id="main-content" tabindex="-1">
         <!-- Publications by Year -->
         <section id="publications-by-year" class="content-section">
             <div class="section-header">
@@ -143,10 +145,35 @@
                     <!-- 2026 Publications -->
                     <div id="year-2026" class="year-section">
                         <div class="year-header">
-                            <h3><i class="fas fa-calendar-alt"></i> 2026 <span class="publication-count">(1 publication)</span></h3>
+                            <h3><i class="fas fa-calendar-alt"></i> 2026 <span class="publication-count">(2 publications)</span></h3>
                             <i class="fas fa-chevron-down toggle-icon"></i>
                         </div>
                         <div class="year-content">
+                            <div class="publication-detailed-card">
+                                <div class="publication-content">
+                                    <h4>Impedance-Based Acoustic Load Inference Using Intelligent Speaker Sensors</h4>
+                                    <div class="publication-authors">
+                                        <span class="author">Noori Kim</span>,
+                                        <span class="author">Catherine H. S. Jeon</span>,
+                                        <span class="author">Mingsian R. Bai</span>
+                                    </div>
+                                    <div class="publication-venue">
+                                        <i class="fas fa-journal-whills"></i>
+                                        IEEE Sensors Journal, 2026 (early access)
+                                    </div>
+                                    <div class="publication-keywords">
+                                        <span class="keyword sensors">Speaker Sensors</span>
+                                        <span class="keyword acoustics">Impedance Analysis</span>
+                                        <span class="keyword acoustics">Acoustic Load</span>
+                                    </div>
+                                    <div class="publication-actions">
+                                        <a href="https://doi.org/10.1109/JSEN.2026.3686455" target="_blank" rel="noopener noreferrer" class="publication-action-btn primary">
+                                            <i class="fas fa-external-link-alt"></i> View Paper
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
                             <div class="publication-detailed-card">
                                 <div class="publication-content">
                                     <h4>Speakers as sensors: Machine learning-based earphone impedance analysis for ear canal insertion depth prediction</h4>
@@ -879,7 +906,7 @@
         </div>
     </footer>
 
-    <script src="script.js?v=2026.9.8"></script>
+    <script src="script.js?v=2026.9.25"></script>
     <script src="toc.js?v=2026.7.4"></script>
     <script src="publications.js?v=2026.7.3"></script>
 </body>

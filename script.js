@@ -8,11 +8,13 @@ document.addEventListener('DOMContentLoaded', function () {
     const navLinks = document.querySelectorAll('.nav-links a');
 
     function toggleMobileMenu() {
-        body.classList.toggle('menu-open');
+        const open = body.classList.toggle('menu-open');
+        if (hamburger) hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
     }
 
     function closeMobileMenu() {
         body.classList.remove('menu-open');
+        if (hamburger) hamburger.setAttribute('aria-expanded', 'false');
     }
 
     if (hamburger) {
@@ -123,6 +125,10 @@ document.addEventListener('DOMContentLoaded', function () {
             if (targetElement) {
                 e.preventDefault();
                 scrollToElement(targetElement, true);
+                // Skip link: move keyboard focus past the nav
+                if (this.classList.contains('skip-link')) {
+                    targetElement.focus({ preventScroll: true });
+                }
             }
         });
     });
@@ -478,11 +484,17 @@ document.addEventListener('DOMContentLoaded', function () {
             }).join('');
         }
 
-        fetch(NEWS_URL, { cache: 'no-store' })
-            .then((response) => {
+        function fetchNews(url) {
+            return fetch(url, { cache: 'no-store' }).then((response) => {
                 if (!response.ok) throw new Error('News source failed');
                 return response.text();
-            })
+            });
+        }
+
+        // If the main-branch copy is unreachable, fall back to the copy
+        // deployed with the site (may be slightly older).
+        fetchNews(NEWS_URL)
+            .catch(() => (NEWS_URL === 'news.txt' ? Promise.reject() : fetchNews('news.txt')))
             .then((text) => renderItems(parseNewsText(text)))
             .catch(() => {
                 feed.innerHTML = '<p class="news-empty">Unable to load news.</p>';
